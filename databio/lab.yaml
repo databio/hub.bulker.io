@@ -1,0 +1,27 @@
+manifest:
+  name: databio
+  version: 1.0.0
+  commands:
+  - command: prefetch
+    docker_image: humancellatlas/sratools
+    docker_command: prefetch
+  - command: samtools
+    dockerargs: "-i"
+    docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
+  - command: pip3
+    docker_image: nsheff/python3
+  - command: python3
+    dockerargs: "-it"
+    docker_image: "python:3.7.4"
+    docker_command: python3
+  - command: R
+    docker_image: nsheff/rbase
+    docker_command: R
+    dockerargs: "-it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" 
+  - command: pigz
+    docker_image: nsheff/pigz
+    docker_command: pigz
+    dockerargs: "-i"
+  # - command: ascp
+  #   docker_image: ibmcom/aspera-cli:3.9.1
+  #   docker_command: ascp

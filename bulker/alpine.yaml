@@ -1,0 +1,12 @@
+manifest:
+  name: alpine
+  commands: null
+  host_commands:
+  - id
+  - ls
+  - lesspipe
+  - dircolors
+  - basename
+  - dirname
+  - which
+  - docker

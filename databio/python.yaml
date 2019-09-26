@@ -1,0 +1,19 @@
+manifest:
+  name: nsheff
+  version: 1.0.0
+  commands:
+  - command: ipython
+    dockerargs: "-it"
+    docker_image: nsheff/ipython
+    docker_command: ipython
+  - command: pip3
+    docker_image: "nsheff/pyd"
+  - command: python
+    dockerargs: "-it"
+    docker_image: "nsheff/pyd"
+    docker_command: python
+  - command: python3
+    dockerargs: "-it --volume='/var/run/docker.sock:/var/run/docker.sock'"
+    docker_image: "nsheff/pyd"
+    docker_command: python3
+    append_crate: True
