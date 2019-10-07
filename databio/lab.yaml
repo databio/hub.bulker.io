@@ -22,6 +22,10 @@ manifest:
     docker_image: nsheff/pigz
     docker_command: pigz
     dockerargs: "-i"
+  - command: geofetch
+    docker_image: nsheff/geofetch    
+    dockerargs: "-i"
+    docker_command: geofetch
   # - command: ascp
   #   docker_image: ibmcom/aspera-cli:3.9.1
   #   docker_command: ascp
