@@ -1,12 +1,15 @@
 manifest:
-  name: waldronlab
+  name: bioconductor
   version: 1.0.0
   commands:
-  - command: rdevel
+  - command: rd
     docker_image: bioconductor/bioconductor_full:devel
     docker_command: R
-    dockerargs: "-u bioc -i -v ${HOME}/R/bioc-devel:/home/bioc/R/library -v ${HOME}:/home/bioc"
-  - command: bgit
+    dockerargs: "-t -i --user bioc"
+  - command: bashd
+    docker_image: bioconductor/bioconductor_full:devel
+    docker_command: bash
+    dockerargs: "-t -i --user bioc"
+  - command: git
     docker_image: samueldebruyn/debian-git
-    docker_command: git
-    dockerargs: "-v $(pwd):/root/work"
+
