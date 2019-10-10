@@ -1,6 +1,6 @@
 # Bulker registry
 
-Welcome to the bulker registry. We're currently hosting the bulker registry on github pages. At the moment, this is a barebones server that provides a few in-house manifests for you to test with bulker. In the future, we envision this as a full-featured RESTful API with a user interface to allow you to identify and download existing manifests, as well as share your own environments with others. 
+Welcome to the bulker registry. Here, he host manifest files that describe computing environments for use with the [bulker environment manager](http://bulker.io). The bulker registry is hosted on github pages, which provides a manifests to test with bulker. If you want to contribute a manifest, feel free to issue a pull request. In the future, we envision the bulker registry as a full-featured RESTful API to share bulker environments. 
 
 ## Linking to hub.bulker.io
 
