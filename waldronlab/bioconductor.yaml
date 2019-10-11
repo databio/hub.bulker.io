@@ -5,11 +5,17 @@ manifest:
   - command: rd
     docker_image: bioconductor/bioconductor_full:devel
     docker_command: R
-    dockerargs: "-t -i --user bioc"
+    dockerargs: "-t -i --user bioc -v ~/R/bioc-devel:/usr/local/lib/R/host-site-library"
+  - command: rr
+    docker_image: bioconductor/bioconductor_full:RELEASE_3_9
+    docker_command: R
+    dockerargs: "-t -i --user bioc -v -v ~/R/bioc-release:/usr/local/lib/R/host-site-library"
   - command: bashd
     docker_image: bioconductor/bioconductor_full:devel
     docker_command: bash
     dockerargs: "-t -i --user bioc"
   - command: git
     docker_image: samueldebruyn/debian-git
-
+  - command: emacs
+    docker_image: silex/emacs:master-alpine
+    

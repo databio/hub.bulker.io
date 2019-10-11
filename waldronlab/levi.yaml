@@ -1,0 +1,9 @@
+manifest:
+  name: levi
+  version: 1.0.0
+  commands:
+  - command: git
+    docker_image: samueldebruyn/debian-git
+  - command: emacs
+    docker_image: silex/emacs:master-alpine
+    
