@@ -6,4 +6,5 @@ manifest:
     docker_image: samueldebruyn/debian-git
   - command: emacs
     docker_image: silex/emacs:master-alpine
+    dockerargs: "-t -i"
     
