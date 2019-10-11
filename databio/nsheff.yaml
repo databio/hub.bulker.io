@@ -42,7 +42,15 @@ manifest:
   - command: R
     docker_image: nsheff/rbase
     docker_command: R
-    dockerargs: "-it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" 
+    dockerargs: "-it"
+  - command: rr
+    docker_image: bioconductor/bioconductor_full:RELEASE_3_9
+    docker_command: R
+    dockerargs: "-it"
+  - command: rd
+    docker_image: bioconductor/bioconductor_full:devel
+    docker_command: R
+    dockerargs: "-it"    
   - command: Rscript
     docker_image: nsheff/rbase
     dockerargs: "--volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library"
@@ -50,5 +58,13 @@ manifest:
     docker_image: nsheff/sublime
   - command: redis-server
     docker_image: redis:5.0.5
+    docker_command: "redis-server"
+    docker_args: "--name redis-server"
+    workdir: "/data"
+  - command: redis-cli
+    docker_image: redis:5.0.5
+    docker_command: "redis-cli"
+    docker_args: "-h redis-server -it"
+    workdir: "/data"
 
     
