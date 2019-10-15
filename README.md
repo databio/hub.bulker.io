@@ -22,7 +22,7 @@ registry_url: https://raw.githubusercontent.com/databio/hub.bulker.io/master/
 
 Consult the [bulker docs on how to write a manifest](http://docs.bulker.io/en/latest/manifest/).
 
-## Upload your manifest to the registry
+### Upload your manifest to the registry
 
 After creating your manifest file, you can contribute it to this registry so that you and others can more easily load it with the bulker CLI.  Name your manifest yaml file with the name of the manifest. For a tag, append an understore, so it's `manifestname_tag.yaml`. Manifests in the registry are divided into namespaces, which are represented as subfolders in this repository. So, place your manifest into an appropriate subfolder, and then open a pull request.
 
