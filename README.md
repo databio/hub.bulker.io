@@ -20,7 +20,7 @@ registry_url: https://raw.githubusercontent.com/databio/hub.bulker.io/master/
 
 ### Write a manifest 
 
-Consult the [bulker docs on how to write a manifest](http://docs.bulker.io/en/latest/manifest/).
+First, you have to write a manifest yaml file. Consult the [bulker docs on how to write a manifest](http://docs.bulker.io/en/latest/manifest/).
 
 ### Upload your manifest to the registry
 
