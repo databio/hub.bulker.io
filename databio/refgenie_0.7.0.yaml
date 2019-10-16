@@ -12,7 +12,7 @@ manifest:
   - command: hisat2-build
     docker_image: quay.io/biocontainers/hisat2:2.0.4--py35_0
   - command: bismark_genome_preparation
-    docker_image: quay.io/biocontainers/bismark:0.17.0--0
+    docker_image: quay.io/biocontainers/bismark:0.22.1--0
   - command: tabix
     docker_image: quay.io/biocontainers/htslib:1.6--0
   - command: STAR
