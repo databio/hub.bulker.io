@@ -2,11 +2,11 @@ manifest:
   name: bioconductor
   version: 1.0.1
   commands:
- - command: R
-   docker_image: bioconductor/bioconductor_full:release
-   docker_command: R
-   dockerargs: "-it"
- - command: Rdev
-   docker_image: bioconductor/bioconductor_full:devel
-   docker_command: R
-   dockerargs: "-it"
+  - command: R
+    docker_image: bioconductor/bioconductor_full:release
+    docker_command: R
+    dockerargs: "-it"
+  - command: Rdev
+    docker_image: bioconductor/bioconductor_full:devel
+    docker_command: R
+    dockerargs: "-it"
