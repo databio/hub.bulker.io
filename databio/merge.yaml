@@ -1,9 +1,13 @@
 manifest:
   name: databio
   version: 1.0.0
+  import:
+  - bulker/alpine:default
+  - databio/pepkit:default
+  - databio/lab:1.0
   commands:
   - command: prefetch
-    docker_image: quay.io/biocontainers/sra-tools:2.10.0--pl526he1b5a44_0
+    docker_image: humancellatlas/sratools
     docker_command: prefetch
   - command: samtools
     dockerargs: "-i"
@@ -26,6 +30,6 @@ manifest:
     docker_image: nsheff/geofetch    
     dockerargs: "-i"
     docker_command: geofetch
-  - command: ascp
-    docker_image: ibmcom/aspera-cli:3.9.1
-    docker_command: ascp
+  # - command: ascp
+  #   docker_image: ibmcom/aspera-cli:3.9.1
+  #   docker_command: ascp

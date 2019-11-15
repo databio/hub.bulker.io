@@ -31,3 +31,5 @@ manifest:
     dockerargs: "-i"    
   - command: gs
     docker_image: minidocks/ghostscript
+  - command: pdflatex
+    docker_image: nsheff/pandoc
