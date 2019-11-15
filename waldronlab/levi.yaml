@@ -7,4 +7,8 @@ manifest:
   - command: emacs
     docker_image: silex/emacs:master-alpine
     dockerargs: "-it"
-    
+  - command: pdftk
+    docker_image: mnuessler/pdftk
+    dockerargs: -v $(pwd):/work
+    docker_command: " "
+
