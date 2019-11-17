@@ -10,3 +10,8 @@ manifest:
     docker_image: bioconductor/bioconductor_full:devel
     docker_command: R
     dockerargs: "-it"
+  - command: rstudio-server
+    docker_image: bioconductor/bioconductor_full:release
+  - command: rstudio-server-dev
+    docker_image: bioconductor/bioconductor_full:devel
+    docker_command: rstudio-server
