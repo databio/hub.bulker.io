@@ -12,6 +12,11 @@ manifest:
     dockerargs: "-it"
   - command: rstudio-server
     docker_image: bioconductor/bioconductor_full:release
+    docker_command: " "
+    no_user: True
+    no_network: True
   - command: rstudio-server-dev
     docker_image: bioconductor/bioconductor_full:devel
-    docker_command: rstudio-server
+    docker_command: " "
+    no_user: True
+    no_network: True
