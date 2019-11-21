@@ -72,6 +72,10 @@ manifest:
   - command: kibana
     docker_image: docker.elastic.co/kibana/kibana:6.5.4
     docker_args: "--link elasticsearch:elasticsearch -p 5601:5601"
+  - command: serverless
+    docker_image: nsheff/serverless
+  - command: npm
+    docker_image: nsheff/serverless
 
 
 

@@ -6,25 +6,25 @@ manifest:
     docker_image: quay.io/biocontainers/sra-tools:2.10.0--pl526he1b5a44_0
     docker_command: prefetch
   - command: samtools
-    dockerargs: "-i"
+    docker_args: "-i"
     docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
   - command: pip3
     docker_image: nsheff/python3
   - command: python3
-    dockerargs: "-it"
+    docker_args: "-it"
     docker_image: "python:3.7.4"
     docker_command: python3
   - command: R
-    docker_image: nsheff/rbase
+    docker_image: bioconductor/release_base2:R.3.6.1_Bioc3.10
     docker_command: R
-    dockerargs: "-it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" 
+    docker_args: "-it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" 
   - command: pigz
     docker_image: nsheff/pigz
     docker_command: pigz
-    dockerargs: "-i"
+    docker_args: "-i"
   - command: geofetch
     docker_image: nsheff/geofetch    
-    dockerargs: "-i"
+    docker_args: "-i"
     docker_command: geofetch
   - command: ascp
     docker_image: ibmcom/aspera-cli:3.9.1
