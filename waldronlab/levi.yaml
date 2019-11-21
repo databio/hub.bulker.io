@@ -6,9 +6,9 @@ manifest:
     docker_image: samueldebruyn/debian-git
   - command: emacs
     docker_image: silex/emacs:master-alpine
-    dockerargs: "-it"
+    docker_args: "-it"
   - command: pdftk
     docker_image: mnuessler/pdftk
-    dockerargs: -v $(pwd):/work
+    docker_args: -v $(pwd):/work
     docker_command: " "
 

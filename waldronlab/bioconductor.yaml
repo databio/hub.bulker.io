@@ -5,11 +5,11 @@ manifest:
   - command: R
     docker_image: bioconductor/bioconductor_full:release
     docker_command: R
-    dockerargs: "-it"
+    docker_args: "-it"
   - command: Rdev
     docker_image: bioconductor/bioconductor_full:devel
     docker_command: R
-    dockerargs: "-it"
+    docker_args: "-it"
   - command: rstudio-server
     docker_image: bioconductor/bioconductor_full:release
     docker_command: " "
