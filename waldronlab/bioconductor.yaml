@@ -15,8 +15,10 @@ manifest:
     docker_command: " "
     no_user: True
     no_network: True
+    dockerargs: "-v $HOME:/home/rstudio"
   - command: rstudio-server-dev
     docker_image: bioconductor/bioconductor_full:devel
     docker_command: " "
     no_user: True
     no_network: True
+    dockerargs: "-v $HOME:/home/rstudio"
