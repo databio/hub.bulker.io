@@ -2,8 +2,6 @@ manifest:
   name: levi
   version: 1.0.2
   commands:
-  - command: git
-    docker_image: samueldebruyn/debian-git
   - command: emacs
     docker_image: silex/emacs:master-alpine
     docker_args: "-it"
