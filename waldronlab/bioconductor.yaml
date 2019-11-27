@@ -3,26 +3,26 @@ manifest:
   version: 1.0.2
   commands:
   - command: R
-    docker_image: bioconductor/bioconductor_full:release
+    docker_image: waldronlab/bioconductor:release
     docker_args: "-it"
   - command: Rdev
-    docker_image: bioconductor/bioconductor_full:devel
+    docker_image: waldronlab/bioconductor:devel
     docker_command: R
     docker_args: "-it"
   - command: Rscript
-    docker_image: bioconductor/bioconductor_full:release
+    docker_image: waldronlab/bioconductor:release
     docker_args: "-it"
   - command: Rscriptdev
-    docker_image: bioconductor/bioconductor_full:devel
+    docker_image: waldronlab/bioconductor:devel
     docker_command: Rscript
     docker_args: "-it"
   - command: rstudio-server
-    docker_image: bioconductor/bioconductor_full:release
+    docker_image: waldronlab/bioconductor:release
     docker_command: " "
     no_user: True
     no_network: True
   - command: rstudio-server-dev
-    docker_image: bioconductor/bioconductor_full:devel
+    docker_image: waldronlab/bioconductor:devel
     docker_command: " "
     no_user: True
     no_network: True
