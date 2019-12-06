@@ -25,3 +25,5 @@ manifest:
     docker_image: quay.io/biocontainers/mashmap:2.0--h9dd4a16_2
   - command: bedtools
     docker_image: quay.io/biocontainers/bedtools:2.29.0--hc088bd4_3
+  - command: gt
+    docker_image: quay.io/biocontainers/genometools-genometools:1.5.10--py37h997e34b_3
