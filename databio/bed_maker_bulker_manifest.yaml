@@ -3,15 +3,15 @@ manifest:
   version: 1.0.0
   commands:
   - command: macs2
-    dockerargs: "-i"
+    docker_args: "-i"
     docker_image: quay.io/biocontainers/macs2:2.2.5--py36h516909a_0 
     docker_command: macs2 
   - command: wigToBigWig
-    dockerargs: "-i"
+    docker_args: "-i"
     docker_image: quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3 
     docker_command: wigToBigWig 
   - command: bigWigToBedGraph
-    dockerargs: "-i"
+    docker_args: "-i"
     docker_image: quay.io/biocontainers/ucsc-bigwigtobedGraph:377--hf46d3de_3
     docker_command: bigWigToBedGraph 
   - command: bigBedToBed
