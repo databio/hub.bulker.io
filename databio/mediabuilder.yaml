@@ -18,7 +18,7 @@ manifest:
   - command: jabref-cl
     docker_image: nsheff/jabref
     description:  "command-line only; don't allocate TTY. Useful for background jobs."
-    dockerargs: "--name=jabref-cl"
+    docker_args: "--name=jabref-cl"
     docker_command: java -Xmx2000m -jar /JabRef.jar
   - command: libre
     docker_image: nsheff/libreoffice
