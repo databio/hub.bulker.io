@@ -66,6 +66,6 @@ manifest:
   - command: aws
     docker_image: mesosphere/aws-cli
   - command: homer
-    docker_imaeg: quay.io/biocontainers/homer:4.10--pl526hc9558a2_0
+    docker_image: quay.io/biocontainers/homer:4.10--pl526hc9558a2_0
   - command: bigWigAverageOverBed
     docker_image: quay.io/biocontainers/ucsc-bigwigaverageoverbed:377--h199ee4e_0
