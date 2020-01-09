@@ -1,7 +1,0 @@
-manifest:
-  name: databio
-  version: 1.0.0
-  commands:
-  - command: samtools
-    dockerargs: "-i"
-    docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8

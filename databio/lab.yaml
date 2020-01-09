@@ -10,12 +10,6 @@ manifest:
   - command: samtools
     docker_args: "-i"
     docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
-  - command: pip3
-    docker_image: "python:3.7.4"
-  - command: python3
-    docker_args: "-it"
-    docker_image: "python:3.7.4"
-    docker_command: python3
   - command: R
     docker_image: bioconductor/release_base2:R.3.6.1_Bioc3.10
     docker_command: R
