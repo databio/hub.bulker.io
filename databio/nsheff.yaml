@@ -78,6 +78,9 @@ manifest:
     docker_image: nsheff/serverless
   - command: convert
     docker_image: dpokidov/imagemagick:7.0.8-40
+  - command: notable
+    docker_image: nsheff/notable
+    
 
 
 
