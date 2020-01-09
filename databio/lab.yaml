@@ -1,6 +1,8 @@
 manifest:
   name: databio
   version: 1.0.0
+  imports: 
+  - bulker/alpinebase:default  
   commands:
   - command: prefetch
     docker_image: quay.io/biocontainers/sra-tools:2.10.0--pl526he1b5a44_0
