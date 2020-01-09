@@ -42,7 +42,7 @@ manifest:
   - command: bissnp
     docker_image: quay.io/biocontainers/bis-snp:1.0.1--2
   - command: macs2
-    docker_image: quay.io/biocontainers/2.2.6--py37h516909a_0
+    docker_image: quay.io/biocontainers/macs2:2.2.6--py37h516909a_0
   - command: bwa
     docker_image: quay.io/biocontainers/bwa:0.7.17--pl5.22.0_2
   - command: hisat2
