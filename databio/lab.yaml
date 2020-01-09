@@ -51,7 +51,7 @@ manifest:
     docker_image: combinelab/salmon:1.0.0
   - command: kallisto
     docker_image: quay.io/biocontainers/kallisto:0.42.4--2
-  - command: trimgalore
+  - command: trim_galore
     docker_image: quay.io/biocontainers/trim-galore:0.6.5--0
   - command: trimmomatic
     docker_image: quay.io/biocontainers/trimmomatic:0.35--6
