@@ -11,11 +11,10 @@ manifest:
     docker_image: quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3 
     docker_command: wigToBigWig 
   - command: bigWigToBedGraph
-    docker_args: "-i"
-    docker_image: quay.io/biocontainers/ucsc-bigwigtobedGraph:377--hf46d3de_3
+    docker_image: quay.io/biocontainers/ucsc-bigwigtobedgraph:357--1
     docker_command: bigWigToBedGraph 
   - command: bigBedToBed
-    docker_image: quay.io/biocontainers/ucsc-bigbedtobed:377--h199ee4e_0
+    docker_image: quay.io/biocontainers/ucsc-bigbedtobed:357--1
     docker_command: bigBedToBed
   
 
