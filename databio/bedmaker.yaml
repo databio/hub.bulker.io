@@ -1,5 +1,5 @@
 manifest:
-  name: bed_maker
+  name: bedmaker
   version: 1.0.0
   commands:
   - command: macs2
