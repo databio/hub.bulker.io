@@ -11,7 +11,7 @@ manifest:
     docker_args: "-i"
     docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
   - command: R
-    docker_image: bioconductor/release_base2:R.3.6.2_Bioc3.10
+    docker_image: bioconductor/release_base2:R3.6.2_Bioc3.10
     docker_command: R
     docker_args: "-it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" 
   - command: pigz

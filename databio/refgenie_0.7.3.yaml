@@ -27,3 +27,5 @@ manifest:
     docker_image: quay.io/biocontainers/bedtools:2.29.0--hc088bd4_3
   - command: gt
     docker_image: quay.io/biocontainers/genometools-genometools:1.5.10--py37h997e34b_3
+  - command: cellranger
+    docker_image: quay.io/xujishu/cellranger:3.1.0
