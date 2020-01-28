@@ -1,6 +1,8 @@
 manifest:
   name: nsheff
   version: 1.0.0
+  imports:
+    - databio/mediabuilder
   commands:
   - command: jekyll
     docker_image: nsheff/jekyll
