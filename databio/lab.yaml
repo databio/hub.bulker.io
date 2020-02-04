@@ -14,6 +14,10 @@ manifest:
     docker_image: bioconductor/release_base2:R3.6.2_Bioc3.10
     docker_command: R
     docker_args: "-it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" 
+  - command: Rscript
+    docker_image: bioconductor/release_base2:R3.6.2_Bioc3.10
+    docker_command: Rscript
+    docker_args: "-it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" 
   - command: pigz
     docker_image: nsheff/pigz
     docker_command: pigz
