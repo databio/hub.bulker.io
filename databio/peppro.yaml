@@ -35,9 +35,9 @@ manifest:
   - command: bedtools
     docker_image: quay.io/biocontainers/bedtools:2.29.0--hc088bd4_3    
   - command: Rscript
-    docker_image: rocker/tidyverse:3.6.1
+    docker_image: bioconductor/release_base2:R3.6.2_Bioc3.10
     dockerargs: "--volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library"
   - command: R
-    docker_image: rocker/tidyverse:3.6.1
+    docker_image: bioconductor/release_base2:R3.6.2_Bioc3.10
     docker_command: R
-    dockerargs: "-it --volume=${HOME}/.local/lib/R:/usr/lib/R/library" 
+    dockerargs: "-it --volume=${HOME}/.local/lib/R:/usr/lib/R/site-library" 
