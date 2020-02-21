@@ -63,6 +63,8 @@ manifest:
     docker_image: quay.io/biocontainers/bsmap:2.90--he860b03_2
   - command: aws
     docker_image: mesosphere/aws-cli
+  - command: rg
+    docker_image: peccu/rg
   - command: homer
     docker_image: quay.io/biocontainers/homer:4.10--pl526hc9558a2_0
   - command: bigWigAverageOverBed
