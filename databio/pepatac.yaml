@@ -24,6 +24,7 @@ manifest:
     dockerargs: "--volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library"
   - command: samblaster
     docker_image: quay.io/biocontainers/samblaster:0.1.24--hc9558a2_3
+    dockerargs: "-i"    
   - command: skewer
     docker_image: quay.io/biocontainers/skewer:0.2.2--h2d50403_2
   - command: Rscript
