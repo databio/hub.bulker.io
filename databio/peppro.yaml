@@ -38,6 +38,5 @@ manifest:
   - command: Rscript
     docker_image: databio/rpipe
   - command: R
-    docker_image: dataio/rpipe
+    docker_image: databio/rpipe
     docker_command: R
-
