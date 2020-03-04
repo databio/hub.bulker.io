@@ -7,26 +7,27 @@ manifest:
     docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
   - command: bowtie2
     docker_image: quay.io/biocontainers/bowtie2:2.3.5--py37he860b03_0
+  - command: bedtools
+    docker_args: "-i"
+    docker_image: quay.io/biocontainers/bedtools:2.29.0--hc088bd4_3  
+  - command: fastqc
+    docker_image: quay.io/biocontainers/fastqc:0.11.8--1
+  - command: pigz
+    docker_image: nsheff/pigz
+  - command: samblaster
+    docker_image: quay.io/biocontainers/samblaster:0.1.24--hc9558a2_3
+    dockerargs: "-i"    
+  - command: skewer
+    docker_image: quay.io/biocontainers/skewer:0.2.2--h2d50403_2
   - command: wigToBigWig
     docker_image: quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3 
     dockerargs: "-i"
   - command: bigWigCat
     docker_image: quay.io/biocontainers/ucsc-bigwigcat:357--1
     dockerargs: "-i"
-  - command: fastqc
-    docker_image: quay.io/biocontainers/fastqc:0.11.8--1
-  - command: pigz
-    docker_image: nsheff/pigz
-  - command: cutadapt
-    docker_image: quay.io/biocontainers/cutadapt:2.4--py37h14c3975_0
-  - command: Rscript
-    docker_image: nsheff/rbase
-    dockerargs: "--volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library"
-  - command: samblaster
-    docker_image: quay.io/biocontainers/samblaster:0.1.24--hc9558a2_3
-    dockerargs: "-i"    
-  - command: skewer
-    docker_image: quay.io/biocontainers/skewer:0.2.2--h2d50403_2
+  - command: bedToBigBed
+    docker_image: docker pull quay.io/biocontainers/ucsc-bedtobigbed:357--1
+    dockerargs: "-i"
   - command: Rscript
     docker_image: databio/rpipe
   - command: R
