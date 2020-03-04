@@ -7,6 +7,9 @@ manifest:
   - command: prefetch
     docker_image: quay.io/biocontainers/sra-tools:2.10.0--pl526he1b5a44_0
     docker_command: prefetch
+  - command: fastq-dump
+    docker_image: quay.io/biocontainers/sra-tools:2.10.0--pl526he1b5a44_0
+    docker_command: fastq-dump
   - command: samtools
     docker_args: "-i"
     docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8

@@ -7,6 +7,9 @@ manifest:
   - command: jekyll
     docker_image: nsheff/jekyll
     docker_command: jekyll
+  - command: bundle
+    docker_image: nsheff/jekyll
+    docker_command: bundle
   - command: latex
     docker_image: nsheff/pandoc
   - command: ffmpeg
