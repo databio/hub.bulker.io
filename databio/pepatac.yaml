@@ -28,6 +28,10 @@ manifest:
   - command: bedToBigBed
     docker_image: quay.io/biocontainers/ucsc-bedtobigbed:357--1
     dockerargs: "-i"
+  - command: macs2
+    docker_image: quay.io/biocontainers/macs2:2.2.6--py37h516909a_0   
+  - command: bedGraphToBigWig
+    docker_image: quay.io/biocontainers/ucsc-bedgraphtobigwig:357--h35c10e6_3 
   - command: Rscript
     docker_image: databio/rpipe
   - command: R
