@@ -30,7 +30,7 @@ manifest:
     docker_image: nsheff/mkdocs
   - command: pandoc
     docker_image: nsheff/pandoc
-    dockerargs: "-i"    
+    docker_args: "-i"    
   - command: gs
     docker_image: minidocks/ghostscript
   - command: pdflatex

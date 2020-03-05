@@ -31,7 +31,7 @@ manifest:
   - command: jabref-cl
     docker_image: nsheff/jabref
     description:  command-line only; don't allocate TTY. Useful for background jobs.
-    dockerargs: "--name=jabref-cl"
+    docker_args: "--name=jabref-cl"
     docker_command: java -Xmx2000m -jar /JabRef.jar
   - command: libre
     docker_image: nsheff/libreoffice
@@ -43,22 +43,22 @@ manifest:
     docker_image: nsheff/mkdocs
   - command: pandoc
     docker_image: nsheff/pandoc
-    dockerargs: "-i"
+    docker_args: "-i"
   - command: R
     docker_image: nsheff/rbase
     docker_command: R
-    dockerargs: "-it"
+    docker_args: "-it"
   - command: rr
     docker_image: bioconductor/bioconductor_full:RELEASE_3_9
     docker_command: R
-    dockerargs: "-it"
+    docker_args: "-it"
   - command: rd
     docker_image: bioconductor/bioconductor_full:devel
     docker_command: R
-    dockerargs: "-it"    
+    docker_args: "-it"    
   - command: Rscript
     docker_image: nsheff/rbase
-    dockerargs: "--volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library"
+    docker_args: "--volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library"
   - command: subl
     docker_image: nsheff/sublime
   - command: redis-server

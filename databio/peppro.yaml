@@ -3,7 +3,7 @@ manifest:
   version: 1.0.0
   commands:
   - command: samtools
-    dockerargs: "-i"
+    docker_args: "-i"
     docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
   - command: bowtie2
     docker_image: quay.io/biocontainers/bowtie2:2.3.5--py37he860b03_0
@@ -20,10 +20,10 @@ manifest:
     docker_image: quay.io/biocontainers/fastq-pair:1.0--hf484d3e_0
   - command: wigToBigWig
     docker_image: quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3 
-    dockerargs: "-i"
+    docker_args: "-i"
   - command: bigWigCat
     docker_image: quay.io/biocontainers/ucsc-bigwigcat:357--1
-    dockerargs: "-i"
+    docker_args: "-i"
   - command: fastqc
     docker_image: quay.io/biocontainers/fastqc:0.11.8--1
   - command: pigz

@@ -3,7 +3,7 @@ manifest:
   version: 1.0.0
   commands:
   - command: samtools
-    dockerargs: "-i"
+    docker_args: "-i"
     docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
   - command: bowtie2
     docker_image: quay.io/biocontainers/bowtie2:2.3.5--py37he860b03_0
@@ -16,18 +16,18 @@ manifest:
     docker_image: nsheff/pigz
   - command: samblaster
     docker_image: quay.io/biocontainers/samblaster:0.1.24--hc9558a2_3
-    dockerargs: "-i"    
+    docker_args: "-i"    
   - command: skewer
     docker_image: quay.io/biocontainers/skewer:0.2.2--h2d50403_2
   - command: wigToBigWig
     docker_image: quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3 
-    dockerargs: "-i"
+    docker_args: "-i"
   - command: bigWigCat
     docker_image: quay.io/biocontainers/ucsc-bigwigcat:357--1
-    dockerargs: "-i"
+    docker_args: "-i"
   - command: bedToBigBed
     docker_image: quay.io/biocontainers/ucsc-bedtobigbed:357--1
-    dockerargs: "-i"
+    docker_args: "-i"
   - command: macs2
     docker_image: quay.io/biocontainers/macs2:2.2.6--py37h516909a_0   
   - command: bedGraphToBigWig
