@@ -1,6 +1,8 @@
 manifest:
   name: pepatac
   version: 1.0.0
+  imports:
+  - bulker/alpine:default
   commands:
   - command: samtools
     docker_args: "-i"
