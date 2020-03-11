@@ -1,8 +1,10 @@
 manifest:
   name: pepatac
-  version: 1.0.0
+  version: 1.0.1
   imports:
   - bulker/alpine:default
+  host_commands:
+  - python
   commands:
   - command: samtools
     docker_args: "-i"
@@ -38,4 +40,64 @@ manifest:
     docker_image: databio/rpipe
   - command: R
     docker_image: databio/rpipe
-    docker_command: R    
+    docker_command: R
+  - command: java
+    docker_image: openjdk
+    docker_args: "-i"
+  - command: perl
+    docker_image: perl
+    docker_args: "-i"
+  - command: awk
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: cat
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: cut
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: date
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: grep
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: head
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: hostname
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: ln
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: mkfifo
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: mv
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: rm
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: sed
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: sh
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: sort
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: tail
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: tee
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: uniq
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: wc
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
