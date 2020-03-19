@@ -49,11 +49,11 @@ manifest:
     docker_command: R
     docker_args: "-it"
   - command: rr
-    docker_image: bioconductor/bioconductor_full:RELEASE_3_9
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_10
     docker_command: R
     docker_args: "-it"
   - command: rd
-    docker_image: bioconductor/bioconductor_full:devel
+    docker_image: bioconductor/bioconductor_docker:devel
     docker_command: R
     docker_args: "-it"    
   - command: Rscript
