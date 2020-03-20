@@ -32,6 +32,10 @@ manifest:
   - command: ascp
     docker_image: ibmcom/aspera-cli:3.9.1
     docker_command: ascp
+  - command: curl
+    docker_image: curlimages/curl:7.69.1
+    docker_command: curl
+    docker_args: "-i"    
   - command: sambamba
     docker_image: quay.io/biocontainers/sambamba:0.7.1--h148d290_0
   - command: bedtools

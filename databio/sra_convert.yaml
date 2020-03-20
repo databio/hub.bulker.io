@@ -12,6 +12,10 @@ manifest:
     docker_image: nsheff/pigz
     docker_command: pigz
     docker_args: "-i"
+  - command: curl
+    docker_image: curlimages/curl:7.69.1
+    docker_command: curl
+    docker_args: "-i"
   - command: geofetch
     docker_image: nsheff/geofetch    
     docker_args: "-i"
