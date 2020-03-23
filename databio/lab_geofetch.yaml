@@ -26,7 +26,7 @@ manifest:
     docker_command: pigz
     docker_args: "-i"
   - command: geofetch
-    docker_image: nsheff/geofetch    
+    docker_image: databio/geofetch    
     docker_args: "-i"
     docker_command: geofetch
   - command: ascp
