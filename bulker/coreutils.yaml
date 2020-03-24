@@ -78,7 +78,7 @@ manifest:
   - command: factor
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: false
+  - command: "false"
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: fmt
@@ -258,7 +258,7 @@ manifest:
   - command: tr
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: true
+  - command: "true"
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: truncate
@@ -303,6 +303,6 @@ manifest:
   - command: whoami
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: yes
+  - command: "yes"
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
