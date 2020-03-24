@@ -1,10 +1,15 @@
 manifest:
   name: nsheff
   version: 1.0.0
+  imports:
+    - databio/mediabuilder
   commands:
   - command: jekyll
     docker_image: nsheff/jekyll
     docker_command: jekyll
+  - command: bundle
+    docker_image: nsheff/jekyll
+    docker_command: bundle
   - command: latex
     docker_image: nsheff/pandoc
   - command: ffmpeg
@@ -26,7 +31,7 @@ manifest:
   - command: jabref-cl
     docker_image: nsheff/jabref
     description:  command-line only; don't allocate TTY. Useful for background jobs.
-    dockerargs: "--name=jabref-cl"
+    docker_args: "--name=jabref-cl"
     docker_command: java -Xmx2000m -jar /JabRef.jar
   - command: libre
     docker_image: nsheff/libreoffice
@@ -38,22 +43,22 @@ manifest:
     docker_image: nsheff/mkdocs
   - command: pandoc
     docker_image: nsheff/pandoc
-    dockerargs: "-i"
+    docker_args: "-i"
   - command: R
     docker_image: nsheff/rbase
     docker_command: R
-    dockerargs: "-it"
+    docker_args: "-it"
   - command: rr
-    docker_image: bioconductor/bioconductor_full:RELEASE_3_9
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_10
     docker_command: R
-    dockerargs: "-it"
+    docker_args: "-it"
   - command: rd
-    docker_image: bioconductor/bioconductor_full:devel
+    docker_image: bioconductor/bioconductor_docker:devel
     docker_command: R
-    dockerargs: "-it"    
+    docker_args: "-it"    
   - command: Rscript
     docker_image: nsheff/rbase
-    dockerargs: "--volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library"
+    docker_args: "--volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library"
   - command: subl
     docker_image: nsheff/sublime
   - command: redis-server
@@ -81,7 +86,7 @@ manifest:
   - command: pcloudcc
     docker_image: nsheff/pcloud
     docker_args: "-i"
-
-
-
-    
+  - command: convert
+    docker_image: dpokidov/imagemagick:7.0.8-40
+  - command: notable
+    docker_image: nsheff/notable

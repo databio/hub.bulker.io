@@ -1,6 +1,8 @@
 manifest:
   name: mediabuilder
   version: 1.0.0
+  imports: 
+  - bulker/alpinebase:default
   commands:
   - command: latex
     docker_image: nsheff/pandoc
@@ -15,8 +17,8 @@ manifest:
     docker_command: java -Xmx2000m -jar /JabRef.jar
   - command: jabref-cl
     docker_image: nsheff/jabref
-    description:  command-line only; don't allocate TTY. Useful for background jobs.
-    dockerargs: "--name=jabref-cl"
+    description:  "command-line only; don't allocate TTY. Useful for background jobs."
+    docker_args: "--name=jabref-cl"
     docker_command: java -Xmx2000m -jar /JabRef.jar
   - command: libre
     docker_image: nsheff/libreoffice
@@ -28,7 +30,7 @@ manifest:
     docker_image: nsheff/mkdocs
   - command: pandoc
     docker_image: nsheff/pandoc
-    dockerargs: "-i"    
+    docker_args: "-i"    
   - command: gs
     docker_image: minidocks/ghostscript
   - command: pdflatex

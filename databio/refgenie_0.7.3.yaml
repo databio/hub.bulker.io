@@ -1,0 +1,31 @@
+manifest:
+  name: refgenie
+  version: 0.7.3
+  commands:
+  - command: samtools
+    docker_args: "-i"
+    docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
+  - command: bowtie2-build
+    docker_image: quay.io/biocontainers/bowtie2:2.3.5--py37he860b03_0
+  - command: bwa
+    docker_image: quay.io/biocontainers/bwa:0.7.17--pl5.22.0_2
+  - command: hisat2-build
+    docker_image: quay.io/biocontainers/hisat2:2.0.4--py35_0
+  - command: bismark_genome_preparation
+    docker_image: quay.io/biocontainers/bismark:0.22.1--0
+  - command: tabix
+    docker_image: quay.io/biocontainers/htslib:1.6--0
+  - command: STAR
+    docker_image: quay.io/biocontainers/star:2.7.3a--0
+  - command: salmon
+    docker_image: combinelab/salmon:1.0.0
+  - command: kallisto
+    docker_image: quay.io/biocontainers/kallisto:0.42.4--2
+  - command: mashmap
+    docker_image: quay.io/biocontainers/mashmap:2.0--h9dd4a16_2
+  - command: bedtools
+    docker_image: quay.io/biocontainers/bedtools:2.29.0--hc088bd4_3
+  - command: gt
+    docker_image: quay.io/biocontainers/genometools-genometools:1.5.10--py37h997e34b_3
+  - command: cellranger
+    docker_image: quay.io/xujishu/cellranger:3.1.0
