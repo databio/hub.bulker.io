@@ -9,9 +9,6 @@ manifest:
   - command: awk
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: basename
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
   - command: b2sum
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
@@ -63,12 +60,6 @@ manifest:
   - command: dir
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: dircolors
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
-  - command: dirname
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
   - command: du
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
@@ -87,7 +78,7 @@ manifest:
   - command: factor
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: "false"
+  - command: false
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: fmt
@@ -102,9 +93,6 @@ manifest:
   - command: grep
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: groups
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
   - command: head
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
@@ -112,9 +100,6 @@ manifest:
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: hostname
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
-  - command: id
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: install
@@ -130,9 +115,6 @@ manifest:
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: logname
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
-  - command: ls
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: md5sum
@@ -276,7 +258,7 @@ manifest:
   - command: tr
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: "true"
+  - command: true
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: truncate
@@ -321,6 +303,6 @@ manifest:
   - command: whoami
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: "yes"
+  - command: yes
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
