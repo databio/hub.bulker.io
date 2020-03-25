@@ -1,6 +1,6 @@
 manifest:
   name: levi
-  version: 1.0.2
+  version: 1.0.3
   commands:
   - command: emacs
     docker_image: silex/emacs:master-alpine
@@ -9,4 +9,10 @@ manifest:
     docker_image: mnuessler/pdftk
     docker_args: -v $(pwd):/work
     docker_command: " "
+  - command: jekyll
+    docker_image: nsheff/jekyll
+    docker_command: jekyll
+  - command: bundle
+    docker_image: nsheff/jekyll
+    docker_command: bundle
 
