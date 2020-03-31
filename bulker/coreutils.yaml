@@ -129,9 +129,6 @@ manifest:
   - command: mknod
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: mv
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
   - command: nice
     docker_image: databio/alpine-coreutils
     docker_args: "-i"

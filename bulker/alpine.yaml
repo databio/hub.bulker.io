@@ -9,6 +9,7 @@ manifest:
   - dircolors
   - basename
   - dirname
+  - mv
   - which
   - docker
   - singularity
