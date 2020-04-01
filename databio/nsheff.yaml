@@ -45,14 +45,10 @@ manifest:
     docker_image: nsheff/pandoc
     docker_args: "-i"
   - command: R
-    docker_image: nsheff/rbase
-    docker_command: R
-    docker_args: "-it"
-  - command: rr
     docker_image: bioconductor/bioconductor_docker:RELEASE_3_10
     docker_command: R
     docker_args: "-it"
-  - command: rd
+  - command: Rdev
     docker_image: bioconductor/bioconductor_docker:devel
     docker_command: R
     docker_args: "-it"    
