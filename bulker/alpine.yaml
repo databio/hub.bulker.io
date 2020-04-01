@@ -3,14 +3,15 @@ manifest:
   commands: null
   description: Used to test the host_commands domain, which allows creating isolated bulker environnments. This is the minimal set of host commands required for docker/bulker to run.
   host_commands:
+  - basename
+  - dircolors
+  - dirname
+  - docker
+  - env
+  - groups
   - id
   - ls
   - lesspipe
-  - dircolors
-  - basename
-  - dirname
   - mv
-  - which
-  - docker
   - singularity
-  - groups
+  - which

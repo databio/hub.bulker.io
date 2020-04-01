@@ -66,9 +66,6 @@ manifest:
   - command: echo
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: env
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
   - command: expand
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
