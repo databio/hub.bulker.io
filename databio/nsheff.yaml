@@ -74,16 +74,15 @@ manifest:
     docker_image: docker.elastic.co/kibana/kibana:6.5.4
     docker_args: "--link elasticsearch:elasticsearch -p 5601:5601"
   - command: serverless
-    docker_image: nsheff/serverless
+    docker_image: amaysim/serverless:1.53.0
+    docker_args: "-i"
   - command: npm
-    docker_image: nsheff/serverless
+    docker_image: amaysim/serverless:1.53.0
+    docker_args: "-i"
+  - command: pcloudcc
+    docker_image: nsheff/pcloud
+    docker_args: "-i"
   - command: convert
     docker_image: dpokidov/imagemagick:7.0.8-40
   - command: notable
     docker_image: nsheff/notable
-    
-
-
-
-
-    

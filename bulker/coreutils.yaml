@@ -9,9 +9,6 @@ manifest:
   - command: awk
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: basename
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
   - command: b2sum
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
@@ -63,12 +60,6 @@ manifest:
   - command: dir
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: dircolors
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
-  - command: dirname
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
   - command: du
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
@@ -102,9 +93,6 @@ manifest:
   - command: grep
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: groups
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
   - command: head
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
@@ -112,9 +100,6 @@ manifest:
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: hostname
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
-  - command: id
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: install
@@ -132,9 +117,6 @@ manifest:
   - command: logname
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: ls
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
   - command: md5sum
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
@@ -145,9 +127,6 @@ manifest:
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: mknod
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
-  - command: mv
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: nice
