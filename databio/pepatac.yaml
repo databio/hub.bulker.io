@@ -26,7 +26,7 @@ manifest:
     docker_image: openjdk
     docker_args: "-i"
   - command: macs2
-    docker_image: quay.io/biocontainers/macs2:2.2.6--py37h516909a_0  
+    docker_image: quay.io/biocontainers/macs2:2.2.7.1--py37h516909a_0
   - command: perl
     docker_image: perl
     docker_args: "-i"

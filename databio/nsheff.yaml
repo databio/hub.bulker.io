@@ -48,11 +48,18 @@ manifest:
     docker_image: bioconductor/bioconductor_docker:RELEASE_3_10
     docker_command: R
     docker_args: "-it"
+  - command: Rscript
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_10
+    docker_command: Rscript
   - command: Rdev
     docker_image: bioconductor/bioconductor_docker:devel
     docker_command: R
-    docker_args: "-it"    
-  - command: Rscript
+    docker_args: "-it"
+  - command: R2
+    docker_image: nsheff/rbase
+    docker_args: "-it"
+    docker_args: "--volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library"
+  - command: Rscript2
     docker_image: nsheff/rbase
     docker_args: "--volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library"
   - command: subl
@@ -68,7 +75,7 @@ manifest:
     docker_args: "-h redis-server -it"
     workdir: "/data"
   - command: elasticsearch
-    docker_image: elasticsearch:6.5.4
+    docker_image: elasticsearch:7.5.1
     docker_args: "-p 9200:9200 -p 9300:9300 --name elasticsearch -m 8G"
   - command: kibana
     docker_image: docker.elastic.co/kibana/kibana:6.5.4
