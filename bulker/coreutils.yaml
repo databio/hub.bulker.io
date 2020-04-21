@@ -2,6 +2,9 @@ manifest:
   name: coreutils
   version: 1.0.0
   description: This is the complete set of GNU coreutils. Used to run strict bulker environnments.
+  host_commands:
+    - mkfifo
+    - whoami
   commands:
   - command: arch
     docker_image: databio/alpine-coreutils
@@ -118,9 +121,6 @@ manifest:
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: mkdir
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
-  - command: mkfifo
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: mknod
@@ -292,9 +292,6 @@ manifest:
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: who
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
-  - command: whoami
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: "yes"
