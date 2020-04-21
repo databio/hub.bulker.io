@@ -5,7 +5,8 @@ manifest:
   - bulker/alpine:default
   - bulker/coreutils:default
   host_commands:
-  - python
+  - python3
+  - perl
   commands:
   - command: bedGraphToBigWig
     docker_image: quay.io/biocontainers/ucsc-bedgraphtobigwig:357--h35c10e6_3 
@@ -27,9 +28,6 @@ manifest:
     docker_args: "-i"
   - command: macs2
     docker_image: quay.io/biocontainers/macs2:2.2.7.1--py37h516909a_0
-  - command: perl
-    docker_image: perl
-    docker_args: "-i"
   - command: pigz
     docker_image: nsheff/pigz
   - command: preseq
