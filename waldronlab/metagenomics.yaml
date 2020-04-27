@@ -1,0 +1,19 @@
+manifest:
+  name: metagenomics
+  version: 1.0.0
+  commands:
+  - command: metaphlan
+    docker_image: waldronlab/curatedmetagenomics
+  - command: humann3
+    docker_image: waldronlab/curatedmetagenomics
+  - command: strainphlan
+    docker_image: waldronlab/curatedmetagenomics
+  - command: humann3_databases
+    docker_image: waldronlab/curatedmetagenomics
+  - command: fastq-dump
+    docker_image: waldronlab/curatedmetagenomics
+  - command: fasterq-dump
+    docker_image: waldronlab/curatedmetagenomics
+  - command: vdb-config
+    docker_image: waldronlab/curatedmetagenomics
+
