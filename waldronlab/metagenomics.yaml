@@ -4,16 +4,110 @@ manifest:
   commands:
   - command: metaphlan
     docker_image: waldronlab/curatedmetagenomics
-  - command: humann3
+  - command: merge_metaphlan_tables.py
     docker_image: waldronlab/curatedmetagenomics
   - command: strainphlan
     docker_image: waldronlab/curatedmetagenomics
+  - command: humann3
+    docker_image: waldronlab/curatedmetagenomics
   - command: humann3_databases
     docker_image: waldronlab/curatedmetagenomics
-  - command: fastq-dump
+  - command: humann_renorm_table
+    docker_image: waldronlab/curatedmetagenomics
+  - command: humann_test
+    docker_image: waldronlab/curatedmetagenomics
+  - command: curatedMetagenomicData_pipeline.sh
+    docker_image: waldronlab/curatedmetagenomics
+  - command: run_markers2.py
+    docker_image: waldronlab/curatedmetagenomics
+  - command: abi-load
+    docker_image: waldronlab/curatedmetagenomics
+  - command: abi-dump
+    docker_image: waldronlab/curatedmetagenomics
+  - command: align-info
+    docker_image: waldronlab/curatedmetagenomics
+  - command: bam-load
+    docker_image: waldronlab/curatedmetagenomics
+  - command: blastn_vdb
+    docker_image: waldronlab/curatedmetagenomics
+  - command: cache-mgr
+    docker_image: waldronlab/curatedmetagenomics
+  - command: cg-load
+    docker_image: waldronlab/curatedmetagenomics
+  - command: dump-ref-fasta
     docker_image: waldronlab/curatedmetagenomics
   - command: fasterq-dump
     docker_image: waldronlab/curatedmetagenomics
+  - command: fastq-dump
+    docker_image: waldronlab/curatedmetagenomics
+  - command: fastq-load
+    docker_image: waldronlab/curatedmetagenomics
+  - command: helicos-load
+    docker_image: waldronlab/curatedmetagenomics
+  - command: illumina-dump
+    docker_image: waldronlab/curatedmetagenomics
+  - command: illumina-load
+    docker_image: waldronlab/curatedmetagenomics
+  - command: kar
+    docker_image: waldronlab/curatedmetagenomics
+  - command: kdbmeta
+    docker_image: waldronlab/curatedmetagenomics
+  - command: latf-load
+    docker_image: waldronlab/curatedmetagenomics
+  - command: pacbio-load
+    docker_image: waldronlab/curatedmetagenomics
+  - command: prefetch
+    docker_image: waldronlab/curatedmetagenomics
+  - command: rcexplain
+    docker_image: waldronlab/curatedmetagenomics
+  - command: remote-fuser
+    docker_image: waldronlab/curatedmetagenomics
+  - command: sam-dump
+    docker_image: waldronlab/curatedmetagenomics
+  - command: sff-dump
+    docker_image: waldronlab/curatedmetagenomics
+  - command: sff-load
+    docker_image: waldronlab/curatedmetagenomics
+  - command: sra-blastn
+    docker_image: waldronlab/curatedmetagenomics
+  - command: sra-pileup
+    docker_image: waldronlab/curatedmetagenomics
+  - command: sra-search
+    docker_image: waldronlab/curatedmetagenomics
+  - command: sra-sort
+    docker_image: waldronlab/curatedmetagenomics
+  - command: sra-sort-cg
+    docker_image: waldronlab/curatedmetagenomics
+  - command: sra-stat
+    docker_image: waldronlab/curatedmetagenomics
+  - command: sra-tblastn
+    docker_image: waldronlab/curatedmetagenomics
+  - command: srapath
+    docker_image: waldronlab/curatedmetagenomics
+  - command: sratools
+    docker_image: waldronlab/curatedmetagenomics
+  - command: srf-load
+    docker_image: waldronlab/curatedmetagenomics
+  - command: tblastn_vdb
+    docker_image: waldronlab/curatedmetagenomics
+  - command: test-sra
+    docker_image: waldronlab/curatedmetagenomics
   - command: vdb-config
+    docker_image: waldronlab/curatedmetagenomics
+  - command: vdb-copy
+    docker_image: waldronlab/curatedmetagenomics
+  - command: vdb-decrypt
+    docker_image: waldronlab/curatedmetagenomics
+  - command: vdb-dump
+    docker_image: waldronlab/curatedmetagenomics
+  - command: vdb-encrypt
+    docker_image: waldronlab/curatedmetagenomics
+  - command: vdb-lock
+    docker_image: waldronlab/curatedmetagenomics
+  - command: vdb-passwd
+    docker_image: waldronlab/curatedmetagenomics
+  - command: vdb-unlock
+    docker_image: waldronlab/curatedmetagenomics
+  - command: vdb-validate
     docker_image: waldronlab/curatedmetagenomics
 
