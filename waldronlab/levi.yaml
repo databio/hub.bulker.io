@@ -18,5 +18,6 @@ manifest:
     docker_args: -p 4000:4000
   - command: gcloud
     docker_image: google/cloud-sdk
+    docker_args: "-it"
   - command: gsutil
     docker_image: google/cloud-sdk
