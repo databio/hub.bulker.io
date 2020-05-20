@@ -1,6 +1,6 @@
 manifest:
   name: levi
-  version: 1.0.3
+  version: 1.0.4
   commands:
   - command: emacs
     docker_image: silex/emacs:master-alpine
@@ -15,4 +15,9 @@ manifest:
   - command: bundle
     docker_image: nsheff/jekyll
     docker_command: bundle
-
+    docker_args: -p 4000:4000
+  - command: gcloud
+    docker_image: google/cloud-sdk
+    docker_args: "-it"
+  - command: gsutil
+    docker_image: google/cloud-sdk
