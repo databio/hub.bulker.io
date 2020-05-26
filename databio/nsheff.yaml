@@ -3,6 +3,7 @@ manifest:
   version: 1.0.0
   imports:
     - databio/mediabuilder
+    - databio/lab
   commands:
   - command: jekyll
     docker_image: nsheff/jekyll
@@ -44,24 +45,6 @@ manifest:
   - command: pandoc
     docker_image: nsheff/pandoc
     docker_args: "-i"
-  - command: R
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_10
-    docker_command: R
-    docker_args: "-it"
-  - command: Rscript
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_10
-    docker_command: Rscript
-  - command: Rdev
-    docker_image: bioconductor/bioconductor_docker:devel
-    docker_command: R
-    docker_args: "-it"
-  - command: R2
-    docker_image: nsheff/rbase
-    docker_args: "-it"
-    docker_args: "--volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library"
-  - command: Rscript2
-    docker_image: nsheff/rbase
-    docker_args: "--volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library"
   - command: subl
     docker_image: nsheff/sublime
   - command: redis-server

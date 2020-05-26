@@ -1,6 +1,6 @@
 manifest:
   name: databio
-  version: 1.0.0
+  version: 1.1.0
   imports: 
   - bulker/alpinebase:default
   commands:
@@ -17,13 +17,34 @@ manifest:
     docker_args: "-i"
     docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
   - command: R
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_11
+    docker_command: R
+    docker_args: "-it"
+    description: "You should add --volume=${HOME}/R/4.0:/usr/local/lib/R/host-site-library to tool_args"
+  - command: Rscript
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_11
+    docker_command: Rscript
+    docker_args: "-it" 
+  - command: Rd
+    docker_image: bioconductor/bioconductor_docker:devel
+    docker_command: R
+    docker_args: "-it"
+  - command: Rscriptd
+    docker_image: bioconductor/bioconductor_docker:devel
+    docker_command: Rscript
+    docker_args: "-it"
+  - command: R3.6
     docker_image: bioconductor/bioconductor_docker:RELEASE_3_10
     docker_command: R
-    docker_args: "-it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" 
-  - command: Rscript
+    docker_args: "-it"
+  - command: Rscript3.6
     docker_image: bioconductor/bioconductor_docker:RELEASE_3_10
     docker_command: Rscript
-    docker_args: "-it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" 
+  - command: RC
+    description: "This image has all the latex stuff added in."
+    docker_image: databio/bioconductor
+    docker_command: R
+    docker_args: "-it"
   - command: pigz
     docker_image: nsheff/pigz
     docker_command: pigz
