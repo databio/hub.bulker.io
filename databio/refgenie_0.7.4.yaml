@@ -1,6 +1,6 @@
 manifest:
   name: refgenie
-  version: 0.7.3
+  version: 0.7.4
   commands:
   - command: samtools
     docker_args: "-i"
