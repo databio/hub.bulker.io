@@ -8,6 +8,8 @@ manifest:
     docker_image: quay.io/biocontainers/bowtie2:2.4.1--py37h4ef193e_2
   - command: bismark_genome_preparation
     docker_image: quay.io/biocontainers/bismark:0.22.1--0
+  - command: bgzip
+    docker_image: quay.io/biocontainers/htslib:1.6--0
   - command: bwa
     docker_image: quay.io/biocontainers/bwa:0.7.17--hed695b0_7
   - command: cellranger
