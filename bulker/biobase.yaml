@@ -2,7 +2,8 @@ manifest:
   name: biobase
   version: 0.0.1
   imports: 
-  - bulker/alpinebase:default
+  - bulker/alpine:default
+  - bulker/coreutils:default
   commands:
   - command: aws
     docker_image: mesosphere/aws-cli
