@@ -73,6 +73,7 @@ manifest:
     docker_image: nsheff/pcloud
     docker_args: "-i"
   - command: convert
-    docker_image: dpokidov/imagemagick:7.0.8-40
+    docker_image: databio/imagemagick
+    docker_command: "convert"
   - command: notable
     docker_image: nsheff/notable

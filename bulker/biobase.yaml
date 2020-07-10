@@ -64,8 +64,14 @@ manifest:
   - command: faSplit
     docker_image: quay.io/biocontainers/ucsc-fasplit:377--h199ee4e_0
   - command: fastq-dump
-    docker_image: quay.io/biocontainers/sra-tools:2.10.7--pl526haddd2b5_1
+    docker_image: quay.io/biocontainers/sra-tools:2.10.8--pl526haddd2b5_0
     docker_command: fastq-dump
+  - command: fasterq-dump
+    docker_image: quay.io/biocontainers/sra-tools:2.10.8--pl526haddd2b5_0
+    docker_command: fasterq-dump
+  - command: vdb-config
+    docker_image: quay.io/biocontainers/sra-tools:2.10.8--pl526haddd2b5_0
+    docker_command: vdb-config
   - command: fastqc
     docker_image: quay.io/biocontainers/fastqc:0.11.8--1  
   - command: gatk
@@ -102,6 +108,8 @@ manifest:
     docker_command: R
     docker_args: "-it"
     description: "You should add --volume=${HOME}/R/4.0:/usr/local/lib/R/host-site-library to tool_args"
+  - command: refgenie
+    docker_image: databio/refgenie
   - command: repeatmasker
     docker_image: quay.io/biocontainers/repeatmasker:4.0.9_p2--pl526_2
   - command: rg
