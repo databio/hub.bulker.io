@@ -21,9 +21,6 @@ manifest:
   - command: base64
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
-  - command: bash
-    docker_image: bash
-    docker_args: "-i"
   - command: cat
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
@@ -184,9 +181,6 @@ manifest:
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: seq
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
-  - command: sh
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: sha1sum
