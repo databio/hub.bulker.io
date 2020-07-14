@@ -14,6 +14,7 @@ manifest:
     docker_command: Rscript
     docker_args: "-it" 
   - command: Rd
+    description: "R development release. To update, run docker pull bioconductor/bioconductor_docker:devel"
     docker_image: bioconductor/bioconductor_docker:devel
     docker_command: R
     docker_args: "-it"
