@@ -30,6 +30,8 @@ manifest:
     docker_image: quay.io/biocontainers/bowtie2:2.3.5--py37he860b03_0
   - command: bowtie
     docker_image: quay.io/biocontainers/bowtie:1.2.3--py37hc9558a2_0
+  - command: epilog
+    docker_image: databio/epilog:latest
   - command: fastqc
     docker_image: quay.io/biocontainers/fastqc:0.11.8--1
   - command: java
