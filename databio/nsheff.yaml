@@ -5,27 +5,39 @@ manifest:
     - databio/mediabuilder
     - databio/lab
   commands:
-  - command: jekyll
-    docker_image: nsheff/jekyll
-    docker_command: jekyll
+  - command: bibtool
+    docker_image: nsheff/pandoc
   - command: bundle
     docker_image: nsheff/jekyll
     docker_command: bundle
+  - command: convert
+    docker_image: databio/imagemagick
+    docker_command: "convert"
+  - command: duc
+    docker_image: databio/duc
+    docker_command: duc
+  - command: elasticsearch
+    docker_image: elasticsearch:7.5.1
+    docker_args: "-p 9200:9200 -p 9300:9300 --name elasticsearch -m 8G"
+  - command: git
+    docker_image: nsheff/git
+  - command: inkscape
+    docker_image: nsheff/vis
+  - command: jekyll
+    docker_image: nsheff/jekyll
+    docker_command: jekyll
+  - command: kibana
+    docker_image: docker.elastic.co/kibana/kibana:6.5.4
+    docker_args: "--link elasticsearch:elasticsearch -p 5601:5601"
   - command: latex
     docker_image: nsheff/pandoc
   - command: ffmpeg
     docker_image: nsheff/ffmpeg
-  - command: git
-    docker_image: nsheff/git
   - command: igv
     docker_image: nsheff/igv
     docker_command: sh /IGV_2.4.13/igv.sh
-  - command: bibtool
-    docker_image: nsheff/pandoc
   - command: gnucash
     docker_image: nsheff/gnucash
-  - command: inkscape
-    docker_image: nsheff/vis
   - command: jabref
     docker_image: nsheff/jabref5
     docker_command: JabRef
@@ -42,11 +54,17 @@ manifest:
     docker_command: " "
   - command: mkdocs
     docker_image: nsheff/mkdocs
+  - command: notable
+    docker_image: nsheff/notable
+  - command: npm
+    docker_image: amaysim/serverless:1.53.0
+    docker_args: "-i"
+  - command: pcloudcc
+    docker_image: nsheff/pcloud
+    docker_args: "-i"
   - command: pandoc
     docker_image: nsheff/pandoc
     docker_args: "-i"
-  - command: subl
-    docker_image: nsheff/sublime
   - command: redis-server
     docker_image: redis:5.0.5
     docker_command: "redis-server"
@@ -57,23 +75,8 @@ manifest:
     docker_command: "redis-cli"
     docker_args: "-h redis-server -it"
     workdir: "/data"
-  - command: elasticsearch
-    docker_image: elasticsearch:7.5.1
-    docker_args: "-p 9200:9200 -p 9300:9300 --name elasticsearch -m 8G"
-  - command: kibana
-    docker_image: docker.elastic.co/kibana/kibana:6.5.4
-    docker_args: "--link elasticsearch:elasticsearch -p 5601:5601"
+  - command: subl
+    docker_image: nsheff/sublime
   - command: serverless
     docker_image: amaysim/serverless:1.53.0
     docker_args: "-i"
-  - command: npm
-    docker_image: amaysim/serverless:1.53.0
-    docker_args: "-i"
-  - command: pcloudcc
-    docker_image: nsheff/pcloud
-    docker_args: "-i"
-  - command: convert
-    docker_image: databio/imagemagick
-    docker_command: "convert"
-  - command: notable
-    docker_image: nsheff/notable
