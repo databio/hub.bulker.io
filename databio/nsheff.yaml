@@ -7,6 +7,8 @@ manifest:
   commands:
   - command: bibtool
     docker_image: nsheff/pandoc
+  - command: bibexport
+    docker_image: nsheff/pandoc    
   - command: bundle
     docker_image: nsheff/jekyll
     docker_command: bundle
