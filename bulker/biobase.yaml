@@ -1,6 +1,6 @@
 manifest:
   name: biobase
-  version: 0.0.1
+  version: 0.0.2
   imports: 
   - bulker/alpine:default
   - bulker/coreutils:default
@@ -13,30 +13,39 @@ manifest:
   - command: bamtools
     docker_image: quay.io/biocontainers/bamtools:2.5.1--he860b03_5
   - command: bedClip
-    docker_image: quay.io/biocontainers/ucsc-bedclip:377--h199ee4e_0     
+    docker_image: quay.io/biocontainers/ucsc-bedclip:377--h446ed27_1    
+    docker_args: "-i" 
   - command: bedCommonRegions
-    docker_image: quay.io/biocontainers/ucsc-bedcommonregions:377--h199ee4e_0 
+    docker_image: quay.io/biocontainers/ucsc-bedcommonregions:377--h446ed27_1 
+    docker_args: "-i" 
   - command: bedGraphToBigWig
-    docker_image: quay.io/biocontainers/ucsc-bedgraphtobigwig:377--h199ee4e_0 
+    docker_image: quay.io/biocontainers/ucsc-bedgraphtobigwig:377--h446ed27_1 
+    docker_args: "-i" 
   - command: bedIntersect
-    docker_image: quay.io/biocontainers/ucsc-bedintersect:377--h199ee4e_0 
+    docker_image: quay.io/biocontainers/ucsc-bedintersect:377--h446ed27_1 
+    docker_args: "-i" 
   - command: bedItemOverlapCount
-    docker_image: quay.io/biocontainers/ucsc-beditemoverlapcount:377--h199ee4e_0 
+    docker_image: quay.io/biocontainers/ucsc-beditemoverlapcount:377--h446ed27_1 
+    docker_args: "-i" 
   - command: bedops
     docker_image: quay.io/biocontainers/bedops:2.4.39--hc9558a2_0
   - command: bedPileUps
-    docker_image: quay.io/biocontainers/ucsc-bedpileups:377--h199ee4e_0 
+    docker_image: quay.io/biocontainers/ucsc-bedpileups:377--h446ed27_1 
+    docker_args: "-i" 
   - command: bedToBigBed
-    docker_image: quay.io/biocontainers/ucsc-bedtobigbed:377--h199ee4e_0        
+    docker_image: quay.io/biocontainers/ucsc-bedtobigbed:377--h446ed27_1        
+    docker_args: "-i" 
   - command: bedtools
     docker_image: quay.io/biocontainers/bedtools:2.29.0--hc088bd4_3
   - command: bigWigAverageOverBed
-    docker_image: quay.io/biocontainers/ucsc-bigwigaverageoverbed:377--h199ee4e_0
+    docker_image: quay.io/biocontainers/ucsc-bigwigaverageoverbed:377--h446ed27_1
+    docker_args: "-i" 
   - command: bigWigCat
     docker_image: quay.io/biocontainers/ucsc-bigwigcat:357--1
     docker_args: "-i"
   - command: bigWigSummary
-    docker_image: quay.io/biocontainers/ucsc-bigwigsummary:377--h199ee4e_0    
+    docker_image: quay.io/biocontainers/ucsc-bigwigsummary:377--h446ed27_1    
+    docker_args: "-i" 
   - command: bismark
     docker_image: quay.io/biocontainers/bismark:0.22.3--0
   - command: bissnp
@@ -62,7 +71,7 @@ manifest:
   - command: cutadapt
     docker_image: quay.io/biocontainers/cutadapt:2.10--py37h516909a_0
   - command: faSplit
-    docker_image: quay.io/biocontainers/ucsc-fasplit:377--h199ee4e_0
+    docker_image: quay.io/biocontainers/ucsc-fasplit:377--h446ed27_1
   - command: fastq-dump
     docker_image: quay.io/biocontainers/sra-tools:2.10.8--pl526haddd2b5_0
     docker_command: fastq-dump
@@ -88,7 +97,7 @@ manifest:
   - command: khmer
     docker_image: quay.io/biocontainers/khmer:3.0.0a3--py37hf484d3e_0
   - command: liftOver
-    docker_image: quay.io/biocontainers/ucsc-liftover:377--h199ee4e_0     
+    docker_image: quay.io/biocontainers/ucsc-liftover:377--h446ed27_1     
   - command: macs2
     docker_image: quay.io/biocontainers/macs2:2.2.6--py37h516909a_0
   - command: mashmap
@@ -148,4 +157,5 @@ manifest:
     docker_image: quay.io/biocontainers/ensembl-vep:94.5--pl526ha4d7672_0
     docker_command: vep
   - command: wigToBigWig
-    docker_image: quay.io/biocontainers/ucsc-wigtobigwig:377--h199ee4e_0
+    docker_image: quay.io/biocontainers/ucsc-wigtobigwig:377--h446ed27_1
+    docker_args: "-i" 
