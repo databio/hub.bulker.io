@@ -1,6 +1,6 @@
 manifest:
   name: biobase
-  version: 0.0.2
+  version: 0.0.3
   imports: 
   - bulker/alpine:default
   - bulker/coreutils:default
@@ -41,11 +41,14 @@ manifest:
     docker_image: quay.io/biocontainers/ucsc-bigwigaverageoverbed:377--h446ed27_1
     docker_args: "-i" 
   - command: bigWigCat
-    docker_image: quay.io/biocontainers/ucsc-bigwigcat:357--1
+    docker_image: quay.io/biocontainers/ucsc-bigwigcat:377--h446ed27_1 
     docker_args: "-i"
   - command: bigWigSummary
     docker_image: quay.io/biocontainers/ucsc-bigwigsummary:377--h446ed27_1    
     docker_args: "-i" 
+  - command: bigWigToWig
+    docker_image: quay.io/biocontainers/ucsc-bigwigtowig:377--h446ed27_1 
+    docker_args: "-i"    
   - command: bismark
     docker_image: quay.io/biocontainers/bismark:0.22.3--0
   - command: bissnp
