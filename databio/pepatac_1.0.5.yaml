@@ -28,13 +28,13 @@ manifest:
   - command: findPeaks
     docker_image: quay.io/biocontainers/homer:4.11--pl526hc9558a2_3
   - command: findMotifsGenome.pl
-    docker_image: quay.io/biocontainers/homer:4.11--pl526hc9558a2_3	
+    docker_image: quay.io/biocontainers/homer:4.11--pl526hc9558a2_3
   - command: fseq
     docker_image: quay.io/biocontainers/fseq:1.84--py35pl5.22.0_0
   - command: Genrich
     docker_image: quay.io/biocontainers/genrich:0.6--hed695b0_0
   - command: hmmratac
-    docker_image: quay.io/biocontainers/hmmratac:1.2.10--0	
+    docker_image: quay.io/biocontainers/hmmratac:1.2.10--0
   - command: java
     docker_image: openjdk
     docker_args: "-i"
