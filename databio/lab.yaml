@@ -13,7 +13,7 @@ manifest:
     docker_image: bioconductor/bioconductor_docker:RELEASE_3_12
     docker_command: Rscript
     docker_args: "-it"     
-  - command: R4.9
+  - command: R4.0
     docker_image: bioconductor/bioconductor_docker:RELEASE_3_11
     docker_command: R
     docker_args: "-it"
