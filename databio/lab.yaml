@@ -5,11 +5,20 @@ manifest:
   - bulker/biobase:default
   commands:
   - command: R
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_11
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_12
     docker_command: R
     docker_args: "-it"
     description: "You should add --volume=${HOME}/R/4.0:/usr/local/lib/R/host-site-library to tool_args"
   - command: Rscript
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_12
+    docker_command: Rscript
+    docker_args: "-it"     
+  - command: R4.9
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_11
+    docker_command: R
+    docker_args: "-it"
+    description: "You should add --volume=${HOME}/R/4.0:/usr/local/lib/R/host-site-library to tool_args"
+  - command: Rscript4.0
     docker_image: bioconductor/bioconductor_docker:RELEASE_3_11
     docker_command: Rscript
     docker_args: "-it" 

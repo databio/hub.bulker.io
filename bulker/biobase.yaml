@@ -1,6 +1,6 @@
 manifest:
   name: biobase
-  version: 0.0.3
+  version: 0.0.4
   imports: 
   - bulker/alpine:default
   - bulker/coreutils:default
@@ -34,9 +34,10 @@ manifest:
     docker_args: "-i" 
   - command: bedToBigBed
     docker_image: quay.io/biocontainers/ucsc-bedtobigbed:377--h446ed27_1        
-    docker_args: "-i" 
+    docker_args: "-i"
   - command: bedtools
     docker_image: quay.io/biocontainers/bedtools:2.29.0--hc088bd4_3
+    docker_args: "-i"
   - command: bigWigAverageOverBed
     docker_image: quay.io/biocontainers/ucsc-bigwigaverageoverbed:377--h446ed27_1
     docker_args: "-i" 
