@@ -1,6 +1,6 @@
 manifest:
   name: databio
-  version: 1.1.2
+  version: 1.1.3
   imports: 
   - bulker/biobase:default
   commands:
@@ -8,6 +8,10 @@ manifest:
     docker_image: databio/duc
     docker_command: duc
     docker_args: "-it"    
+  - command: jq
+    docker_command: " "
+    docker_image: linuxserver/yq
+    docker_args: "-i --entrypoint jq"
   - command: R
     docker_image: bioconductor/bioconductor_docker:RELEASE_3_12
     docker_command: R
@@ -47,3 +51,11 @@ manifest:
     docker_image: databio/bioconductor
     docker_command: R
     docker_args: "-it"
+  - command: xq
+    docker_command: " "
+    docker_image: linuxserver/yq
+    docker_args: "-i --entrypoint xq"
+  - command: yq
+    docker_command: " "
+    docker_image: linuxserver/yq
+    docker_args: "-i --entrypoint yq"        
