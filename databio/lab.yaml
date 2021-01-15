@@ -10,6 +10,7 @@ manifest:
     docker_args: "-it"    
   - command: jq
     docker_command: " "
+    singularity_command: "yq"
     docker_image: linuxserver/yq
     docker_args: "-i --entrypoint jq"
   - command: R
@@ -53,9 +54,11 @@ manifest:
     docker_args: "-it"
   - command: xq
     docker_command: " "
+    singularity_command: "xq"
     docker_image: linuxserver/yq
     docker_args: "-i --entrypoint xq"
   - command: yq
     docker_command: " "
+    singularity_command: "yq"
     docker_image: linuxserver/yq
-    docker_args: "-i --entrypoint yq"        
+    docker_args: "-i --entrypoint yq"
