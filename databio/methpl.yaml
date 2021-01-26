@@ -1,10 +1,11 @@
 manifest:
   name: methpl
-  version: 1.0.0
+  version: 1.0.1
   imports:
   - bulker/alpine:default
   - bulker/coreutils:default
   host_commands:
+  - cat
   - python
   commands:
   - command: bedGraphToBigWig
