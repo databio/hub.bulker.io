@@ -2,7 +2,7 @@ manifest:
   name: nsheff
   version: 1.0.0
   imports:
-    - databio/mediabuilder
+    - databio/sciquill
     - databio/lab
   commands:
   - command: bibtool
