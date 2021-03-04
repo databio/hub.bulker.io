@@ -5,10 +5,6 @@ manifest:
     - databio/sciquill
     - databio/lab
   commands:
-  - command: bibtool
-    docker_image: nsheff/pandoc
-  - command: bibexport
-    docker_image: nsheff/pandoc    
   - command: bundle
     docker_image: nsheff/jekyll
     docker_command: bundle
@@ -32,8 +28,6 @@ manifest:
   - command: kibana
     docker_image: docker.elastic.co/kibana/kibana:6.5.4
     docker_args: "--link elasticsearch:elasticsearch -p 5601:5601"
-  - command: latex
-    docker_image: nsheff/pandoc
   - command: ffmpeg
     docker_image: nsheff/ffmpeg
   - command: igv
