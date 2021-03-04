@@ -1,8 +1,10 @@
 manifest:
-  name: mediabuilder
+  name: sciquill
   version: 1.0.0
   imports: 
   - bulker/alpinebase:default
+  host_commands:
+    - md5sum
   commands:
   - command: latex
     docker_image: databio/sciquill
