@@ -46,9 +46,6 @@ manifest:
   - command: libre
     docker_image: nsheff/libreoffice
     docker_command: "libreoffice -env:UserInstallation=file://////tmp/ -env:SingleAppInstance='false'"
-  - command: liquify
-    docker_image: nsheff/liquify
-    docker_command: " "
   - command: mkdocs
     docker_image: nsheff/mkdocs
   - command: notable
