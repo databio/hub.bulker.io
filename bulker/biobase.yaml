@@ -1,6 +1,6 @@
 manifest:
   name: biobase
-  version: 0.0.4
+  version: 0.0.5
   imports: 
   - bulker/alpine:default
   - bulker/coreutils:default
@@ -26,7 +26,10 @@ manifest:
     docker_args: "-i" 
   - command: bedItemOverlapCount
     docker_image: quay.io/biocontainers/ucsc-beditemoverlapcount:377--h446ed27_1 
-    docker_args: "-i" 
+    docker_args: "-i"
+  - command: bigBedToBed
+    docker_image: quay.io/biocontainers/ucsc-bigbedtobed:377--h446ed27_1 
+    docker_args: "-i"    
   - command: bedops
     docker_image: quay.io/biocontainers/bedops:2.4.39--hc9558a2_0
   - command: bedPileUps
