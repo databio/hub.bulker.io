@@ -27,6 +27,9 @@ manifest:
   - command: bedItemOverlapCount
     docker_image: quay.io/biocontainers/ucsc-beditemoverlapcount:377--h446ed27_1 
     docker_args: "-i"
+  - command: bedToBigBed
+    docker_image: quay.io/biocontainers/ucsc-bedtobigbed:377--h446ed27_1 
+    docker_args: "-i"   
   - command: bigBedToBed
     docker_image: quay.io/biocontainers/ucsc-bigbedtobed:377--h446ed27_1 
     docker_args: "-i"    
