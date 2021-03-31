@@ -1,6 +1,8 @@
 manifest:
-  name: bedmaker
+  name: bedstuff
   version: 1.0.0
+  imports: 
+  - bulker/biobase:default  
   commands:
   - command: ailist
     docker_args: "-i"
