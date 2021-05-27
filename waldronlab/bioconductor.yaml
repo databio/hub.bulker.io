@@ -16,12 +16,12 @@ manifest:
     docker_image: waldronlab/bioconductor:devel
     docker_command: Rscript
     docker_args: "-it"
-  - command: rstudio-server
+  - command: rstudioserver
     docker_image: waldronlab/bioconductor:release
     docker_command: " "
     no_user: True
     no_network: True
-  - command: rstudio-server-dev
+  - command: rstudioserver-dev
     docker_image: waldronlab/bioconductor:devel
     docker_command: " "
     no_user: True
