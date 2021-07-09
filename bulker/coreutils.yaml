@@ -5,6 +5,7 @@ manifest:
   host_commands:
     - mkfifo
     - whoami
+    - rm
   commands:
   - command: arch
     docker_image: databio/alpine-coreutils
@@ -166,9 +167,6 @@ manifest:
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: realpath
-    docker_image: databio/alpine-coreutils
-    docker_args: "-i"
-  - command: rm
     docker_image: databio/alpine-coreutils
     docker_args: "-i"
   - command: rmdir
