@@ -36,13 +36,13 @@ manifest:
   - command: gnucash
     docker_image: nsheff/gnucash
   - command: jabref
-    docker_image: nsheff/jabref5
+    docker_image: nsheff/jabref
     docker_command: JabRef
   - command: jabref-cl
     docker_image: nsheff/jabref
     description:  command-line only; don't allocate TTY. Useful for background jobs.
     docker_args: "--name=jabref-cl"
-    docker_command: java -Xmx2000m -jar /JabRef.jar
+    docker_command: JabRef
   - command: libre
     docker_image: nsheff/libreoffice
     docker_command: "libreoffice -env:UserInstallation=file://////tmp/ -env:SingleAppInstance='false'"
