@@ -1,0 +1,53 @@
+manifest:
+  name: peppro
+  version: 1.0.1
+  imports:
+  - bulker/alpine:default
+  - bulker/coreutils:default
+  host_commands:
+  - python3
+  commands:
+  - command: samtools
+    docker_args: "-i"
+    docker_image: quay.io/biocontainers/samtools:1.14--hb421002_0
+  - command: bowtie2
+    docker_image: quay.io/biocontainers/bowtie2:2.4.4--py39ha4319a6_1
+  - command: seqkit
+    docker_image: quay.io/biocontainers/seqkit:2.1.0--h9ee0642_0
+  - command: fastp
+    docker_image: quay.io/biocontainers/fastp:0.23.2--h79da9fb_0
+  - command: seqtk
+    docker_args: "-i"
+    docker_image: quay.io/biocontainers/seqtk:1.3--h5bf99c6_3
+  - command: preseq
+    docker_image: quay.io/biocontainers/preseq:2.0.3--h26b358d_2
+  - command: fastq_pair 
+    docker_image: quay.io/biocontainers/fastq-pair:1.0--h1b792b2_2
+  - command: wigToBigWig
+    docker_image: quay.io/biocontainers/ucsc-wigtobigwig:377--ha8a8165_3
+    docker_args: "-i"
+  - command: bigWigCat
+    docker_image: quay.io/biocontainers/ucsc-bigwigcat:377--ha8a8165_3
+    docker_args: "-i"
+  - command: fastqc
+    docker_image: quay.io/biocontainers/fastqc:0.11.9--hdfd78af_1
+  - command: pigz
+    docker_image: nsheff/pigz
+  - command: cutadapt
+    docker_image: quay.io/biocontainers/cutadapt:3.5--py36hc5360cc_0
+  - command: flash
+    docker_image: databio/flashz
+  - command: bedtools
+    docker_args: "-i"
+    docker_image: quay.io/biocontainers/bedtools:2.30.0--h7d7f7ad_2   
+  - command: Rscript
+    docker_image: databio/rpipe
+  - command: R
+    docker_image: databio/rpipe
+    docker_command: R
+  - command: java
+    docker_image: openjdk
+    docker_args: "-i"
+  - command: perl
+    docker_image: perl
+    docker_args: "-i"
