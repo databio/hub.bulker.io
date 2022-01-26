@@ -11,7 +11,7 @@ manifest:
     docker_args: "-i"
     docker_image: quay.io/biocontainers/samtools:1.14--hb421002_0
   - command: bowtie2
-    docker_image: quay.io/biocontainers/bowtie2:2.4.4--py39ha4319a6_1
+    docker_image: quay.io/biocontainers/bowtie2:2.4.4--py38he5f0661_1
   - command: seqkit
     docker_image: quay.io/biocontainers/seqkit:2.1.0--h9ee0642_0
   - command: fastp
@@ -34,12 +34,18 @@ manifest:
   - command: pigz
     docker_image: nsheff/pigz
   - command: cutadapt
-    docker_image: quay.io/biocontainers/cutadapt:3.5--py36hc5360cc_0
+    docker_image: quay.io/biocontainers/cutadapt:3.5--py38h4a8c8d9_0
   - command: flash
     docker_image: databio/flashz
   - command: bedtools
     docker_args: "-i"
-    docker_image: quay.io/biocontainers/bedtools:2.30.0--h7d7f7ad_2   
+    docker_image: quay.io/biocontainers/bedtools:2.30.0--h7d7f7ad_2
+  - command: picard
+    docker_image: quay.io/biocontainers/picard:2.26.10--hdfd78af_0
+  - command: gt
+    docker_image: quay.io/biocontainers/genometools-genometools:1.6.2--py38h3356801_0
+  - command: seqOutBias
+    docker_image: databio/seqoutbias:0.0.1    
   - command: Rscript
     docker_image: databio/rpipe
   - command: R
