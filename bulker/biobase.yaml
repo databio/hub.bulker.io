@@ -1,6 +1,6 @@
 manifest:
   name: biobase
-  version: 0.0.5
+  version: 0.0.6
   imports: 
   - bulker/alpine:default
   - bulker/coreutils:default
@@ -83,13 +83,13 @@ manifest:
   - command: faSplit
     docker_image: quay.io/biocontainers/ucsc-fasplit:377--h446ed27_1
   - command: fastq-dump
-    docker_image: quay.io/biocontainers/sra-tools:2.10.8--pl526haddd2b5_0
+    docker_image: quay.io/biocontainers/sra-tools:2.11.0--pl5321ha49a11a_3
     docker_command: fastq-dump
   - command: fasterq-dump
-    docker_image: quay.io/biocontainers/sra-tools:2.10.8--pl526haddd2b5_0
+    docker_image: quay.io/biocontainers/sra-tools:2.11.0--pl5321ha49a11a_3
     docker_command: fasterq-dump
   - command: vdb-config
-    docker_image: quay.io/biocontainers/sra-tools:2.10.8--pl526haddd2b5_0
+    docker_image: quay.io/biocontainers/sra-tools:2.11.0--pl5321ha49a11a_3
     docker_command: vdb-config
   - command: fastqc
     docker_image: quay.io/biocontainers/fastqc:0.11.8--1  
@@ -120,7 +120,7 @@ manifest:
     docker_command: pigz
     docker_args: "-i"
   - command: prefetch
-    docker_image: quay.io/biocontainers/sra-tools:2.10.0--pl526he1b5a44_0
+    docker_image: quay.io/biocontainers/sra-tools:2.11.0--pl5321ha49a11a_3
     docker_command: prefetch
   - command: R
     docker_image: bioconductor/bioconductor_docker:RELEASE_3_11
