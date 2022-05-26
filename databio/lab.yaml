@@ -1,6 +1,6 @@
 manifest:
   name: databio
-  version: 1.1.4
+  version: 1.1.5
   imports: 
   - bulker/biobase:default
   commands:
@@ -61,6 +61,9 @@ manifest:
     docker_image: databio/bioconductor
     docker_command: R
     docker_args: "-it"
+  - command: stork
+    docker_image: databio/stork
+    docker_command: stork
   - command: xq
     docker_command: " "
     singularity_command: "xq"
