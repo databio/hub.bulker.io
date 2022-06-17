@@ -30,8 +30,6 @@ manifest:
     docker_command: " "
   - command: mkdocs
     docker_image: nsheff/mkdocs
-  - command: mm
-    docker_image: databio/sciquill
   - command: pandoc
     docker_image: databio/sciquill
     docker_args: "-i"    
