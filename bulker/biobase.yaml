@@ -1,6 +1,6 @@
 manifest:
   name: biobase
-  version: 0.0.6
+  version: 0.0.7
   imports: 
   - bulker/alpine:default
   - bulker/coreutils:default
@@ -112,6 +112,8 @@ manifest:
     docker_image: quay.io/biocontainers/macs2:2.2.6--py37h516909a_0
   - command: mashmap
     docker_image: quay.io/biocontainers/mashmap:2.0--h9dd4a16_2
+  - command: multiqc
+    docker_image: quay.io/biocontainers/multiqc:1.13a--pyhdfd78af_1
   - command: picard
     docker_image: broadinstitute/picard:2.22.3
     docker_command: picard
