@@ -1,9 +1,11 @@
 manifest:
   name: databio
-  version: 1.1.5
+  version: 1.1.6
   imports: 
   - bulker/biobase:default
   commands:
+  - command: basemount
+    docker_image: databio/basemount:0.25.2.3265
   - command: duc
     docker_image: databio/duc
     docker_command: duc
