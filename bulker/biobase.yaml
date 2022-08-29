@@ -12,8 +12,6 @@ manifest:
     docker_command: ascp
   - command: bamtools
     docker_image: quay.io/biocontainers/bamtools:2.5.1--he860b03_5
-  - command: basemount
-    docker_image: databio/basemount:0.25.2.3265
   - command: bedClip
     docker_image: quay.io/biocontainers/ucsc-bedclip:377--h446ed27_1    
     docker_args: "-i" 
