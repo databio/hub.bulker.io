@@ -1,6 +1,6 @@
 manifest:
   name: nsheff
-  version: 1.0.0
+  version: 1.0.1
   imports:
     - databio/sciquill
     - databio/lab
@@ -31,7 +31,7 @@ manifest:
   - command: ffmpeg
     docker_image: nsheff/ffmpeg
   - command: igv
-    docker_image: nsheff/igv
+    docker_image: databio/igv
     docker_command: sh /IGV_2.4.13/igv.sh
   - command: gnucash
     docker_image: nsheff/gnucash
