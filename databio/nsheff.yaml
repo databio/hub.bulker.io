@@ -1,6 +1,6 @@
 manifest:
   name: nsheff
-  version: 1.0.1
+  version: 1.0.2
   imports:
     - databio/sciquill
     - databio/lab
@@ -21,7 +21,7 @@ manifest:
   - command: git
     docker_image: nsheff/git
   - command: inkscape
-    docker_image: nsheff/vis
+    docker_image: databio/vis:22.04
   - command: jekyll
     docker_image: databio/jekyll
     docker_command: jekyll
