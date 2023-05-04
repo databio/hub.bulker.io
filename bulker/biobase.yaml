@@ -1,6 +1,6 @@
 manifest:
   name: biobase
-  version: 0.0.7
+  version: 0.0.8
   imports: 
   - bulker/alpine:default
   - bulker/coreutils:default
@@ -156,7 +156,7 @@ manifest:
   - command: skewer
     docker_image: quay.io/biocontainers/skewer:0.2.2--h2d50403_2   
   - command: samblaster
-    docker_image: quay.io/biocontainers/0.1.26--hc9558a2_0
+    docker_image: quay.io/biocontainers/samblaster:0.1.26--hc9558a2_0
   - command: STAR
     docker_image: quay.io/biocontainers/star:2.7.3a--0
   - command: tabix

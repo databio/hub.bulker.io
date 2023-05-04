@@ -1,6 +1,6 @@
 manifest:
   name: sciquill
-  version: 1.0.0
+  version: 1.1.0
   imports: 
   - bulker/alpinebase:default
   host_commands:
@@ -15,10 +15,10 @@ manifest:
   - command: inkscape
     docker_image: nsheff/vis
   - command: jabref
-    docker_image: nsheff/jabref5
+    docker_image: databio/jabref:5.9
     docker_command: JabRef
   - command: jabref-cl
-    docker_image: nsheff/jabref
+    docker_image: databio/jabref:5.9
     description:  command-line only; don't allocate TTY. Useful for background jobs.
     docker_args: "--name=jabref-cl"
     docker_command: JabRef
