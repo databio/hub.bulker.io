@@ -30,11 +30,11 @@ manifest:
     docker_args: "--link elasticsearch:elasticsearch -p 5601:5601"
   - command: ffmpeg
     docker_image: nsheff/ffmpeg
+  - command: gnucash
+    docker_image: nsheff/gnucash
   - command: igv
     docker_image: nsheff/igv
     docker_command: sh /IGV_2.4.13/igv.sh
-  - command: gnucash
-    docker_image: nsheff/gnucash
   - command: libre
     docker_image: nsheff/libreoffice
     docker_command: "libreoffice -env:UserInstallation=file://////tmp/ -env:SingleAppInstance='false'"
