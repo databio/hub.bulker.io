@@ -1,6 +1,6 @@
 manifest:
   name: pepatac
-  version: 1.0.11
+  version: 1.0.12
   imports:
   - bulker/alpine:default
   - bulker/coreutils:default
