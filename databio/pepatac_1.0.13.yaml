@@ -60,4 +60,5 @@ manifest:
     docker_image: quay.io/biocontainers/skewer:0.2.2--hc9558a2_3
   - command: trimmomatic
     docker_image: quay.io/biocontainers/trimmomatic:0.39--hdfd78af_2
-
+  - command: gtars
+    docker_image: quay.io/biocontainers/rust-gtars:0.2.0--h4349ce8_0
