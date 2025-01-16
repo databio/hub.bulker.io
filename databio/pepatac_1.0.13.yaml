@@ -15,13 +15,13 @@ manifest:
     docker_args: "-i"
   - command: bedtools
     docker_args: "-i"
-    docker_image: quay.io/biocontainers/bedtools:2.30.0--h468198e_3
+    docker_image: quay.io/biocontainers/bedtools:2.31.1--hf5e1c6e_1
   - command: bowtie2
-    docker_image: quay.io/biocontainers/bowtie2:2.5.0--py38h77f66f0_0
+    docker_image: quay.io/biocontainers/bowtie2:2.5.4--he20e202_1
   - command: bwa
     docker_image: quay.io/biocontainers/bwa:0.7.17--h7132678_9
   - command: fastqc
-    docker_image: quay.io/biocontainers/fastqc:0.11.9--0
+    docker_image: quay.io/biocontainers/fastqc:0.12.1--hdfd78af_0
   - command: findPeaks
     docker_image: quay.io/biocontainers/homer:4.11--pl5321h9f5acd7_7
   - command: findMotifsGenome.pl
@@ -36,9 +36,9 @@ manifest:
     docker_image: openjdk
     docker_args: "-i"
   - command: macs3
-    docker_image: quay.io/biocontainers/macs3:3.0.2--py312he57d009_1
+    docker_image: quay.io/biocontainers/macs3:3.0.1--py310h83093d7_1
   - command: picard
-    docker_image: quay.io/biocontainers/picard:2.27.4--hdfd78af_0
+    docker_image: quay.io/biocontainers/picard:2.27.5--hdfd78af_0
   - command: pigz
     docker_image: nsheff/pigz
   - command: preseq
@@ -53,7 +53,7 @@ manifest:
     docker_args: "-i"
   - command: samtools
     docker_args: "-i"
-    docker_image: quay.io/biocontainers/samtools:1.16.1--h6899075_1
+    docker_image: quay.io/biocontainers/samtools:1.21--h96c455f_1
   - command: seqOutBias
     docker_image: databio/seqoutbias:0.0.1
   - command: skewer
