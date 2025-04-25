@@ -1,23 +1,23 @@
 manifest:
   name: bioconductor
-  version: 3.19
+  version: 3.21
   commands:
   - command: R
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_19
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_21
     docker_args: "-it"
   - command: Rdev
     docker_image: bioconductor/bioconductor_docker:devel
     docker_command: R
     docker_args: "-it"
   - command: Rscript
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_19
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_21
     docker_args: "-it"
   - command: Rscriptdev
     docker_image: bioconductor/bioconductor_docker:devel
     docker_command: Rscript
     docker_args: "-it"
   - command: rstudioserver
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_19
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_21
     docker_command: " "
     no_user: True
     no_network: True
