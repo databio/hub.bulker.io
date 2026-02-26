@@ -1,0 +1,20 @@
+name: Validate manifests
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install pyyaml
+      - name: Validate manifests (structural)
+        run: python validate_manifests.py
+      - name: Validate image tags
+        run: python validate_manifests.py --check-tags

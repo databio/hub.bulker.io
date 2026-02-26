@@ -1,0 +1,69 @@
+manifest:
+  name: pepatac
+  version: 1.0.7
+  imports:
+  - bulker/alpine:default
+  - bulker/coreutils:default
+  host_commands:
+  - python3
+  - perl
+  commands:
+  - command: bedGraphToBigWig
+    docker_image: quay.io/biocontainers/ucsc-bedgraphtobigwig:357--h35c10e6_3 
+  - command: bedToBigBed
+    docker_image: quay.io/biocontainers/ucsc-bedtobigbed:357--1
+    docker_args: "-i"
+  - command: bedtools
+    docker_args: "-i"
+    docker_image: quay.io/biocontainers/bedtools:2.29.2--hc088bd4_0  
+  - command: bigWigCat
+    docker_image: quay.io/biocontainers/ucsc-bigwigcat:357--1
+    docker_args: "-i"
+  - command: bowtie2
+    docker_image: quay.io/biocontainers/bowtie2:2.4.1--py37h8270d21_3
+  - command: bwa
+    docker_image: quay.io/biocontainers/bwa:0.7.8--hed695b0_5
+  - command: fastqc
+    docker_image: quay.io/biocontainers/fastqc:0.11.9--0
+  - command: findPeaks
+    docker_image: quay.io/biocontainers/homer:4.11--pl526hc9558a2_3
+  - command: findMotifsGenome.pl
+    docker_image: quay.io/biocontainers/homer:4.11--pl526hc9558a2_3
+  - command: fseq
+    docker_image: quay.io/biocontainers/fseq:1.84--py35pl5.22.0_0
+  - command: Genrich
+    docker_image: quay.io/biocontainers/genrich:0.6--hed695b0_0
+  - command: hmmratac
+    docker_image: quay.io/biocontainers/hmmratac:1.2.10--0
+  - command: java
+    docker_image: openjdk
+    docker_args: "-i"
+  - command: macs2
+    docker_image: quay.io/biocontainers/macs2:2.2.7.1--py37h516909a_0
+  - command: picard
+    docker_image: quay.io/biocontainers/picard:2.23.3--0
+  - command: pigz
+    docker_image: nsheff/pigz
+  - command: preseq
+    docker_image: quay.io/biocontainers/preseq:2.0.3--h26b358d_2
+  - command: R
+    docker_image: databio/rpipe:0.2.4
+    docker_command: R
+  - command: Rscript
+    docker_image: databio/rpipe:0.2.4
+  - command: samblaster
+    docker_image: quay.io/biocontainers/samblaster:0.1.26--hc9558a2_0
+    docker_args: "-i"
+  - command: samtools
+    docker_args: "-i"
+    docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
+  - command: seqOutBias
+    docker_image: databio/seqoutbias:0.0.1
+  - command: skewer
+    docker_image: quay.io/biocontainers/skewer:0.2.2--h2d50403_2
+  - command: trimmomatic
+    docker_image: quay.io/biocontainers/trimmomatic:0.35--6
+  - command: wigToBigWig
+    docker_image: quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3 
+    docker_args: "-i"
+

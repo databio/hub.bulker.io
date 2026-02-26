@@ -1,0 +1,113 @@
+manifest:
+  name: metagenomics
+  version: 1.0.0
+  commands:
+  - command: metaphlan
+    docker_image: waldronlab/curatedmetagenomics
+  - command: merge_metaphlan_tables.py
+    docker_image: waldronlab/curatedmetagenomics
+  - command: strainphlan
+    docker_image: waldronlab/curatedmetagenomics
+  - command: humann3
+    docker_image: waldronlab/curatedmetagenomics
+  - command: humann3_databases
+    docker_image: waldronlab/curatedmetagenomics
+  - command: humann_renorm_table
+    docker_image: waldronlab/curatedmetagenomics
+  - command: humann_test
+    docker_image: waldronlab/curatedmetagenomics
+  - command: curatedMetagenomicData_pipeline.sh
+    docker_image: waldronlab/curatedmetagenomics
+  - command: run_markers2.py
+    docker_image: waldronlab/curatedmetagenomics
+  - command: abi-load
+    docker_image: waldronlab/sratoolkit
+  - command: abi-dump
+    docker_image: waldronlab/sratoolkit
+  - command: align-info
+    docker_image: waldronlab/sratoolkit
+  - command: bam-load
+    docker_image: waldronlab/sratoolkit
+  - command: blastn_vdb
+    docker_image: waldronlab/sratoolkit
+  - command: cache-mgr
+    docker_image: waldronlab/sratoolkit
+  - command: cg-load
+    docker_image: waldronlab/sratoolkit
+  - command: dump-ref-fasta
+    docker_image: waldronlab/sratoolkit
+  - command: fasterq-dump
+    docker_image: waldronlab/sratoolkit
+  - command: fastq-dump
+    docker_image: waldronlab/sratoolkit
+  - command: fastq-load
+    docker_image: waldronlab/sratoolkit
+  - command: helicos-load
+    docker_image: waldronlab/sratoolkit
+  - command: illumina-dump
+    docker_image: waldronlab/sratoolkit
+  - command: illumina-load
+    docker_image: waldronlab/sratoolkit
+  - command: kar
+    docker_image: waldronlab/sratoolkit
+  - command: kdbmeta
+    docker_image: waldronlab/sratoolkit
+  - command: latf-load
+    docker_image: waldronlab/sratoolkit
+  - command: pacbio-load
+    docker_image: waldronlab/sratoolkit
+  - command: prefetch
+    docker_image: waldronlab/sratoolkit
+  - command: rcexplain
+    docker_image: waldronlab/sratoolkit
+  - command: remote-fuser
+    docker_image: waldronlab/sratoolkit
+  - command: sam-dump
+    docker_image: waldronlab/sratoolkit
+  - command: sff-dump
+    docker_image: waldronlab/sratoolkit
+  - command: sff-load
+    docker_image: waldronlab/sratoolkit
+  - command: sra-blastn
+    docker_image: waldronlab/sratoolkit
+  - command: sra-pileup
+    docker_image: waldronlab/sratoolkit
+  - command: sra-search
+    docker_image: waldronlab/sratoolkit
+  - command: sra-sort
+    docker_image: waldronlab/sratoolkit
+  - command: sra-sort-cg
+    docker_image: waldronlab/sratoolkit
+  - command: sra-stat
+    docker_image: waldronlab/sratoolkit
+  - command: sra-tblastn
+    docker_image: waldronlab/sratoolkit
+  - command: srapath
+    docker_image: waldronlab/sratoolkit
+  - command: sratools
+    docker_image: waldronlab/sratoolkit
+  - command: srf-load
+    docker_image: waldronlab/sratoolkit
+  - command: tblastn_vdb
+    docker_image: waldronlab/sratoolkit
+  - command: test-sra
+    docker_image: waldronlab/sratoolkit
+  - command: vdb-config
+    docker_image: waldronlab/sratoolkit
+  - command: vdb-copy
+    docker_image: waldronlab/sratoolkit
+  - command: vdb-decrypt
+    docker_image: waldronlab/sratoolkit
+  - command: vdb-dump
+    docker_image: waldronlab/sratoolkit
+  - command: vdb-encrypt
+    docker_image: waldronlab/sratoolkit
+  - command: vdb-lock
+    docker_image: waldronlab/sratoolkit
+  - command: vdb-passwd
+    docker_image: waldronlab/sratoolkit
+  - command: vdb-unlock
+    docker_image: waldronlab/sratoolkit
+  - command: vdb-validate
+    docker_image: waldronlab/sratoolkit
+

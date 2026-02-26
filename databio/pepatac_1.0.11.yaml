@@ -9,25 +9,25 @@ manifest:
   - perl
   commands:
   - command: bedGraphToBigWig
-    docker_image: quay.io/biocontainers/ucsc-bedgraphtobigwig:357--h35c10e6_3 
+    docker_image: quay.io/biocontainers/ucsc-bedgraphtobigwig:357--h35c10e6_3
   - command: bedToBigBed
     docker_image: quay.io/biocontainers/ucsc-bedtobigbed:357--1
-    docker_args: "-i"
+    docker_args: -i
   - command: bedtools
-    docker_args: "-i"
+    docker_args: -i
     docker_image: quay.io/biocontainers/bedtools:2.30.0--h468198e_3
   - command: bigWigCat
     docker_image: quay.io/biocontainers/ucsc-bigwigcat:357--1
-    docker_args: "-i"
+    docker_args: -i
   - command: bowtie2
     docker_image: quay.io/biocontainers/bowtie2:2.5.0--py38h77f66f0_0
   - command: bwa
     docker_image: quay.io/biocontainers/bwa:0.7.17--h7132678_9
   - command: fastqc
     docker_image: quay.io/biocontainers/fastqc:0.11.9--0
-  - command: findPeaks
-    docker_image: quay.io/biocontainers/homer:4.11--pl5321h9f5acd7_7
   - command: findMotifsGenome.pl
+    docker_image: quay.io/biocontainers/homer:4.11--pl5321h9f5acd7_7
+  - command: findPeaks
     docker_image: quay.io/biocontainers/homer:4.11--pl5321h9f5acd7_7
   - command: fseq
     docker_image: quay.io/biocontainers/fseq:1.84--py35pl5.22.0_0
@@ -37,7 +37,7 @@ manifest:
     docker_image: quay.io/biocontainers/hmmratac:1.2.10--hdfd78af_1
   - command: java
     docker_image: openjdk
-    docker_args: "-i"
+    docker_args: -i
   - command: macs2
     docker_image: quay.io/biocontainers/macs2:2.2.7.1--py38hbff2b2d_5
   - command: macs3
@@ -55,9 +55,9 @@ manifest:
     docker_image: databio/rpipe:0.3.1
   - command: samblaster
     docker_image: quay.io/biocontainers/samblaster:0.1.26--h9f5acd7_2
-    docker_args: "-i"
+    docker_args: -i
   - command: samtools
-    docker_args: "-i"
+    docker_args: -i
     docker_image: quay.io/biocontainers/samtools:1.16.1--h6899075_1
   - command: seqOutBias
     docker_image: databio/seqoutbias:0.0.1
@@ -66,6 +66,5 @@ manifest:
   - command: trimmomatic
     docker_image: quay.io/biocontainers/trimmomatic:0.39--hdfd78af_2
   - command: wigToBigWig
-    docker_image: quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3 
-    docker_args: "-i"
-
+    docker_image: quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3
+    docker_args: -i

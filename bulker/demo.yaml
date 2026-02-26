@@ -1,12 +1,1 @@
-manifest:
-  name: demo
-  version: 1.0.0
-  commands:
-  - command: cowsay
-    docker_image: nsheff/cowsay
-    docker_command: cowsay
-    dockerargs: "-i"
-  - command: fortune
-    docker_image: nsheff/fortune
-    docker_command: fortune
-    
+demo_1.0.0.yaml

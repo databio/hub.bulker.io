@@ -1,0 +1,32 @@
+manifest:
+  name: databio
+  version: 1.0.0
+  import:
+  - bulker/alpine:default
+  - databio/pepkit:default
+  - databio/lab:1.0
+  commands:
+  - command: geofetch
+    docker_image: nsheff/geofetch
+    docker_args: -i
+    docker_command: geofetch
+  - command: pigz
+    docker_image: nsheff/pigz
+    docker_command: pigz
+    docker_args: -i
+  - command: pip3
+    docker_image: nsheff/python3
+  - command: prefetch
+    docker_image: humancellatlas/sratools
+    docker_command: prefetch
+  - command: python3
+    docker_args: -it
+    docker_image: python:3.7.4
+    docker_command: python3
+  - command: R
+    docker_image: nsheff/rbase
+    docker_command: R
+    docker_args: -it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library
+  - command: samtools
+    docker_args: -i
+    docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8

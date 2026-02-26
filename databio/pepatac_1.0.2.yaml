@@ -1,0 +1,50 @@
+manifest:
+  name: pepatac
+  version: 1.0.2
+  imports:
+  - bulker/alpine:default
+  - bulker/coreutils:default
+  host_commands:
+  - python3
+  - perl
+  commands:
+  - command: bedGraphToBigWig
+    docker_image: quay.io/biocontainers/ucsc-bedgraphtobigwig:357--h35c10e6_3
+  - command: bedToBigBed
+    docker_image: quay.io/biocontainers/ucsc-bedtobigbed:357--1
+    docker_args: -i
+  - command: bedtools
+    docker_args: -i
+    docker_image: quay.io/biocontainers/bedtools:2.29.0--hc088bd4_3
+  - command: bigWigCat
+    docker_image: quay.io/biocontainers/ucsc-bigwigcat:357--1
+    docker_args: -i
+  - command: bowtie2
+    docker_image: quay.io/biocontainers/bowtie2:2.3.5--py37he860b03_0
+  - command: fastqc
+    docker_image: quay.io/biocontainers/fastqc:0.11.8--1
+  - command: java
+    docker_image: openjdk
+    docker_args: -i
+  - command: macs2
+    docker_image: quay.io/biocontainers/macs2:2.2.7.1--py37h516909a_0
+  - command: pigz
+    docker_image: nsheff/pigz
+  - command: preseq
+    docker_image: quay.io/biocontainers/preseq:2.0.3--h26b358d_2
+  - command: R
+    docker_image: databio/rpipe
+    docker_command: R
+  - command: Rscript
+    docker_image: databio/rpipe
+  - command: samblaster
+    docker_image: quay.io/biocontainers/samblaster:0.1.24--hc9558a2_3
+    docker_args: -i
+  - command: samtools
+    docker_args: -i
+    docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
+  - command: skewer
+    docker_image: quay.io/biocontainers/skewer:0.2.2--h2d50403_2
+  - command: wigToBigWig
+    docker_image: quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3
+    docker_args: -i

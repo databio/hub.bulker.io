@@ -1,7 +1,1 @@
-manifest:
-  name: nsheff
-  version: 1.0.0
-  commands:
-  - command: vep
-    docker_image: quay.io/biocontainers/ensembl-vep:94.5--pl526ha4d7672_0
-    docker_command: vep
+vep_1.0.0.yaml

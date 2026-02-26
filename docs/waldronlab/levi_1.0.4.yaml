@@ -1,0 +1,23 @@
+manifest:
+  name: levi
+  version: 1.0.4
+  commands:
+  - command: emacs
+    docker_image: silex/emacs:master-alpine
+    docker_args: "-it"
+  - command: pdftk
+    docker_image: mnuessler/pdftk
+    docker_args: -v $(pwd):/work
+    docker_command: " "
+  - command: jekyll
+    docker_image: nsheff/jekyll
+    docker_command: jekyll
+  - command: bundle
+    docker_image: nsheff/jekyll
+    docker_command: bundle
+    docker_args: -p 4000:4000
+  - command: gcloud
+    docker_image: google/cloud-sdk
+    docker_args: "-it"
+  - command: gsutil
+    docker_image: google/cloud-sdk

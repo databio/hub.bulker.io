@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>databio/nsheff — Bulker Registry</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo"><img src="/favicon.svg" alt="bulker">bulker registry</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/channels.html">Channels</a>
+                <a href="https://bulker.io" target="_blank">Docs</a>
+                <a href="https://github.com/databio/hub.bulker.io" target="_blank">GitHub</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+
+
+<section class="page-header">
+    <h1>databio/nsheff</h1>
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/databio/">databio</a> / nsheff</p>
+    
+</section>
+
+<section class="install-section">
+    <h2>Install</h2>
+    <div class="install-box">
+        <code id="install-cmd">bulker activate databio/nsheff:1.0.2</code>
+        <button class="copy-btn" onclick="copyInstall()">Copy</button>
+    </div>
+</section>
+
+
+<section class="tags-section">
+    <h2>Tags</h2>
+    <div class="tag-list">
+        
+        <span class="tag tag-latest">
+            1.0.2
+            <small>(v1.0.2)</small>
+            <small>[latest]</small>
+            — 20 commands
+        </span>
+        
+        <span class="tag ">
+            1.0.0
+            <small>(v1.0.0)</small>
+            
+            — 1 commands
+        </span>
+        
+    </div>
+</section>
+
+
+
+<section class="commands-section">
+    <h2>Commands (20)</h2>
+    <table class="commands-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Docker Image</th>
+                <th>Args</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td><code>bundle</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/databio/jekyll" target="_blank">databio/jekyll</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>convert</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/databio/imagemagick" target="_blank">databio/imagemagick</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>duc</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/databio/duc" target="_blank">databio/duc</a>
+                    
+                    
+                </td>
+                <td><code>-it</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>elasticsearch</code></td>
+                <td>
+                    
+                    
+                    elasticsearch:7.5.1
+                    
+                    
+                </td>
+                <td><code>-p 9200:9200 -p 9300:9300 --name elasticsearch -m 8G</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>git</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/git" target="_blank">nsheff/git</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>inkscape</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/databio/vis" target="_blank">databio/vis:22.04</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>jekyll</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/databio/jekyll" target="_blank">databio/jekyll</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>kibana</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/docker.elastic.co/kibana/kibana" target="_blank">docker.elastic.co/kibana/kibana:6.5.4</a>
+                    
+                    
+                </td>
+                <td><code>--link elasticsearch:elasticsearch -p 5601:5601</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>ffmpeg</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/ffmpeg" target="_blank">nsheff/ffmpeg</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>gnucash</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/gnucash" target="_blank">nsheff/gnucash</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>igv</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/databio/igv" target="_blank">databio/igv</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>libre</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/libreoffice" target="_blank">nsheff/libreoffice</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>mkdocs</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/mkdocs" target="_blank">nsheff/mkdocs</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>notable</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/notable" target="_blank">nsheff/notable</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>npm</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/amaysim/serverless" target="_blank">amaysim/serverless:1.53.0</a>
+                    
+                    
+                </td>
+                <td><code>-i</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>pcloudcc</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/pcloud" target="_blank">nsheff/pcloud</a>
+                    
+                    
+                </td>
+                <td><code>-i</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>redis-server</code></td>
+                <td>
+                    
+                    
+                    redis:5.0.5
+                    
+                    
+                </td>
+                <td><code>--name redis-server</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>redis-cli</code></td>
+                <td>
+                    
+                    
+                    redis:5.0.5
+                    
+                    
+                </td>
+                <td><code>-h redis-server -it</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>subl</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/sublime" target="_blank">nsheff/sublime</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>serverless</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/amaysim/serverless" target="_blank">amaysim/serverless:1.53.0</a>
+                    
+                    
+                </td>
+                <td><code>-i</code></td>
+            </tr>
+            
+        </tbody>
+    </table>
+</section>
+
+
+
+<section class="imports-section">
+    <h2>Imports</h2>
+    <ul>
+        
+        <li>
+            
+            
+            
+            
+            
+            <a href="/databio/sciquill.html"><code>databio/sciquill:default</code></a>
+            
+        </li>
+        
+        <li>
+            
+            
+            
+            
+            
+            <a href="/databio/lab.html"><code>databio/lab:default</code></a>
+            
+        </li>
+        
+    </ul>
+</section>
+
+
+
+
+<section class="raw-section">
+    <h2>
+        <button class="toggle-btn" onclick="toggleRaw()">Raw Manifest</button>
+    </h2>
+    <pre id="raw-manifest" style="display:none;"><code>manifest:
+  name: nsheff
+  version: 1.0.2
+  imports:
+    - databio/sciquill:default
+    - databio/lab:default
+  commands:
+  - command: bundle
+    docker_image: databio/jekyll
+    docker_command: bundle
+  - command: convert
+    docker_image: databio/imagemagick
+    docker_command: &#34;convert&#34;
+  - command: duc
+    docker_image: databio/duc
+    docker_command: duc
+    docker_args: &#34;-it&#34;
+  - command: elasticsearch
+    docker_image: elasticsearch:7.5.1
+    docker_args: &#34;-p 9200:9200 -p 9300:9300 --name elasticsearch -m 8G&#34;
+  - command: git
+    docker_image: nsheff/git
+  - command: inkscape
+    docker_image: databio/vis:22.04
+  - command: jekyll
+    docker_image: databio/jekyll
+    docker_command: jekyll
+  - command: kibana
+    docker_image: docker.elastic.co/kibana/kibana:6.5.4
+    docker_args: &#34;--link elasticsearch:elasticsearch -p 5601:5601&#34;
+  - command: ffmpeg
+    docker_image: nsheff/ffmpeg
+  - command: gnucash
+    docker_image: nsheff/gnucash
+  - command: igv
+    docker_image: databio/igv
+    docker_command: sh /IGV_2.4.13/igv.sh
+  - command: libre
+    docker_image: nsheff/libreoffice
+    docker_command: &#34;libreoffice -env:UserInstallation=file://////tmp/ -env:SingleAppInstance=&#39;false&#39;&#34;
+  - command: mkdocs
+    docker_image: nsheff/mkdocs
+  - command: notable
+    docker_image: nsheff/notable
+  - command: npm
+    docker_image: amaysim/serverless:1.53.0
+    docker_args: &#34;-i&#34;
+  - command: pcloudcc
+    docker_image: nsheff/pcloud
+    docker_args: &#34;-i&#34;
+  - command: redis-server
+    docker_image: redis:5.0.5
+    docker_command: &#34;redis-server&#34;
+    docker_args: &#34;--name redis-server&#34;
+    workdir: &#34;/data&#34;
+  - command: redis-cli
+    docker_image: redis:5.0.5
+    docker_command: &#34;redis-cli&#34;
+    docker_args: &#34;-h redis-server -it&#34;
+    workdir: &#34;/data&#34;
+  - command: subl
+    docker_image: nsheff/sublime
+  - command: serverless
+    docker_image: amaysim/serverless:1.53.0
+    docker_args: &#34;-i&#34;
+</code></pre>
+</section>
+
+<p class="manifest-link">
+    <a href="https://github.com/databio/hub.bulker.io/blob/master/databio/nsheff_1.0.2.yaml">View on GitHub</a> |
+    <a href="/databio/nsheff_1.0.2.yaml">Raw YAML</a>
+</p>
+
+    </main>
+    <footer>
+        <p>
+            <a href="https://bulker.io">bulker.io</a> |
+            <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
+            49 manifests across 3 namespaces
+        </p>
+    </footer>
+    
+<script>
+function copyInstall() {
+    var text = document.getElementById('install-cmd').textContent;
+    navigator.clipboard.writeText(text).then(function() {
+        var btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+    });
+}
+function toggleRaw() {
+    var el = document.getElementById('raw-manifest');
+    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+manifest:
+  name: databio
+  version: 1.0.0
+  imports: 
+  - bulker/alpinebase:default
+  commands:
+  - command: prefetch
+    docker_image: quay.io/biocontainers/sra-tools:2.10.0--pl526he1b5a44_0
+    docker_command: prefetch
+  - command: fastq-dump
+    docker_image: quay.io/biocontainers/sra-tools:2.10.0--pl526he1b5a44_0
+    docker_command: fastq-dump
+  - command: samtools
+    docker_args: "-i"
+    docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
+  - command: R
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_10
+    docker_command: R
+    docker_args: "-it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" 
+  - command: Rscript
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_10
+    docker_command: Rscript
+    docker_args: "-it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" 
+  - command: pigz
+    docker_image: nsheff/pigz
+    docker_command: pigz
+    docker_args: "-i"
+  - command: geofetch
+    docker_image: databio/geofetch    
+    docker_args: "-i"
+    docker_command: geofetch
+  - command: ascp
+    docker_image: ibmcom/aspera-cli:3.9.1
+    docker_command: ascp
+  - command: curl
+    docker_image: curlimages/curl:7.69.1
+    docker_command: curl
+    docker_args: "-i"    
+  - command: sambamba
+    docker_image: quay.io/biocontainers/sambamba:0.7.1--h148d290_0
+  - command: bedtools
+    docker_image: quay.io/biocontainers/bedtools:2.29.0--hc088bd4_3
+  - command: bamtools
+    docker_image: quay.io/biocontainers/bamtools:2.5.1--he860b03_5
+  - command: bismark
+    docker_image: quay.io/biocontainers/bismark:0.22.1--0
+  - command: bissnp
+    docker_image: quay.io/biocontainers/bis-snp:1.0.1--2
+  - command: macs2
+    docker_image: quay.io/biocontainers/macs2:2.2.6--py37h516909a_0
+  - command: bwa
+    docker_image: quay.io/biocontainers/bwa:0.7.17--pl5.22.0_2
+  - command: hisat2
+    docker_image: quay.io/biocontainers/hisat2:2.0.4--py35_0
+  - command: salmon
+    docker_image: combinelab/salmon:1.0.0
+  - command: kallisto
+    docker_image: quay.io/biocontainers/kallisto:0.42.4--2
+  - command: trim_galore
+    docker_image: quay.io/biocontainers/trim-galore:0.6.5--0
+  - command: trimmomatic
+    docker_image: quay.io/biocontainers/trimmomatic:0.35--6
+  - command: skewer
+    docker_image: quay.io/biocontainers/skewer:0.2.2--h2d50403_2   
+  - command: cufflinks
+    docker_image: quay.io/biocontainers/cufflinks:2.2.1--py27_2
+  - command: samblaster
+    docker_image: quay.io/biocontainers/samblaster:0.1.24--hc9558a2_3
+  - command: bsmap
+    docker_image: quay.io/biocontainers/bsmap:2.90--he860b03_2
+  - command: aws
+    docker_image: mesosphere/aws-cli
+  - command: rg
+    docker_image: peccu/rg
+  - command: homer
+    docker_image: quay.io/biocontainers/homer:4.10--pl526hc9558a2_0
+  - command: bigWigAverageOverBed
+    docker_image: quay.io/biocontainers/ucsc-bigwigaverageoverbed:377--h199ee4e_0

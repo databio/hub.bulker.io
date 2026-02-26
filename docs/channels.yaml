@@ -1,0 +1,5 @@
+channels:
+  - name: hub
+    url: https://hub.bulker.io
+    description: "Official bulker registry"
+    official: true

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bulker/alpinebase — Bulker Registry</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo"><img src="/favicon.svg" alt="bulker">bulker registry</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/channels.html">Channels</a>
+                <a href="https://bulker.io" target="_blank">Docs</a>
+                <a href="https://github.com/databio/hub.bulker.io" target="_blank">GitHub</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+
+
+<section class="page-header">
+    <h1>bulker/alpinebase</h1>
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/bulker/">bulker</a> / alpinebase</p>
+    
+    <p class="crate-desc">Used to test the host_commands domain, which allows creating isolated bulker environnments. This is the minimal set of host commands required for docker/bulker to run.</p>
+    
+</section>
+
+<section class="install-section">
+    <h2>Install</h2>
+    <div class="install-box">
+        <code id="install-cmd">bulker activate bulker/alpinebase</code>
+        <button class="copy-btn" onclick="copyInstall()">Copy</button>
+    </div>
+</section>
+
+
+
+
+
+
+<section class="imports-section">
+    <h2>Imports</h2>
+    <ul>
+        
+        <li>
+            
+            
+            
+            
+            
+            <a href="/bulker/alpine.html"><code>bulker/alpine:default</code></a>
+            
+        </li>
+        
+    </ul>
+</section>
+
+
+
+<section class="host-commands-section">
+    <h2>Host Commands (8)</h2>
+    <p class="note">These commands are provided by the host system, not containers.</p>
+    <div class="host-cmd-list">
+        
+        <code class="host-cmd">grep</code>
+        
+        <code class="host-cmd">make</code>
+        
+        <code class="host-cmd">cat</code>
+        
+        <code class="host-cmd">sed</code>
+        
+        <code class="host-cmd">awk</code>
+        
+        <code class="host-cmd">stat</code>
+        
+        <code class="host-cmd">bash</code>
+        
+        <code class="host-cmd">echo</code>
+        
+    </div>
+</section>
+
+
+<section class="raw-section">
+    <h2>
+        <button class="toggle-btn" onclick="toggleRaw()">Raw Manifest</button>
+    </h2>
+    <pre id="raw-manifest" style="display:none;"><code>manifest:
+  name: alpinebase
+  imports: 
+  - bulker/alpine:default  
+  commands: null
+  description: Used to test the host_commands domain, which allows creating isolated bulker environnments. This is the minimal set of host commands required for docker/bulker to run.
+  host_commands:
+  - grep
+  - make
+  - cat
+  - sed
+  - awk
+  - stat
+  - bash
+  - echo
+</code></pre>
+</section>
+
+<p class="manifest-link">
+    <a href="https://github.com/databio/hub.bulker.io/blob/master/bulker/alpinebase.yaml">View on GitHub</a> |
+    <a href="/bulker/alpinebase.yaml">Raw YAML</a>
+</p>
+
+    </main>
+    <footer>
+        <p>
+            <a href="https://bulker.io">bulker.io</a> |
+            <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
+            49 manifests across 3 namespaces
+        </p>
+    </footer>
+    
+<script>
+function copyInstall() {
+    var text = document.getElementById('install-cmd').textContent;
+    navigator.clipboard.writeText(text).then(function() {
+        var btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+    });
+}
+function toggleRaw() {
+    var el = document.getElementById('raw-manifest');
+    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+
+</body>
+</html>

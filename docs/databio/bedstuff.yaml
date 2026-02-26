@@ -1,0 +1,24 @@
+manifest:
+  name: bedstuff
+  version: 1.0.0
+  imports: 
+  - bulker/biobase:default  
+  commands:
+  - command: ailist
+    docker_args: "-i"
+    docker_image: databio/ailist
+    docker_command: ailist
+  - command: wigToBigWig
+    docker_args: "-i"
+    docker_image: quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3 
+    docker_command: wigToBigWig 
+  - command: bigWigToBedGraph
+    docker_image: quay.io/biocontainers/ucsc-bigwigtobedgraph:357--1
+    docker_command: bigWigToBedGraph 
+  - command: bigBedToBed
+    docker_image: quay.io/biocontainers/ucsc-bigbedtobed:357--1
+    docker_command: bigBedToBed
+  
+
+
+

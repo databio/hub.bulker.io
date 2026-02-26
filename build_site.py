@@ -103,6 +103,8 @@ def discover_manifests(root: Path) -> list[dict]:
             continue
         namespace_dir = entry
         for yaml_file in sorted(namespace_dir.glob("*.yaml")):
+            if yaml_file.is_symlink():
+                continue  # skip symlinks, they duplicate a versioned file
             parsed = parse_manifest_file(yaml_file)
             if parsed:
                 manifests.append(parsed)
@@ -265,12 +267,14 @@ def render_site(namespaces: dict, manifests: list[dict], channels: list[dict]):
     print(f"  Wrote docs/channels.html")
 
     # Copy YAML manifest files into docs/ so CLI URLs work when serving from docs/
+    # Symlinks are resolved (copied as regular files) so docs/ is self-contained
     for entry in sorted(ROOT.iterdir()):
         if not entry.is_dir() or entry.name in SKIP_DIRS or entry.name.startswith("."):
             continue
         dest_dir = DOCS / entry.name
         dest_dir.mkdir(exist_ok=True)
         for yaml_file in sorted(entry.glob("*.yaml")):
+            # follow_symlinks=True (default) resolves symlinks to regular files
             shutil.copy2(yaml_file, dest_dir / yaml_file.name)
     print(f"  Copied manifest YAML files to docs/")
 

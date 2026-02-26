@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>waldronlab/bioconductor — Bulker Registry</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo"><img src="/favicon.svg" alt="bulker">bulker registry</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/channels.html">Channels</a>
+                <a href="https://bulker.io" target="_blank">Docs</a>
+                <a href="https://github.com/databio/hub.bulker.io" target="_blank">GitHub</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+
+
+<section class="page-header">
+    <h1>waldronlab/bioconductor</h1>
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/waldronlab/">waldronlab</a> / bioconductor</p>
+    
+</section>
+
+<section class="install-section">
+    <h2>Install</h2>
+    <div class="install-box">
+        <code id="install-cmd">bulker activate waldronlab/bioconductor:3.21</code>
+        <button class="copy-btn" onclick="copyInstall()">Copy</button>
+    </div>
+</section>
+
+
+
+
+<section class="commands-section">
+    <h2>Commands (6)</h2>
+    <table class="commands-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Docker Image</th>
+                <th>Args</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td><code>R</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_21</a>
+                    
+                    
+                </td>
+                <td><code>-it</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>Rdev</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:devel</a>
+                    
+                    
+                </td>
+                <td><code>-it</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>Rscript</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_21</a>
+                    
+                    
+                </td>
+                <td><code>-it</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>Rscriptdev</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:devel</a>
+                    
+                    
+                </td>
+                <td><code>-it</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>rstudioserver</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_21</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>rstudioserver-dev</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:devel</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+<section class="raw-section">
+    <h2>
+        <button class="toggle-btn" onclick="toggleRaw()">Raw Manifest</button>
+    </h2>
+    <pre id="raw-manifest" style="display:none;"><code>manifest:
+  name: bioconductor
+  version: 3.21
+  commands:
+  - command: R
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_21
+    docker_args: &#34;-it&#34;
+  - command: Rdev
+    docker_image: bioconductor/bioconductor_docker:devel
+    docker_command: R
+    docker_args: &#34;-it&#34;
+  - command: Rscript
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_21
+    docker_args: &#34;-it&#34;
+  - command: Rscriptdev
+    docker_image: bioconductor/bioconductor_docker:devel
+    docker_command: Rscript
+    docker_args: &#34;-it&#34;
+  - command: rstudioserver
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_21
+    docker_command: &#34; &#34;
+    no_user: True
+    no_network: True
+  - command: rstudioserver-dev
+    docker_image: bioconductor/bioconductor_docker:devel
+    docker_command: &#34; &#34;
+    no_user: True
+    no_network: True
+</code></pre>
+</section>
+
+<p class="manifest-link">
+    <a href="https://github.com/databio/hub.bulker.io/blob/master/waldronlab/bioconductor_3.21.yaml">View on GitHub</a> |
+    <a href="/waldronlab/bioconductor_3.21.yaml">Raw YAML</a>
+</p>
+
+    </main>
+    <footer>
+        <p>
+            <a href="https://bulker.io">bulker.io</a> |
+            <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
+            49 manifests across 3 namespaces
+        </p>
+    </footer>
+    
+<script>
+function copyInstall() {
+    var text = document.getElementById('install-cmd').textContent;
+    navigator.clipboard.writeText(text).then(function() {
+        var btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+    });
+}
+function toggleRaw() {
+    var el = document.getElementById('raw-manifest');
+    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+
+</body>
+</html>

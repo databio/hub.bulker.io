@@ -28,4 +28,16 @@ After creating your manifest file, you can contribute it to this registry so tha
 
 Once merged, you will be able to pull your manifest with `bulker load namespace/manifestname:tag`.
 
+## Manifest versioning convention
 
+Versioned manifest files are the source of truth. Bare-name files are symlinks to the latest version:
+
+- `name_1.0.0.yaml` — versioned manifest (real file)
+- `name.yaml` → `name_1.0.0.yaml` — symlink to latest version
+
+Unversioned crates (no `version` field in the manifest) keep bare-name files as regular files.
+
+**Adding a new version:**
+
+1. Create the new versioned file: `name_newversion.yaml`
+2. Update the symlink: `ln -sf name_newversion.yaml name.yaml`

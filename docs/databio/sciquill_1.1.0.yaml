@@ -1,0 +1,39 @@
+manifest:
+  name: sciquill
+  version: 1.1.0
+  imports: 
+  - bulker/alpinebase:default
+  host_commands:
+    - md5sum
+  commands:
+  - command: latex
+    docker_image: databio/sciquill
+  - command: git
+    docker_image: nsheff/git
+  - command: bibtool
+    docker_image: databio/sciquill
+  - command: inkscape
+    docker_image: nsheff/vis
+  - command: jabref
+    docker_image: databio/jabref:5.9
+    docker_command: JabRef
+  - command: jabref-cl
+    docker_image: databio/jabref:5.9
+    description:  command-line only; don't allocate TTY. Useful for background jobs.
+    docker_args: "--name=jabref-cl"
+    docker_command: JabRef
+  - command: libre
+    docker_image: nsheff/libreoffice
+    docker_command: "libreoffice -env:UserInstallation=file:///tmp/ -env:SingleAppInstance='false'"
+  - command: liquify
+    docker_image: nsheff/liquify
+    docker_command: " "
+  - command: mkdocs
+    docker_image: nsheff/mkdocs
+  - command: pandoc
+    docker_image: databio/sciquill
+    docker_args: "-i"    
+  - command: gs
+    docker_image: minidocks/ghostscript
+  - command: pdflatex
+    docker_image: databio/sciquill

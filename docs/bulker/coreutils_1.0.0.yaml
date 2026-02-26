@@ -1,0 +1,288 @@
+manifest:
+  name: coreutils
+  version: 1.0.0
+  description: This is the complete set of GNU coreutils. Used to run strict bulker environnments.
+  host_commands:
+    - mkfifo
+    - whoami
+    - rm
+  commands:
+  - command: arch
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: awk
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: b2sum
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: base32
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: base64
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: cat
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: chgrp
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: chmod
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: chown
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: cksum
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: comm
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: cp
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: csplit
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: cut
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: date
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: dd
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: df
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: dir
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: du
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: echo
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: expand
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: expr
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: factor
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: "false"
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: fmt
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: fold
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: grep
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: head
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: hostid
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: hostname
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: install
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: join
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: link
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: ln
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: logname
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: md5sum
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: mkdir
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: mknod
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: nice
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: nl
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: nohup
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: nproc
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: numfmt
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: od
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: paste
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: pathchk
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: pinky
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: pr
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: printenv
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: printf
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: ptx
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: pwd
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: realpath
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: rmdir
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: runcon
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: sed
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: seq
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: sha1sum
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: sha224sum
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: sha256sum
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: sha384sum
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: sha512sum
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: shred
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: shuf
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: sleep
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: sort
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: split
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: stat
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: stdbuf
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: stty
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: sum
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: sync
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: tac
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: tail
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: tee
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: test
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: timeout
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: tr
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: "true"
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: truncate
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: tsort
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: tty
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: touch
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: uname
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: unexpand
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: uniq
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: unlink
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: uptime
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: users
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: vdir
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: wc
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: who
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"
+  - command: "yes"
+    docker_image: databio/alpine-coreutils
+    docker_args: "-i"

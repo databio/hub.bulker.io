@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bulker/demo2 — Bulker Registry</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo"><img src="/favicon.svg" alt="bulker">bulker registry</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/channels.html">Channels</a>
+                <a href="https://bulker.io" target="_blank">Docs</a>
+                <a href="https://github.com/databio/hub.bulker.io" target="_blank">GitHub</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+
+
+<section class="page-header">
+    <h1>bulker/demo2</h1>
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/bulker/">bulker</a> / demo2</p>
+    
+</section>
+
+<section class="install-section">
+    <h2>Install</h2>
+    <div class="install-box">
+        <code id="install-cmd">bulker activate bulker/demo2</code>
+        <button class="copy-btn" onclick="copyInstall()">Copy</button>
+    </div>
+</section>
+
+
+
+
+<section class="commands-section">
+    <h2>Commands (7)</h2>
+    <table class="commands-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Docker Image</th>
+                <th>Args</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td><code>samtools</code></td>
+                <td>
+                    
+                    
+                    <a href="https://quay.io/biocontainers/samtools" target="_blank">quay.io/biocontainers/samtools:1.9--h91753b0_8</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>python</code></td>
+                <td>
+                    
+                    
+                    python:3.7.4
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>ipython</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/ipython" target="_blank">nsheff/ipython</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>pip</code></td>
+                <td>
+                    
+                    
+                    python:3.7.4
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>R</code></td>
+                <td>
+                    
+                    
+                    r-base:3.6.1
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>Rscript</code></td>
+                <td>
+                    
+                    
+                    r-base:3.6.1
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>pandoc</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/pandoc" target="_blank">nsheff/pandoc</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+<section class="raw-section">
+    <h2>
+        <button class="toggle-btn" onclick="toggleRaw()">Raw Manifest</button>
+    </h2>
+    <pre id="raw-manifest" style="display:none;"><code>manifest:
+  name: demo2
+  commands:
+  - command: samtools
+    dockerargs: &#34;-i&#34;
+    docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
+  - command: python
+    dockerargs: &#34;-it&#34;
+    docker_image: python:3.7.4
+    docker_command: python
+  - command: ipython
+    dockerargs: &#34;-it&#34;
+    docker_image: nsheff/ipython
+    docker_command: ipython    
+  - command: pip
+    dockerargs: &#34;-it&#34;
+    docker_image: python:3.7.4
+    docker_command: pip
+  - command: R
+    dockerargs: &#34;-it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library&#34;
+    docker_image: r-base:3.6.1
+    docker_command: R
+  - command: Rscript
+    dockerargs: &#34;--volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library&#34;
+    docker_image: r-base:3.6.1
+    docker_command: Rscript  
+  - command: pandoc
+    docker_image: nsheff/pandoc
+    dockerargs: &#34;-i&#34;</code></pre>
+</section>
+
+<p class="manifest-link">
+    <a href="https://github.com/databio/hub.bulker.io/blob/master/bulker/demo2.yaml">View on GitHub</a> |
+    <a href="/bulker/demo2.yaml">Raw YAML</a>
+</p>
+
+    </main>
+    <footer>
+        <p>
+            <a href="https://bulker.io">bulker.io</a> |
+            <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
+            49 manifests across 3 namespaces
+        </p>
+    </footer>
+    
+<script>
+function copyInstall() {
+    var text = document.getElementById('install-cmd').textContent;
+    navigator.clipboard.writeText(text).then(function() {
+        var btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+    });
+}
+function toggleRaw() {
+    var el = document.getElementById('raw-manifest');
+    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+
+</body>
+</html>

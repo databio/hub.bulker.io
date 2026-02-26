@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>databio/bedstuff — Bulker Registry</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo"><img src="/favicon.svg" alt="bulker">bulker registry</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/channels.html">Channels</a>
+                <a href="https://bulker.io" target="_blank">Docs</a>
+                <a href="https://github.com/databio/hub.bulker.io" target="_blank">GitHub</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+
+
+<section class="page-header">
+    <h1>databio/bedstuff</h1>
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/databio/">databio</a> / bedstuff</p>
+    
+</section>
+
+<section class="install-section">
+    <h2>Install</h2>
+    <div class="install-box">
+        <code id="install-cmd">bulker activate databio/bedstuff:1.0.0</code>
+        <button class="copy-btn" onclick="copyInstall()">Copy</button>
+    </div>
+</section>
+
+
+
+
+<section class="commands-section">
+    <h2>Commands (4)</h2>
+    <table class="commands-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Docker Image</th>
+                <th>Args</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td><code>ailist</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/databio/ailist" target="_blank">databio/ailist</a>
+                    
+                    
+                </td>
+                <td><code>-i</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>wigToBigWig</code></td>
+                <td>
+                    
+                    
+                    <a href="https://quay.io/biocontainers/ucsc-wigtobigwig" target="_blank">quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3</a>
+                    
+                    
+                </td>
+                <td><code>-i</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>bigWigToBedGraph</code></td>
+                <td>
+                    
+                    
+                    <a href="https://quay.io/biocontainers/ucsc-bigwigtobedgraph" target="_blank">quay.io/biocontainers/ucsc-bigwigtobedgraph:357--1</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>bigBedToBed</code></td>
+                <td>
+                    
+                    
+                    <a href="https://quay.io/biocontainers/ucsc-bigbedtobed" target="_blank">quay.io/biocontainers/ucsc-bigbedtobed:357--1</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+        </tbody>
+    </table>
+</section>
+
+
+
+<section class="imports-section">
+    <h2>Imports</h2>
+    <ul>
+        
+        <li>
+            
+            
+            
+            
+            
+            <a href="/bulker/biobase.html"><code>bulker/biobase:default</code></a>
+            
+        </li>
+        
+    </ul>
+</section>
+
+
+
+
+<section class="raw-section">
+    <h2>
+        <button class="toggle-btn" onclick="toggleRaw()">Raw Manifest</button>
+    </h2>
+    <pre id="raw-manifest" style="display:none;"><code>manifest:
+  name: bedstuff
+  version: 1.0.0
+  imports: 
+  - bulker/biobase:default  
+  commands:
+  - command: ailist
+    docker_args: &#34;-i&#34;
+    docker_image: databio/ailist
+    docker_command: ailist
+  - command: wigToBigWig
+    docker_args: &#34;-i&#34;
+    docker_image: quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3 
+    docker_command: wigToBigWig 
+  - command: bigWigToBedGraph
+    docker_image: quay.io/biocontainers/ucsc-bigwigtobedgraph:357--1
+    docker_command: bigWigToBedGraph 
+  - command: bigBedToBed
+    docker_image: quay.io/biocontainers/ucsc-bigbedtobed:357--1
+    docker_command: bigBedToBed
+  
+
+
+
+</code></pre>
+</section>
+
+<p class="manifest-link">
+    <a href="https://github.com/databio/hub.bulker.io/blob/master/databio/bedstuff_1.0.0.yaml">View on GitHub</a> |
+    <a href="/databio/bedstuff_1.0.0.yaml">Raw YAML</a>
+</p>
+
+    </main>
+    <footer>
+        <p>
+            <a href="https://bulker.io">bulker.io</a> |
+            <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
+            49 manifests across 3 namespaces
+        </p>
+    </footer>
+    
+<script>
+function copyInstall() {
+    var text = document.getElementById('install-cmd').textContent;
+    navigator.clipboard.writeText(text).then(function() {
+        var btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+    });
+}
+function toggleRaw() {
+    var el = document.getElementById('raw-manifest');
+    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+
+</body>
+</html>

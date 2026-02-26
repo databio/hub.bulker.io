@@ -4,12 +4,12 @@ manifest:
   commands:
   - command: bedtools
     docker_image: quay.io/biocontainers/bedtools:2.29.0--hc088bd4_3
-  - command: bowtie2-build
-    docker_image: quay.io/biocontainers/bowtie2:2.4.1--py37h4ef193e_2
-  - command: bismark_genome_preparation
-    docker_image: quay.io/biocontainers/bismark:0.22.1--0
   - command: bgzip
     docker_image: quay.io/biocontainers/htslib:1.6--0
+  - command: bismark_genome_preparation
+    docker_image: quay.io/biocontainers/bismark:0.22.1--0
+  - command: bowtie2-build
+    docker_image: quay.io/biocontainers/bowtie2:2.4.1--py37h4ef193e_2
   - command: bwa
     docker_image: quay.io/biocontainers/bwa:0.7.17--hed695b0_7
   - command: cellranger
@@ -25,14 +25,13 @@ manifest:
   - command: pigz
     docker_image: nsheff/pigz
     docker_command: pigz
-    docker_args: "-i"
+    docker_args: -i
   - command: salmon
     docker_image: quay.io/biocontainers/salmon:1.2.1--hf69c8f4_0
   - command: samtools
-    docker_args: "-i"
+    docker_args: -i
     docker_image: quay.io/biocontainers/samtools:1.10--h9402c20_2
   - command: STAR
     docker_image: quay.io/biocontainers/star:2.7.3a--0
   - command: tabix
     docker_image: quay.io/biocontainers/htslib:1.6--0
-    

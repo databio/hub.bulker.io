@@ -1,13 +1,1 @@
-manifest:
-  name: databio
-  version: 1.0.0
-  description: Adds python to the lab crate.
-  imports: 
-  - databio/lab:default  
-  commands:
-  - command: pip3
-    docker_image: "python:3.7.4"
-  - command: python3
-    docker_args: "-it"
-    docker_image: "python:3.7.4"
-    docker_command: python3
+labpy_1.0.0.yaml

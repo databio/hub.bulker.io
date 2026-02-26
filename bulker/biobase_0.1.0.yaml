@@ -1,0 +1,182 @@
+manifest:
+  name: biobase
+  version: 0.1.0
+  description: A curated collection of the most common bioinformatics command-line
+    tools, containerized for use with bulker.
+  imports:
+  - bulker/alpine:default
+  - bulker/coreutils:default
+  commands:
+  - command: ascp
+    docker_image: ibmcom/aspera-cli:3.9.1
+    docker_command: ascp
+  - command: bamtools
+    docker_image: quay.io/biocontainers/bamtools:2.5.3--he132191_0
+  - command: bcftools
+    docker_image: quay.io/biocontainers/bcftools:1.23--h3a4d415_0
+  - command: bedClip
+    docker_image: quay.io/biocontainers/ucsc-bedclip:482--h0b57e2e_0
+    docker_args: -i
+  - command: bedCommonRegions
+    docker_image: quay.io/biocontainers/ucsc-bedcommonregions:482--h0b57e2e_0
+    docker_args: -i
+  - command: bedGraphToBigWig
+    docker_image: quay.io/biocontainers/ucsc-bedgraphtobigwig:482--hdc0a859_0
+    docker_args: -i
+  - command: bedIntersect
+    docker_image: quay.io/biocontainers/ucsc-bedintersect:482--h0b57e2e_0
+    docker_args: -i
+  - command: bedItemOverlapCount
+    docker_image: quay.io/biocontainers/ucsc-beditemoverlapcount:482--h0b57e2e_0
+    docker_args: -i
+  - command: bedops
+    docker_image: quay.io/biocontainers/bedops:2.4.42--hd6d6fdc_1
+  - command: bedPileUps
+    docker_image: quay.io/biocontainers/ucsc-bedpileups:482--h0b57e2e_0
+    docker_args: -i
+  - command: bedToBigBed
+    docker_image: quay.io/biocontainers/ucsc-bedtobigbed:482--hdc0a859_0
+    docker_args: -i
+  - command: bedtools
+    docker_image: quay.io/biocontainers/bedtools:2.31.1--h13024bc_3
+    docker_args: -i
+  - command: bigBedToBed
+    docker_image: quay.io/biocontainers/ucsc-bigbedtobed:482--h0b57e2e_0
+    docker_args: -i
+  - command: bigWigAverageOverBed
+    docker_image: quay.io/biocontainers/ucsc-bigwigaverageoverbed:482--h0b57e2e_0
+    docker_args: -i
+  - command: bigWigCat
+    docker_image: quay.io/biocontainers/ucsc-bigwigcat:482--h0b57e2e_0
+    docker_args: -i
+  - command: bigWigSummary
+    docker_image: quay.io/biocontainers/ucsc-bigwigsummary:482--h0b57e2e_0
+    docker_args: -i
+  - command: bigWigToWig
+    docker_image: quay.io/biocontainers/ucsc-bigwigtowig:482--h0b57e2e_0
+    docker_args: -i
+  - command: bismark
+    docker_image: quay.io/biocontainers/bismark:0.25.1--hdfd78af_0
+  - command: bissnp
+    docker_image: quay.io/biocontainers/bis-snp:1.0.1--2
+  - command: blast
+    docker_image: quay.io/biocontainers/blast:2.17.0--h66d330f_0
+  - command: bowtie
+    docker_image: quay.io/biocontainers/bowtie:1.2.3--py37hc9558a2_0
+  - command: bowtie2
+    docker_image: quay.io/biocontainers/bowtie2:2.5.5--ha27dd3b_0
+  - command: bsmap
+    docker_image: quay.io/biocontainers/bsmap:2.90--he860b03_2
+  - command: bwa
+    docker_image: quay.io/biocontainers/bwa:0.7.19--h577a1d6_1
+  - command: cellranger
+    docker_image: quay.io/xujishu/cellranger:3.1.0
+  - command: cufflinks
+    docker_image: quay.io/biocontainers/cufflinks:2.2.1--py36_2
+  - command: cutadapt
+    docker_image: quay.io/biocontainers/cutadapt:5.2--py312h0fa9677_0
+  - command: deeptools
+    docker_image: quay.io/biocontainers/deeptools:3.5.6--pyhdfd78af_0
+  - command: faSplit
+    docker_image: quay.io/biocontainers/ucsc-fasplit:482--h0b57e2e_0
+  - command: fasterq-dump
+    docker_image: quay.io/biocontainers/sra-tools:3.2.1--h4304569_1
+    docker_command: fasterq-dump
+  - command: fastp
+    docker_image: quay.io/biocontainers/fastp:1.1.0--heae3180_0
+  - command: fastq-dump
+    docker_image: quay.io/biocontainers/sra-tools:3.2.1--h4304569_1
+    docker_command: fastq-dump
+  - command: fastqc
+    docker_image: quay.io/biocontainers/fastqc:0.12.1--hdfd78af_0
+  - command: featureCounts
+    docker_image: quay.io/biocontainers/subread:2.1.1--h577a1d6_0
+    docker_command: featureCounts
+  - command: freebayes
+    docker_image: quay.io/biocontainers/freebayes:1.3.10--hbefcdb2_0
+  - command: gatk
+    docker_image: broadinstitute/gatk:4.6.2.0
+    docker_command: gatk
+  - command: gt
+    docker_image: quay.io/biocontainers/genometools-genometools:1.6.6--py311h21ec246_1
+  - command: hisat2
+    docker_image: quay.io/biocontainers/hisat2:2.2.2--h503566f_0
+  - command: homer
+    docker_image: quay.io/biocontainers/homer:5.1--pl5262h9948957_0
+  - command: htseq-count
+    docker_image: quay.io/biocontainers/htseq:2.1.2--py311hb6b0eea_0
+    docker_command: htseq-count
+  - command: kallisto
+    docker_image: quay.io/biocontainers/kallisto:0.51.1--h2b92561_2
+  - command: liftOver
+    docker_image: quay.io/biocontainers/ucsc-liftover:482--h0b57e2e_0
+  - command: macs2
+    docker_image: quay.io/biocontainers/macs2:2.2.9.1--py310h1fe012e_5
+  - command: mashmap
+    docker_image: quay.io/biocontainers/mashmap:3.1.3--pl5321hb4818e0_2
+  - command: minimap2
+    docker_image: quay.io/biocontainers/minimap2:2.30--h577a1d6_0
+  - command: multiqc
+    docker_image: quay.io/biocontainers/multiqc:1.33--pyhdfd78af_0
+  - command: picard
+    docker_image: broadinstitute/picard:3.4.0
+    docker_command: picard
+  - command: pigz
+    docker_image: nsheff/pigz
+    docker_command: pigz
+    docker_args: -i
+  - command: prefetch
+    docker_image: quay.io/biocontainers/sra-tools:3.2.1--h4304569_1
+    docker_command: prefetch
+  - command: R
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_20
+    docker_command: R
+    docker_args: -it
+    description: You should add --volume=${HOME}/R/4.4:/usr/local/lib/R/host-site-library
+      to tool_args
+  - command: refgenie
+    docker_image: databio/refgenie:latest
+  - command: repeatmasker
+    docker_image: quay.io/biocontainers/repeatmasker:4.2.2--pl5321hdfd78af_0
+  - command: Rscript
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_20
+    docker_command: Rscript
+    docker_args: -it
+  - command: rsem-calculate-expression
+    docker_image: quay.io/biocontainers/rsem:1.3.3--pl5321h077b44d_12
+    docker_command: rsem-calculate-expression
+  - command: salmon
+    docker_image: quay.io/biocontainers/salmon:1.10.3--h45fbf2d_5
+  - command: sambamba
+    docker_image: quay.io/biocontainers/sambamba:1.0.1--he614052_4
+  - command: samblaster
+    docker_image: quay.io/biocontainers/samblaster:0.1.26--h9948957_7
+  - command: samtools
+    docker_image: quay.io/biocontainers/samtools:1.23--h96c455f_0
+    docker_args: -i
+  - command: seqkit
+    docker_image: quay.io/biocontainers/seqkit:2.12.0--he881be0_1
+  - command: seqtk
+    docker_image: quay.io/biocontainers/seqtk:1.4--h577a1d6_3
+    docker_args: -i
+  - command: skewer
+    docker_image: quay.io/biocontainers/skewer:0.2.2--h2d50403_2
+  - command: STAR
+    docker_image: quay.io/biocontainers/star:2.7.11b--h5ca1c30_8
+  - command: stringtie
+    docker_image: quay.io/biocontainers/stringtie:3.0.3--h29c0135_0
+  - command: tabix
+    docker_image: quay.io/biocontainers/htslib:1.23--h566b1c6_0
+  - command: trim_galore
+    docker_image: quay.io/biocontainers/trim-galore:0.6.10--hdfd78af_2
+  - command: trimmomatic
+    docker_image: quay.io/biocontainers/trimmomatic:0.40--hdfd78af_0
+  - command: vdb-config
+    docker_image: quay.io/biocontainers/sra-tools:3.2.1--h4304569_1
+    docker_command: vdb-config
+  - command: vep
+    docker_image: quay.io/biocontainers/ensembl-vep:115.2--pl5321h2a3209d_1
+    docker_command: vep
+  - command: wigToBigWig
+    docker_image: quay.io/biocontainers/ucsc-wigtobigwig:482--hdc0a859_1
+    docker_args: -i

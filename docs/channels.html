@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Channels — Bulker Registry</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo"><img src="/favicon.svg" alt="bulker">bulker registry</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/channels.html">Channels</a>
+                <a href="https://bulker.io" target="_blank">Docs</a>
+                <a href="https://github.com/databio/hub.bulker.io" target="_blank">GitHub</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+<section class="page-header">
+    <h1>Channels</h1>
+    <p>Bulker channels are independent registries that host manifest files. Add a channel to discover and load crates from community-maintained collections.</p>
+</section>
+
+
+<section class="channels-section">
+    <h2>Registered Channels</h2>
+    <div class="channel-list">
+        
+        <div class="channel-card">
+            <h3>
+                hub
+                <span class="badge-official">official</span>
+            </h3>
+            
+            <p>Official bulker registry</p>
+            
+            <p class="channel-url"><a href="https://hub.bulker.io" target="_blank">https://hub.bulker.io</a></p>
+            <code class="install-cmd">bulker registry add hub</code>
+        </div>
+        
+    </div>
+</section>
+
+
+<section class="create-channel-section">
+    <h2>Create Your Own Channel</h2>
+    <p>Anyone can create a bulker channel and share container environments with the community.</p>
+    <ol class="steps">
+        <li>
+            <strong>Create a GitHub repository</strong> with namespace directories containing manifest YAML files.
+            Each namespace is a subdirectory, and each manifest is a YAML file following the
+            <a href="https://bulker.io">bulker manifest format</a>.
+        </li>
+        <li>
+            <strong>Add a build script.</strong> Copy <code>build_site.py</code> and <code>_templates/</code>
+            from <a href="https://github.com/databio/hub.bulker.io">hub.bulker.io</a> into your repo,
+            or use hub.bulker.io as a template repository.
+        </li>
+        <li>
+            <strong>Enable GitHub Pages.</strong> Configure your repo to serve from the <code>docs/</code>
+            directory on the main branch. Run <code>python build_site.py</code> to generate the site.
+        </li>
+        <li>
+            <strong>Register your channel.</strong> Submit a pull request to
+            <a href="https://github.com/databio/hub.bulker.io">hub.bulker.io</a> adding your channel
+            to <code>channels.yaml</code>.
+        </li>
+        <li>
+            <strong>Users can then add your channel:</strong>
+            <code class="install-cmd">bulker registry add your-channel</code>
+        </li>
+    </ol>
+</section>
+
+    </main>
+    <footer>
+        <p>
+            <a href="https://bulker.io">bulker.io</a> |
+            <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
+            49 manifests across 3 namespaces
+        </p>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+manifest:
+  name: nsheff
+  version: 1.0.2
+  imports:
+    - databio/sciquill:default
+    - databio/lab:default
+  commands:
+  - command: bundle
+    docker_image: databio/jekyll
+    docker_command: bundle
+  - command: convert
+    docker_image: databio/imagemagick
+    docker_command: "convert"
+  - command: duc
+    docker_image: databio/duc
+    docker_command: duc
+    docker_args: "-it"
+  - command: elasticsearch
+    docker_image: elasticsearch:7.5.1
+    docker_args: "-p 9200:9200 -p 9300:9300 --name elasticsearch -m 8G"
+  - command: git
+    docker_image: nsheff/git
+  - command: inkscape
+    docker_image: databio/vis:22.04
+  - command: jekyll
+    docker_image: databio/jekyll
+    docker_command: jekyll
+  - command: kibana
+    docker_image: docker.elastic.co/kibana/kibana:6.5.4
+    docker_args: "--link elasticsearch:elasticsearch -p 5601:5601"
+  - command: ffmpeg
+    docker_image: nsheff/ffmpeg
+  - command: gnucash
+    docker_image: nsheff/gnucash
+  - command: igv
+    docker_image: databio/igv
+    docker_command: sh /IGV_2.4.13/igv.sh
+  - command: libre
+    docker_image: nsheff/libreoffice
+    docker_command: "libreoffice -env:UserInstallation=file://////tmp/ -env:SingleAppInstance='false'"
+  - command: mkdocs
+    docker_image: nsheff/mkdocs
+  - command: notable
+    docker_image: nsheff/notable
+  - command: npm
+    docker_image: amaysim/serverless:1.53.0
+    docker_args: "-i"
+  - command: pcloudcc
+    docker_image: nsheff/pcloud
+    docker_args: "-i"
+  - command: redis-server
+    docker_image: redis:5.0.5
+    docker_command: "redis-server"
+    docker_args: "--name redis-server"
+    workdir: "/data"
+  - command: redis-cli
+    docker_image: redis:5.0.5
+    docker_command: "redis-cli"
+    docker_args: "-h redis-server -it"
+    workdir: "/data"
+  - command: subl
+    docker_image: nsheff/sublime
+  - command: serverless
+    docker_image: amaysim/serverless:1.53.0
+    docker_args: "-i"
