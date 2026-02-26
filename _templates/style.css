@@ -26,8 +26,8 @@ body {
 
 /* Header / Nav */
 header {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
+    background: #1a1a2e;
+    border-bottom: 1px solid #2a2a4a;
     padding: 0 2rem;
 }
 
@@ -41,20 +41,26 @@ nav {
 }
 
 .logo {
-    font-family: var(--mono);
     font-weight: 700;
     font-size: 1.1rem;
-    color: var(--text);
+    color: #ffffff;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.logo img {
+    height: 24px;
+    width: 24px;
 }
 
 .nav-links { display: flex; gap: 1.5rem; }
 .nav-links a {
-    color: var(--text-secondary);
+    color: #a0a0b8;
     text-decoration: none;
     font-size: 0.9rem;
 }
-.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover { color: #ffffff; }
 
 /* Main */
 main {
@@ -65,13 +71,15 @@ main {
 
 /* Footer */
 footer {
-    border-top: 1px solid var(--border);
+    background: #1a1a2e;
+    border-top: 1px solid #2a2a4a;
     text-align: center;
     padding: 1.5rem 2rem;
-    color: var(--text-secondary);
+    color: #a0a0b8;
     font-size: 0.85rem;
 }
-footer a { color: var(--accent); text-decoration: none; }
+footer a { color: #d4b8f0; text-decoration: none; }
+footer a:hover { color: #ffffff; }
 
 /* Hero */
 .hero {
