@@ -18,7 +18,7 @@
 <section class="install-section">
     <h2>Install</h2>
     <div class="install-box">
-        <code id="install-cmd">bulker load {{ crate.namespace }}/{{ crate.name }}{% if crate.latest_tag != 'default' %}:{{ crate.latest_tag }}{% endif %}</code>
+        <code id="install-cmd">bulker activate {{ crate.namespace }}/{{ crate.name }}{% if crate.latest_tag != 'default' %}:{{ crate.latest_tag }}{% endif %}</code>
         <button class="copy-btn" onclick="copyInstall()">Copy</button>
     </div>
 </section>

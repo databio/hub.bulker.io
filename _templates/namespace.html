@@ -31,7 +31,7 @@
             <span class="tag-count">{{ crate.tags | length }} tags</span>
             {% endif %}
         </div>
-        <code class="install-cmd">bulker load {{ namespace.name }}/{{ crate_name }}{% if crate.latest_tag != 'default' %}:{{ crate.latest_tag }}{% endif %}</code>
+        <code class="install-cmd">bulker activate {{ namespace.name }}/{{ crate_name }}{% if crate.latest_tag != 'default' %}:{{ crate.latest_tag }}{% endif %}</code>
     </div>
     {% endfor %}
 </div>

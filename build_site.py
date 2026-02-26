@@ -226,10 +226,13 @@ def render_site(namespaces: dict, manifests: list[dict], channels: list[dict]):
     # Ensure docs/ exists
     DOCS.mkdir(exist_ok=True)
 
-    # Copy style.css
+    # Copy style.css and favicon
     css_src = TEMPLATES / "style.css"
     if css_src.exists():
         shutil.copy2(css_src, DOCS / "style.css")
+    favicon_src = TEMPLATES / "favicon.svg"
+    if favicon_src.exists():
+        shutil.copy2(favicon_src, DOCS / "favicon.svg")
 
     # Render homepage
     tmpl = env.get_template("home.html")
