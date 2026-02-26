@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Bulker Registry — discover and load container environments{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Bulker Registry</h1>
+    <p class="tagline">Discover and load container environments</p>
+    <div class="stats-bar">
+        <span class="stat"><strong>{{ stats.total_crates }}</strong> crates</span>
+        <span class="stat"><strong>{{ stats.total_commands }}</strong> commands</span>
+        <span class="stat"><strong>{{ stats.total_namespaces }}</strong> namespaces</span>
+        <span class="stat"><strong>{{ stats.total_manifests }}</strong> manifests</span>
+    </div>
+</section>
+
+<section class="search-section">
+    <input type="text" id="search-box" placeholder="Search crates, commands, namespaces..." autocomplete="off">
+    <div id="search-results" class="search-results" style="display:none;"></div>
+</section>
+
+{% for ns_name, ns_data in namespaces | dictsort %}
+<section class="namespace-section">
+    <h2><a href="/{{ ns_name }}/">{{ ns_name }}</a></h2>
+    <div class="crate-grid">
+        {% for crate_name, crate in ns_data.crates | dictsort %}
+        {% set latest = crate.tags[crate.latest_tag] %}
+        <div class="crate-card">
+            <h3><a href="/{{ ns_name }}/{{ crate_name }}.html">{{ crate_name }}</a></h3>
+            {% if crate.description %}
+            <p class="crate-desc">{{ crate.description }}</p>
+            {% endif %}
+            <div class="crate-meta">
+                {% if latest.version %}
+                <span class="version">v{{ latest.version }}</span>
+                {% endif %}
+                <span class="cmd-count">{{ latest.command_count }} commands</span>
+                {% if latest.host_command_count > 0 %}
+                <span class="host-count">{{ latest.host_command_count }} host</span>
+                {% endif %}
+                {% if crate.tags | length > 1 %}
+                <span class="tag-count">{{ crate.tags | length }} tags</span>
+                {% endif %}
+            </div>
+            <code class="install-cmd">bulker load {{ ns_name }}/{{ crate_name }}{% if crate.latest_tag != 'default' %}:{{ crate.latest_tag }}{% endif %}</code>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endfor %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function() {
+    var searchBox = document.getElementById('search-box');
+    var resultsDiv = document.getElementById('search-results');
+    var index = null;
+
+    fetch('/index.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) { index = data.manifests; });
+
+    searchBox.addEventListener('input', function() {
+        var q = this.value.trim().toLowerCase();
+        if (!q || !index) {
+            resultsDiv.style.display = 'none';
+            return;
+        }
+        var matches = index.filter(function(m) {
+            return m.name.toLowerCase().indexOf(q) !== -1 ||
+                   m.namespace.toLowerCase().indexOf(q) !== -1 ||
+                   (m.description && m.description.toLowerCase().indexOf(q) !== -1) ||
+                   m.commands.some(function(c) { return c.toLowerCase().indexOf(q) !== -1; });
+        }).slice(0, 20);
+
+        if (matches.length === 0) {
+            resultsDiv.innerHTML = '<div class="no-results">No matches found.</div>';
+        } else {
+            resultsDiv.innerHTML = matches.map(function(m) {
+                var tagSuffix = m.tag !== 'default' ? ':' + m.tag : '';
+                return '<a class="search-result" href="/' + m.namespace + '/' + m.name + '.html">' +
+                    '<strong>' + m.namespace + '/' + m.name + tagSuffix + '</strong>' +
+                    ' <span class="cmd-count">' + m.command_count + ' commands</span>' +
+                    (m.description ? '<br><small>' + m.description + '</small>' : '') +
+                    '</a>';
+            }).join('');
+        }
+        resultsDiv.style.display = 'block';
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!searchBox.contains(e.target) && !resultsDiv.contains(e.target)) {
+            resultsDiv.style.display = 'none';
+        }
+    });
+})();
+</script>
+{% endblock %}

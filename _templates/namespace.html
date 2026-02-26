@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% set relative_prefix = "../" %}
+
+{% block title %}{{ namespace.name }} — Bulker Registry{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>{{ namespace.name }}</h1>
+    <p class="breadcrumb"><a href="/">Home</a> / {{ namespace.name }}</p>
+    <p>{{ namespace.crates | length }} crate{{ 's' if namespace.crates | length != 1 }} in this namespace</p>
+</section>
+
+<div class="crate-grid">
+    {% for crate_name, crate in namespace.crates | dictsort %}
+    {% set latest = crate.tags[crate.latest_tag] %}
+    <div class="crate-card">
+        <h3><a href="/{{ namespace.name }}/{{ crate_name }}.html">{{ crate_name }}</a></h3>
+        {% if crate.description %}
+        <p class="crate-desc">{{ crate.description }}</p>
+        {% endif %}
+        <div class="crate-meta">
+            {% if latest.version %}
+            <span class="version">v{{ latest.version }}</span>
+            {% endif %}
+            <span class="cmd-count">{{ latest.command_count }} commands</span>
+            {% if latest.host_command_count > 0 %}
+            <span class="host-count">{{ latest.host_command_count }} host</span>
+            {% endif %}
+            {% if crate.tags | length > 1 %}
+            <span class="tag-count">{{ crate.tags | length }} tags</span>
+            {% endif %}
+        </div>
+        <code class="install-cmd">bulker load {{ namespace.name }}/{{ crate_name }}{% if crate.latest_tag != 'default' %}:{{ crate.latest_tag }}{% endif %}</code>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

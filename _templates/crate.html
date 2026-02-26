@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% set relative_prefix = "../" %}
+
+{% block title %}{{ crate.namespace }}/{{ crate.name }} — Bulker Registry{% endblock %}
+
+{% block content %}
+{% set latest = crate.tags[crate.latest_tag] %}
+
+<section class="page-header">
+    <h1>{{ crate.namespace }}/{{ crate.name }}</h1>
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/{{ crate.namespace }}/">{{ crate.namespace }}</a> / {{ crate.name }}</p>
+    {% if crate.description %}
+    <p class="crate-desc">{{ crate.description }}</p>
+    {% endif %}
+</section>
+
+<section class="install-section">
+    <h2>Install</h2>
+    <div class="install-box">
+        <code id="install-cmd">bulker load {{ crate.namespace }}/{{ crate.name }}{% if crate.latest_tag != 'default' %}:{{ crate.latest_tag }}{% endif %}</code>
+        <button class="copy-btn" onclick="copyInstall()">Copy</button>
+    </div>
+</section>
+
+{% if crate.tags | length > 1 %}
+<section class="tags-section">
+    <h2>Tags</h2>
+    <div class="tag-list">
+        {% for tag_name, tag_data in crate.tags | dictsort(reverse=true) %}
+        <span class="tag {% if tag_name == crate.latest_tag %}tag-latest{% endif %}">
+            {{ tag_name }}
+            {% if tag_data.version %}<small>(v{{ tag_data.version }})</small>{% endif %}
+            {% if tag_name == crate.latest_tag %}<small>[latest]</small>{% endif %}
+            — {{ tag_data.command_count }} commands
+        </span>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% if latest.commands %}
+<section class="commands-section">
+    <h2>Commands ({{ latest.command_count }})</h2>
+    <table class="commands-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Docker Image</th>
+                <th>Args</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cmd in latest.commands %}
+            <tr>
+                <td><code>{{ cmd.command }}</code></td>
+                <td>
+                    {% if cmd.docker_image %}
+                    {% if 'quay.io' in cmd.docker_image %}
+                    <a href="https://{{ cmd.docker_image.split(':')[0] }}" target="_blank">{{ cmd.docker_image }}</a>
+                    {% elif '/' in cmd.docker_image %}
+                    <a href="https://hub.docker.com/r/{{ cmd.docker_image.split(':')[0] }}" target="_blank">{{ cmd.docker_image }}</a>
+                    {% else %}
+                    {{ cmd.docker_image }}
+                    {% endif %}
+                    {% endif %}
+                </td>
+                <td>{% if cmd.docker_args %}<code>{{ cmd.docker_args }}</code>{% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endif %}
+
+{% if latest.imports %}
+<section class="imports-section">
+    <h2>Imports</h2>
+    <ul>
+        {% for imp in latest.imports %}
+        <li>
+            {% set imp_parts = imp.split('/') %}
+            {% set imp_ns = imp_parts[0] %}
+            {% set imp_rest = imp_parts[1] if imp_parts | length > 1 else '' %}
+            {% set imp_name = imp_rest.split(':')[0] if imp_rest else '' %}
+            {% if imp_name %}
+            <a href="/{{ imp_ns }}/{{ imp_name }}.html"><code>{{ imp }}</code></a>
+            {% else %}
+            <code>{{ imp }}</code>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+
+{% if latest.host_commands %}
+<section class="host-commands-section">
+    <h2>Host Commands ({{ latest.host_command_count }})</h2>
+    <p class="note">These commands are provided by the host system, not containers.</p>
+    <div class="host-cmd-list">
+        {% for hc in latest.host_commands %}
+        <code class="host-cmd">{{ hc }}</code>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<section class="raw-section">
+    <h2>
+        <button class="toggle-btn" onclick="toggleRaw()">Raw Manifest</button>
+    </h2>
+    <pre id="raw-manifest" style="display:none;"><code>{{ latest.raw_yaml }}</code></pre>
+</section>
+
+<p class="manifest-link">
+    <a href="https://github.com/databio/hub.bulker.io/blob/master/{{ latest.path }}">View on GitHub</a> |
+    <a href="/{{ latest.path }}">Raw YAML</a>
+</p>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function copyInstall() {
+    var text = document.getElementById('install-cmd').textContent;
+    navigator.clipboard.writeText(text).then(function() {
+        var btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+    });
+}
+function toggleRaw() {
+    var el = document.getElementById('raw-manifest');
+    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+{% endblock %}

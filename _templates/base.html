@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bulker Registry{% endblock %}</title>
+    <link rel="stylesheet" href="{{ '/' if not relative_prefix }}{{ relative_prefix or '' }}style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">bulker registry</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/channels.html">Channels</a>
+                <a href="https://bulker.io" target="_blank">Docs</a>
+                <a href="https://github.com/databio/hub.bulker.io" target="_blank">GitHub</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>
+            <a href="https://bulker.io">bulker.io</a> |
+            <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
+            {{ stats.total_manifests }} manifests across {{ stats.total_namespaces }} namespaces
+        </p>
+    </footer>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
