@@ -1,5 +1,5 @@
 manifest:
-  name: bioconductor
+  name: waldronlab/bioconductor
   version: 3.21
   commands:
   - command: R

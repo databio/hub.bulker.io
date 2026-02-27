@@ -1,5 +1,5 @@
 manifest:
-  name: databio
+  name: databio/databio
   version: 1.1.6
   imports:
   - bulker/biobase:default
@@ -18,7 +18,7 @@ manifest:
     docker_image: linuxserver/yq
     docker_args: -i --entrypoint jq
   - command: R
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_20
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_22
     docker_command: R
     docker_args: -it
     description: You should add --volume=${HOME}/R/4.0:/usr/local/lib/R/host-site-library
@@ -50,7 +50,7 @@ manifest:
     docker_command: R
     docker_args: -it
   - command: Rscript
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_20
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_22
     docker_command: Rscript
     docker_args: -it
   - command: Rscript3.6

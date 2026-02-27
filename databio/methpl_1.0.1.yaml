@@ -1,5 +1,5 @@
 manifest:
-  name: methpl
+  name: databio/methpl
   version: 1.0.1
   imports:
   - bulker/alpine:default

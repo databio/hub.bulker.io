@@ -1,5 +1,5 @@
 manifest:
-  name: biobase
+  name: bulker/biobase
   version: 0.0.8
   imports:
   - bulker/alpine:default

@@ -1,5 +1,5 @@
 manifest:
-  name: bedstuff
+  name: databio/bedstuff
   version: 1.0.0
   imports:
   - bulker/biobase:default

@@ -1,5 +1,5 @@
 manifest:
-  name: pepkit
+  name: databio/pepkit
   version: 1.0.0
   commands:
   - command: geofetch

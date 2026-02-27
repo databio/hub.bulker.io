@@ -1,5 +1,5 @@
 manifest:
-  name: refgenie
+  name: databio/refgenie
   version: 0.7.8
   commands:
   - command: bedtools

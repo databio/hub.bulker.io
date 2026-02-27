@@ -1,5 +1,5 @@
 manifest:
-  name: pi
+  name: bulker/pi
   commands:
   - command: pi
     docker_image: nsheff/pi

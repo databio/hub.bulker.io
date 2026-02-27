@@ -1,5 +1,5 @@
 manifest:
-  name: nsheff
+  name: databio/nsheff
   version: 1.0.0
   commands:
   - command: ipython

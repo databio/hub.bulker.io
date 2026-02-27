@@ -1,5 +1,5 @@
 manifest:
-  name: levi
+  name: waldronlab/levi
   version: 1.0.4
   commands:
   - command: bundle

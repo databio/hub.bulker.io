@@ -1,5 +1,5 @@
 manifest:
-  name: demo
+  name: bulker/demo
   version: 1.0.0
   commands:
   - command: cowsay

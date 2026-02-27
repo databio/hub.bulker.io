@@ -1,5 +1,5 @@
 manifest:
-  name: coreutils
+  name: bulker/coreutils
   version: 1.0.0
   description: This is the complete set of GNU coreutils. Used to run strict bulker
     environnments.

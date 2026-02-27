@@ -1,5 +1,5 @@
 manifest:
-  name: demo
+  name: bulker/demo
   imports: 
   - bulker/alpine:default    
   version: 1.0.0

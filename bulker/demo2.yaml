@@ -1,5 +1,5 @@
 manifest:
-  name: demo2
+  name: bulker/demo2
   commands:
   - command: ipython
     dockerargs: -it

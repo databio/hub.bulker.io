@@ -1,5 +1,5 @@
 manifest:
-  name: alpinebase
+  name: bulker/alpinebase
   imports: 
   - bulker/alpine:default  
   commands: null

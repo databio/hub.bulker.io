@@ -1,5 +1,5 @@
 manifest:
-  name: biobase
+  name: bulker/biobase
   version: 0.1.0
   description: A curated collection of the most common bioinformatics command-line
     tools, containerized for use with bulker.
@@ -129,7 +129,7 @@ manifest:
     docker_image: quay.io/biocontainers/sra-tools:3.2.1--h4304569_1
     docker_command: prefetch
   - command: R
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_20
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_22
     docker_command: R
     docker_args: -it
     description: You should add --volume=${HOME}/R/4.4:/usr/local/lib/R/host-site-library
@@ -139,7 +139,7 @@ manifest:
   - command: repeatmasker
     docker_image: quay.io/biocontainers/repeatmasker:4.2.2--pl5321hdfd78af_0
   - command: Rscript
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_20
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_22
     docker_command: Rscript
     docker_args: -it
   - command: rsem-calculate-expression

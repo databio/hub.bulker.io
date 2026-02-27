@@ -1,5 +1,5 @@
 manifest:
-  name: databio
+  name: databio/databio
   version: 1.0.0
   import:
   - bulker/alpine:default
