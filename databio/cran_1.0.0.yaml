@@ -2,19 +2,36 @@ manifest:
   name: databio/cran
   version: 1.0.0
   description: R environment for CRAN package checking. Uses rocker/tidyverse
-    (R-release) and rocker/r-ver:devel (R-devel).
+    for both R-release and R-devel. Site-library mounts persist installed packages
+    across container runs, including during R CMD check --as-cran.
   commands:
   - command: R
     docker_image: rocker/tidyverse:4.5.2
     docker_command: R
-    docker_args: -it
+    docker_args: >-
+      -it
+      --volume=${HOME}/R/4.5:/usr/local/lib/R/host-site-library
+      -e R_LIBS_SITE=/usr/local/lib/R/host-site-library:/usr/local/lib/R/site-library
+      -e R_PROFILE_USER=${HOME}/.R/Rprofile_cran.R
   - command: Rscript
     docker_image: rocker/tidyverse:4.5.2
     docker_command: Rscript
+    docker_args: >-
+      --volume=${HOME}/R/4.5:/usr/local/lib/R/host-site-library
+      -e R_LIBS_SITE=/usr/local/lib/R/host-site-library:/usr/local/lib/R/site-library
+      -e R_PROFILE_USER=${HOME}/.R/Rprofile_cran.R
   - command: Rdev
-    docker_image: rocker/r-ver:devel
+    docker_image: rocker/tidyverse:devel
     docker_command: R
-    docker_args: -it
+    docker_args: >-
+      -it
+      --volume=${HOME}/R/devel:/usr/local/lib/R/host-site-library
+      -e R_LIBS_SITE=/usr/local/lib/R/host-site-library:/usr/local/lib/R/site-library
+      -e R_PROFILE_USER=${HOME}/.R/Rprofile_cran.R
   - command: Rscriptdev
-    docker_image: rocker/r-ver:devel
+    docker_image: rocker/tidyverse:devel
     docker_command: Rscript
+    docker_args: >-
+      --volume=${HOME}/R/devel:/usr/local/lib/R/host-site-library
+      -e R_LIBS_SITE=/usr/local/lib/R/host-site-library:/usr/local/lib/R/site-library
+      -e R_PROFILE_USER=${HOME}/.R/Rprofile_cran.R
