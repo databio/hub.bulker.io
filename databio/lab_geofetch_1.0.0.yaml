@@ -5,7 +5,7 @@ manifest:
   - bulker/alpinebase:default
   commands:
   - command: ascp
-    docker_image: ibmcom/aspera-cli:3.9.1
+    docker_image: quay.io/biocontainers/aspera-cli:4.20.0--hdfd78af_0
     docker_command: ascp
   - command: aws
     docker_image: mesosphere/aws-cli
