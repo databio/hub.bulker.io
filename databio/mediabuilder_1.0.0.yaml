@@ -1,5 +1,5 @@
 manifest:
-  name: mediabuilder
+  name: databio/mediabuilder
   version: 1.0.0
   imports:
   - bulker/alpinebase:default

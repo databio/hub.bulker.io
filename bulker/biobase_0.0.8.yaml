@@ -1,12 +1,12 @@
 manifest:
-  name: biobase
+  name: bulker/biobase
   version: 0.0.8
   imports:
   - bulker/alpine:default
   - bulker/coreutils:default
   commands:
   - command: ascp
-    docker_image: ibmcom/aspera-cli:3.9.1
+    docker_image: quay.io/biocontainers/aspera-cli:4.20.0--hdfd78af_0
     docker_command: ascp
   - command: aws
     docker_image: mesosphere/aws-cli
@@ -101,7 +101,7 @@ manifest:
   - command: khmer
     docker_image: quay.io/biocontainers/khmer:3.0.0a3--py37hf484d3e_0
   - command: liftOver
-    docker_image: quay.io/biocontainers/ucsc-liftover:377--h446ed27_1
+    docker_image: quay.io/biocontainers/ucsc-liftover:482--h0b57e2e_0
   - command: macs2
     docker_image: quay.io/biocontainers/macs2:2.2.6--py37h516909a_0
   - command: mashmap

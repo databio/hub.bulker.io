@@ -1,6 +1,6 @@
 manifest:
   name: databio/nsheff
-  version: 1.0.2
+  version: 1.0.3
   imports:
   - databio/sciquill:default
   - databio/lab:default
@@ -48,6 +48,10 @@ manifest:
   - command: pcloudcc
     docker_image: nsheff/pcloud
     docker_args: -i
+  - command: psql
+    docker_image: postgres:18-alpine
+    docker_command: psql
+    docker_args: -it
   - command: redis-cli
     docker_image: redis:5.0.5
     docker_command: redis-cli

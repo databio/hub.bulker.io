@@ -88,16 +88,24 @@ def validate_structure(filepath: Path) -> ValidationResult:
         result.error("'manifest' is not a mapping")
         return result
 
-    # manifest.name
+    # manifest.name — must be namespaced (namespace/crate)
     name = manifest.get("name")
     if not name or not isinstance(name, str) or not name.strip():
         result.error("Missing or empty 'manifest.name'")
+    elif "/" not in name:
+        result.error(f"manifest.name '{name}' has no namespace (expected 'namespace/crate')")
     else:
-        # Filename-name consistency check
+        # Parse namespace/crate from name
+        name_ns, name_crate = name.split("/", 1)
+        # Namespace must match parent directory
+        parent_dir = filepath.parent.name
+        if name_ns != parent_dir:
+            result.error(f"manifest.name namespace '{name_ns}' does not match directory '{parent_dir}'")
+        # Crate name must match filename stem (stripping version suffix)
         stem = filepath.stem
         expected = stem.split("_", 1)[0] if "_" in stem else stem
-        if name != expected:
-            result.warn(f"manifest.name '{name}' does not match filename stem '{expected}'")
+        if name_crate != expected:
+            result.warn(f"manifest.name crate '{name_crate}' does not match filename stem '{expected}'")
 
     # manifest.version (warn if missing -- some host-command-only manifests omit it)
     version = manifest.get("version")

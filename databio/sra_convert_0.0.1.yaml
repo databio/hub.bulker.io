@@ -1,5 +1,5 @@
 manifest:
-  name: sra_convert
+  name: databio/sra_convert
   version: 0.0.1
   commands:
   - command: curl

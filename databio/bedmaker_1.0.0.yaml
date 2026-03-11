@@ -1,5 +1,5 @@
 manifest:
-  name: bedmaker
+  name: databio/bedmaker
   version: 1.0.0
   commands:
   - command: bigBedToBed
