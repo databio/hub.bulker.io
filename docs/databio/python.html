@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>waldronlab/levi — Bulker Registry</title>
+    <title>databio/python — Bulker Registry</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -24,24 +24,45 @@
 
 
 <section class="page-header">
-    <h1>waldronlab/levi</h1>
-    <p class="breadcrumb"><a href="/">Home</a> / <a href="/waldronlab/">waldronlab</a> / levi</p>
+    <h1>databio/python</h1>
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/databio/">databio</a> / python</p>
     
 </section>
 
 <section class="install-section">
     <h2>Install</h2>
     <div class="install-box">
-        <code id="install-cmd">bulker activate waldronlab/levi:1.0.4</code>
+        <code id="install-cmd">bulker activate databio/python:1.0.0</code>
         <button class="copy-btn" onclick="copyInstall()">Copy</button>
     </div>
 </section>
 
 
+<section class="tags-section">
+    <h2>Tags</h2>
+    <div class="tag-list">
+        
+        <span class="tag ">
+            2.0.0
+            <small>(v2.0.0)</small>
+            
+            — 4 commands
+        </span>
+        
+        <span class="tag tag-latest">
+            1.0.0
+            <small>(v2.0.0)</small>
+            <small>[latest]</small>
+            — 4 commands
+        </span>
+        
+    </div>
+</section>
+
 
 
 <section class="commands-section">
-    <h2>Commands (6)</h2>
+    <h2>Commands (4)</h2>
     <table class="commands-table">
         <thead>
             <tr>
@@ -53,23 +74,11 @@
         <tbody>
             
             <tr>
-                <td><code>bundle</code></td>
+                <td><code>ipython</code></td>
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/nsheff/jekyll" target="_blank">nsheff/jekyll</a>
-                    
-                    
-                </td>
-                <td><code>-p 4000:4000</code></td>
-            </tr>
-            
-            <tr>
-                <td><code>emacs</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/silex/emacs" target="_blank">silex/emacs:master-alpine</a>
+                    <a href="https://hub.docker.com/r/ipython/ipython" target="_blank">ipython/ipython</a>
                     
                     
                 </td>
@@ -77,11 +86,23 @@
             </tr>
             
             <tr>
-                <td><code>gcloud</code></td>
+                <td><code>pip3</code></td>
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/google/cloud-sdk" target="_blank">google/cloud-sdk</a>
+                    python:3
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>python</code></td>
+                <td>
+                    
+                    
+                    python:3
                     
                     
                 </td>
@@ -89,39 +110,15 @@
             </tr>
             
             <tr>
-                <td><code>gsutil</code></td>
+                <td><code>python3</code></td>
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/google/cloud-sdk" target="_blank">google/cloud-sdk</a>
+                    python:3
                     
                     
                 </td>
-                <td></td>
-            </tr>
-            
-            <tr>
-                <td><code>jekyll</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/nsheff/jekyll" target="_blank">nsheff/jekyll</a>
-                    
-                    
-                </td>
-                <td></td>
-            </tr>
-            
-            <tr>
-                <td><code>pdftk</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/mnuessler/pdftk" target="_blank">mnuessler/pdftk</a>
-                    
-                    
-                </td>
-                <td><code>-v $(pwd):/work</code></td>
+                <td><code>-it</code></td>
             </tr>
             
         </tbody>
@@ -138,34 +135,29 @@
         <button class="toggle-btn" onclick="toggleRaw()">Raw Manifest</button>
     </h2>
     <pre id="raw-manifest" style="display:none;"><code>manifest:
-  name: waldronlab/levi
-  version: 1.0.4
+  name: databio/python
+  version: 2.0.0
   commands:
-  - command: bundle
-    docker_image: nsheff/jekyll
-    docker_command: bundle
-    docker_args: -p 4000:4000
-  - command: emacs
-    docker_image: silex/emacs:master-alpine
-    docker_args: -it
-  - command: gcloud
-    docker_image: google/cloud-sdk
-    docker_args: -it
-  - command: gsutil
-    docker_image: google/cloud-sdk
-  - command: jekyll
-    docker_image: nsheff/jekyll
-    docker_command: jekyll
-  - command: pdftk
-    docker_image: mnuessler/pdftk
-    docker_args: -v $(pwd):/work
-    docker_command: &#39; &#39;
+  - command: ipython
+    docker_args: &#34;-it&#34;
+    docker_image: &#34;ipython/ipython&#34;
+    docker_command: ipython
+  - command: pip3
+    docker_image: &#34;python:3&#34;
+  - command: python
+    docker_args: &#34;-it&#34;
+    docker_image: &#34;python:3&#34;
+    docker_command: python
+  - command: python3
+    docker_args: &#34;-it&#34;
+    docker_image: &#34;python:3&#34;
+    docker_command: python3
 </code></pre>
 </section>
 
 <p class="manifest-link">
-    <a href="https://github.com/databio/hub.bulker.io/blob/master/waldronlab/levi_1.0.4.yaml">View on GitHub</a> |
-    <a href="/waldronlab/levi_1.0.4.yaml">Raw YAML</a>
+    <a href="https://github.com/databio/hub.bulker.io/blob/master/databio/python_1.0.0.yaml">View on GitHub</a> |
+    <a href="/databio/python_1.0.0.yaml">Raw YAML</a>
 </p>
 
     </main>

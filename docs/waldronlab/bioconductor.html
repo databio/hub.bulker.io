@@ -32,7 +32,7 @@
 <section class="install-section">
     <h2>Install</h2>
     <div class="install-box">
-        <code id="install-cmd">bulker activate waldronlab/bioconductor:3.21</code>
+        <code id="install-cmd">bulker activate waldronlab/bioconductor:3.22</code>
         <button class="copy-btn" onclick="copyInstall()">Copy</button>
     </div>
 </section>
@@ -57,7 +57,7 @@
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_21</a>
+                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_22</a>
                     
                     
                 </td>
@@ -81,7 +81,7 @@
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_21</a>
+                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_22</a>
                     
                     
                 </td>
@@ -105,7 +105,7 @@
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_21</a>
+                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_22</a>
                     
                     
                 </td>
@@ -138,25 +138,25 @@
         <button class="toggle-btn" onclick="toggleRaw()">Raw Manifest</button>
     </h2>
     <pre id="raw-manifest" style="display:none;"><code>manifest:
-  name: bioconductor
-  version: 3.21
+  name: waldronlab/bioconductor
+  version: 3.22
   commands:
   - command: R
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_21
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_22
     docker_args: &#34;-it&#34;
   - command: Rdev
     docker_image: bioconductor/bioconductor_docker:devel
     docker_command: R
     docker_args: &#34;-it&#34;
   - command: Rscript
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_21
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_22
     docker_args: &#34;-it&#34;
   - command: Rscriptdev
     docker_image: bioconductor/bioconductor_docker:devel
     docker_command: Rscript
     docker_args: &#34;-it&#34;
   - command: rstudioserver
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_21
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_22
     docker_command: &#34; &#34;
     no_user: True
     no_network: True
@@ -169,8 +169,8 @@
 </section>
 
 <p class="manifest-link">
-    <a href="https://github.com/databio/hub.bulker.io/blob/master/waldronlab/bioconductor_3.21.yaml">View on GitHub</a> |
-    <a href="/waldronlab/bioconductor_3.21.yaml">Raw YAML</a>
+    <a href="https://github.com/databio/hub.bulker.io/blob/master/waldronlab/bioconductor_3.22.yaml">View on GitHub</a> |
+    <a href="/waldronlab/bioconductor_3.22.yaml">Raw YAML</a>
 </p>
 
     </main>
@@ -178,7 +178,7 @@
         <p>
             <a href="https://bulker.io">bulker.io</a> |
             <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
-            49 manifests across 3 namespaces
+            54 manifests across 3 namespaces
         </p>
     </footer>
     

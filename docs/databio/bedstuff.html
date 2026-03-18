@@ -65,15 +65,15 @@
             </tr>
             
             <tr>
-                <td><code>wigToBigWig</code></td>
+                <td><code>bigBedToBed</code></td>
                 <td>
                     
                     
-                    <a href="https://quay.io/biocontainers/ucsc-wigtobigwig" target="_blank">quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3</a>
+                    <a href="https://quay.io/biocontainers/ucsc-bigbedtobed" target="_blank">quay.io/biocontainers/ucsc-bigbedtobed:357--1</a>
                     
                     
                 </td>
-                <td><code>-i</code></td>
+                <td></td>
             </tr>
             
             <tr>
@@ -89,15 +89,15 @@
             </tr>
             
             <tr>
-                <td><code>bigBedToBed</code></td>
+                <td><code>wigToBigWig</code></td>
                 <td>
                     
                     
-                    <a href="https://quay.io/biocontainers/ucsc-bigbedtobed" target="_blank">quay.io/biocontainers/ucsc-bigbedtobed:357--1</a>
+                    <a href="https://quay.io/biocontainers/ucsc-wigtobigwig" target="_blank">quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3</a>
                     
                     
                 </td>
-                <td></td>
+                <td><code>-i</code></td>
             </tr>
             
         </tbody>
@@ -131,29 +131,25 @@
         <button class="toggle-btn" onclick="toggleRaw()">Raw Manifest</button>
     </h2>
     <pre id="raw-manifest" style="display:none;"><code>manifest:
-  name: bedstuff
+  name: databio/bedstuff
   version: 1.0.0
-  imports: 
-  - bulker/biobase:default  
+  imports:
+  - bulker/biobase:default
   commands:
   - command: ailist
-    docker_args: &#34;-i&#34;
+    docker_args: -i
     docker_image: databio/ailist
     docker_command: ailist
-  - command: wigToBigWig
-    docker_args: &#34;-i&#34;
-    docker_image: quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3 
-    docker_command: wigToBigWig 
-  - command: bigWigToBedGraph
-    docker_image: quay.io/biocontainers/ucsc-bigwigtobedgraph:357--1
-    docker_command: bigWigToBedGraph 
   - command: bigBedToBed
     docker_image: quay.io/biocontainers/ucsc-bigbedtobed:357--1
     docker_command: bigBedToBed
-  
-
-
-
+  - command: bigWigToBedGraph
+    docker_image: quay.io/biocontainers/ucsc-bigwigtobedgraph:357--1
+    docker_command: bigWigToBedGraph
+  - command: wigToBigWig
+    docker_args: -i
+    docker_image: quay.io/biocontainers/ucsc-wigtobigwig:357--h35c10e6_3
+    docker_command: wigToBigWig
 </code></pre>
 </section>
 
@@ -167,7 +163,7 @@
         <p>
             <a href="https://bulker.io">bulker.io</a> |
             <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
-            49 manifests across 3 namespaces
+            54 manifests across 3 namespaces
         </p>
     </footer>
     

@@ -46,6 +46,9 @@ def parse_manifest_file(filepath: Path) -> dict | None:
 
     manifest = data["manifest"]
     name = manifest.get("name", filepath.stem)
+    # Strip namespace prefix if present (e.g. "databio/pepatac" -> "pepatac")
+    if "/" in name:
+        name = name.rsplit("/", 1)[-1]
     version = manifest.get("version", "")
     description = manifest.get("description", "")
 

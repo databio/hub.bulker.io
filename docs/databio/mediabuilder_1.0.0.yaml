@@ -1,15 +1,15 @@
 manifest:
-  name: mediabuilder
+  name: databio/mediabuilder
   version: 1.0.0
-  imports: 
+  imports:
   - bulker/alpinebase:default
   commands:
-  - command: latex
+  - command: bibtool
     docker_image: nsheff/pandoc
   - command: git
     docker_image: nsheff/git
-  - command: bibtool
-    docker_image: nsheff/pandoc
+  - command: gs
+    docker_image: minidocks/ghostscript
   - command: inkscape
     docker_image: nsheff/vis
   - command: jabref
@@ -17,12 +17,14 @@ manifest:
     docker_command: java -Xmx2000m -jar /JabRef.jar
   - command: jabref-cl
     docker_image: nsheff/jabref
-    description:  "command-line only; don't allocate TTY. Useful for background jobs."
-    docker_args: "--name=jabref-cl"
+    description: command-line only; don't allocate TTY. Useful for background jobs.
+    docker_args: --name=jabref-cl
     docker_command: java -Xmx2000m -jar /JabRef.jar
+  - command: latex
+    docker_image: nsheff/pandoc
   - command: libre
     docker_image: nsheff/libreoffice
-    docker_command: "libreoffice -env:UserInstallation=file:///tmp/ -env:SingleAppInstance='false'"
+    docker_command: libreoffice -env:UserInstallation=file:///tmp/ -env:SingleAppInstance='false'
   - command: liquify
     docker_image: nsheff/liquify
     docker_command: bash -c "./liquify.rb"
@@ -30,8 +32,6 @@ manifest:
     docker_image: nsheff/mkdocs
   - command: pandoc
     docker_image: nsheff/pandoc
-    docker_args: "-i"    
-  - command: gs
-    docker_image: minidocks/ghostscript
+    docker_args: -i
   - command: pdflatex
     docker_image: nsheff/pandoc

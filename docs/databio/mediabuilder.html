@@ -53,7 +53,7 @@
         <tbody>
             
             <tr>
-                <td><code>latex</code></td>
+                <td><code>bibtool</code></td>
                 <td>
                     
                     
@@ -77,11 +77,11 @@
             </tr>
             
             <tr>
-                <td><code>bibtool</code></td>
+                <td><code>gs</code></td>
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/nsheff/pandoc" target="_blank">nsheff/pandoc</a>
+                    <a href="https://hub.docker.com/r/minidocks/ghostscript" target="_blank">minidocks/ghostscript</a>
                     
                     
                 </td>
@@ -122,6 +122,18 @@
                     
                 </td>
                 <td><code>--name=jabref-cl</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>latex</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/pandoc" target="_blank">nsheff/pandoc</a>
+                    
+                    
+                </td>
+                <td></td>
             </tr>
             
             <tr>
@@ -173,18 +185,6 @@
             </tr>
             
             <tr>
-                <td><code>gs</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/minidocks/ghostscript" target="_blank">minidocks/ghostscript</a>
-                    
-                    
-                </td>
-                <td></td>
-            </tr>
-            
-            <tr>
                 <td><code>pdflatex</code></td>
                 <td>
                     
@@ -227,17 +227,17 @@
         <button class="toggle-btn" onclick="toggleRaw()">Raw Manifest</button>
     </h2>
     <pre id="raw-manifest" style="display:none;"><code>manifest:
-  name: mediabuilder
+  name: databio/mediabuilder
   version: 1.0.0
-  imports: 
+  imports:
   - bulker/alpinebase:default
   commands:
-  - command: latex
+  - command: bibtool
     docker_image: nsheff/pandoc
   - command: git
     docker_image: nsheff/git
-  - command: bibtool
-    docker_image: nsheff/pandoc
+  - command: gs
+    docker_image: minidocks/ghostscript
   - command: inkscape
     docker_image: nsheff/vis
   - command: jabref
@@ -245,12 +245,14 @@
     docker_command: java -Xmx2000m -jar /JabRef.jar
   - command: jabref-cl
     docker_image: nsheff/jabref
-    description:  &#34;command-line only; don&#39;t allocate TTY. Useful for background jobs.&#34;
-    docker_args: &#34;--name=jabref-cl&#34;
+    description: command-line only; don&#39;t allocate TTY. Useful for background jobs.
+    docker_args: --name=jabref-cl
     docker_command: java -Xmx2000m -jar /JabRef.jar
+  - command: latex
+    docker_image: nsheff/pandoc
   - command: libre
     docker_image: nsheff/libreoffice
-    docker_command: &#34;libreoffice -env:UserInstallation=file:///tmp/ -env:SingleAppInstance=&#39;false&#39;&#34;
+    docker_command: libreoffice -env:UserInstallation=file:///tmp/ -env:SingleAppInstance=&#39;false&#39;
   - command: liquify
     docker_image: nsheff/liquify
     docker_command: bash -c &#34;./liquify.rb&#34;
@@ -258,9 +260,7 @@
     docker_image: nsheff/mkdocs
   - command: pandoc
     docker_image: nsheff/pandoc
-    docker_args: &#34;-i&#34;    
-  - command: gs
-    docker_image: minidocks/ghostscript
+    docker_args: -i
   - command: pdflatex
     docker_image: nsheff/pandoc
 </code></pre>
@@ -276,7 +276,7 @@
         <p>
             <a href="https://bulker.io">bulker.io</a> |
             <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
-            49 manifests across 3 namespaces
+            54 manifests across 3 namespaces
         </p>
     </footer>
     

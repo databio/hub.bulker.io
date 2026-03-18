@@ -32,7 +32,7 @@
 <section class="install-section">
     <h2>Install</h2>
     <div class="install-box">
-        <code id="install-cmd">bulker activate databio/nsheff:1.0.2</code>
+        <code id="install-cmd">bulker activate databio/nsheff:1.0.3</code>
         <button class="copy-btn" onclick="copyInstall()">Copy</button>
     </div>
 </section>
@@ -43,9 +43,16 @@
     <div class="tag-list">
         
         <span class="tag tag-latest">
+            1.0.3
+            <small>(v1.0.3)</small>
+            <small>[latest]</small>
+            — 21 commands
+        </span>
+        
+        <span class="tag ">
             1.0.2
             <small>(v1.0.2)</small>
-            <small>[latest]</small>
+            
             — 20 commands
         </span>
         
@@ -62,7 +69,7 @@
 
 
 <section class="commands-section">
-    <h2>Commands (20)</h2>
+    <h2>Commands (21)</h2>
     <table class="commands-table">
         <thead>
             <tr>
@@ -122,11 +129,47 @@
             </tr>
             
             <tr>
+                <td><code>ffmpeg</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/ffmpeg" target="_blank">nsheff/ffmpeg</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
                 <td><code>git</code></td>
                 <td>
                     
                     
                     <a href="https://hub.docker.com/r/nsheff/git" target="_blank">nsheff/git</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>gnucash</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/gnucash" target="_blank">nsheff/gnucash</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>igv</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/databio/igv" target="_blank">databio/igv</a>
                     
                     
                 </td>
@@ -167,42 +210,6 @@
                     
                 </td>
                 <td><code>--link elasticsearch:elasticsearch -p 5601:5601</code></td>
-            </tr>
-            
-            <tr>
-                <td><code>ffmpeg</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/nsheff/ffmpeg" target="_blank">nsheff/ffmpeg</a>
-                    
-                    
-                </td>
-                <td></td>
-            </tr>
-            
-            <tr>
-                <td><code>gnucash</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/nsheff/gnucash" target="_blank">nsheff/gnucash</a>
-                    
-                    
-                </td>
-                <td></td>
-            </tr>
-            
-            <tr>
-                <td><code>igv</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/databio/igv" target="_blank">databio/igv</a>
-                    
-                    
-                </td>
-                <td></td>
             </tr>
             
             <tr>
@@ -266,15 +273,15 @@
             </tr>
             
             <tr>
-                <td><code>redis-server</code></td>
+                <td><code>psql</code></td>
                 <td>
                     
                     
-                    redis:5.0.5
+                    postgres:18-alpine
                     
                     
                 </td>
-                <td><code>--name redis-server</code></td>
+                <td><code>-it</code></td>
             </tr>
             
             <tr>
@@ -290,15 +297,15 @@
             </tr>
             
             <tr>
-                <td><code>subl</code></td>
+                <td><code>redis-server</code></td>
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/nsheff/sublime" target="_blank">nsheff/sublime</a>
+                    redis:5.0.5
                     
                     
                 </td>
-                <td></td>
+                <td><code>--name redis-server</code></td>
             </tr>
             
             <tr>
@@ -311,6 +318,18 @@
                     
                 </td>
                 <td><code>-i</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>subl</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/sublime" target="_blank">nsheff/sublime</a>
+                    
+                    
+                </td>
+                <td></td>
             </tr>
             
         </tbody>
@@ -354,27 +373,34 @@
         <button class="toggle-btn" onclick="toggleRaw()">Raw Manifest</button>
     </h2>
     <pre id="raw-manifest" style="display:none;"><code>manifest:
-  name: nsheff
-  version: 1.0.2
+  name: databio/nsheff
+  version: 1.0.3
   imports:
-    - databio/sciquill:default
-    - databio/lab:default
+  - databio/sciquill:default
+  - databio/lab:default
   commands:
   - command: bundle
     docker_image: databio/jekyll
     docker_command: bundle
   - command: convert
     docker_image: databio/imagemagick
-    docker_command: &#34;convert&#34;
+    docker_command: convert
   - command: duc
     docker_image: databio/duc
     docker_command: duc
-    docker_args: &#34;-it&#34;
+    docker_args: -it
   - command: elasticsearch
     docker_image: elasticsearch:7.5.1
-    docker_args: &#34;-p 9200:9200 -p 9300:9300 --name elasticsearch -m 8G&#34;
+    docker_args: -p 9200:9200 -p 9300:9300 --name elasticsearch -m 8G
+  - command: ffmpeg
+    docker_image: nsheff/ffmpeg
   - command: git
     docker_image: nsheff/git
+  - command: gnucash
+    docker_image: nsheff/gnucash
+  - command: igv
+    docker_image: databio/igv
+    docker_command: sh /IGV_2.4.13/igv.sh
   - command: inkscape
     docker_image: databio/vis:22.04
   - command: jekyll
@@ -382,48 +408,45 @@
     docker_command: jekyll
   - command: kibana
     docker_image: docker.elastic.co/kibana/kibana:6.5.4
-    docker_args: &#34;--link elasticsearch:elasticsearch -p 5601:5601&#34;
-  - command: ffmpeg
-    docker_image: nsheff/ffmpeg
-  - command: gnucash
-    docker_image: nsheff/gnucash
-  - command: igv
-    docker_image: databio/igv
-    docker_command: sh /IGV_2.4.13/igv.sh
+    docker_args: --link elasticsearch:elasticsearch -p 5601:5601
   - command: libre
     docker_image: nsheff/libreoffice
-    docker_command: &#34;libreoffice -env:UserInstallation=file://////tmp/ -env:SingleAppInstance=&#39;false&#39;&#34;
+    docker_command: libreoffice -env:UserInstallation=file://////tmp/ -env:SingleAppInstance=&#39;false&#39;
   - command: mkdocs
     docker_image: nsheff/mkdocs
   - command: notable
     docker_image: nsheff/notable
   - command: npm
     docker_image: amaysim/serverless:1.53.0
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: pcloudcc
     docker_image: nsheff/pcloud
-    docker_args: &#34;-i&#34;
-  - command: redis-server
-    docker_image: redis:5.0.5
-    docker_command: &#34;redis-server&#34;
-    docker_args: &#34;--name redis-server&#34;
-    workdir: &#34;/data&#34;
+    docker_args: -i
+  - command: psql
+    docker_image: postgres:18-alpine
+    docker_command: psql
+    docker_args: -it
   - command: redis-cli
     docker_image: redis:5.0.5
-    docker_command: &#34;redis-cli&#34;
-    docker_args: &#34;-h redis-server -it&#34;
-    workdir: &#34;/data&#34;
-  - command: subl
-    docker_image: nsheff/sublime
+    docker_command: redis-cli
+    docker_args: -h redis-server -it
+    workdir: /data
+  - command: redis-server
+    docker_image: redis:5.0.5
+    docker_command: redis-server
+    docker_args: --name redis-server
+    workdir: /data
   - command: serverless
     docker_image: amaysim/serverless:1.53.0
-    docker_args: &#34;-i&#34;
+    docker_args: -i
+  - command: subl
+    docker_image: nsheff/sublime
 </code></pre>
 </section>
 
 <p class="manifest-link">
-    <a href="https://github.com/databio/hub.bulker.io/blob/master/databio/nsheff_1.0.2.yaml">View on GitHub</a> |
-    <a href="/databio/nsheff_1.0.2.yaml">Raw YAML</a>
+    <a href="https://github.com/databio/hub.bulker.io/blob/master/databio/nsheff_1.0.3.yaml">View on GitHub</a> |
+    <a href="/databio/nsheff_1.0.3.yaml">Raw YAML</a>
 </p>
 
     </main>
@@ -431,7 +454,7 @@
         <p>
             <a href="https://bulker.io">bulker.io</a> |
             <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
-            49 manifests across 3 namespaces
+            54 manifests across 3 namespaces
         </p>
     </footer>
     

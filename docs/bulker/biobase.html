@@ -80,7 +80,7 @@
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/ibmcom/aspera-cli" target="_blank">ibmcom/aspera-cli:3.9.1</a>
+                    <a href="https://quay.io/biocontainers/aspera-cli" target="_blank">quay.io/biocontainers/aspera-cli:4.20.0--hdfd78af_0</a>
                     
                     
                 </td>
@@ -424,11 +424,11 @@
             </tr>
             
             <tr>
-                <td><code>fastp</code></td>
+                <td><code>fasterq-dump</code></td>
                 <td>
                     
                     
-                    <a href="https://quay.io/biocontainers/fastp" target="_blank">quay.io/biocontainers/fastp:1.1.0--heae3180_0</a>
+                    <a href="https://quay.io/biocontainers/sra-tools" target="_blank">quay.io/biocontainers/sra-tools:3.2.1--h4304569_1</a>
                     
                     
                 </td>
@@ -436,11 +436,11 @@
             </tr>
             
             <tr>
-                <td><code>fasterq-dump</code></td>
+                <td><code>fastp</code></td>
                 <td>
                     
                     
-                    <a href="https://quay.io/biocontainers/sra-tools" target="_blank">quay.io/biocontainers/sra-tools:3.2.1--h4304569_1</a>
+                    <a href="https://quay.io/biocontainers/fastp" target="_blank">quay.io/biocontainers/fastp:1.1.0--heae3180_0</a>
                     
                     
                 </td>
@@ -668,7 +668,7 @@
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_20</a>
+                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_22</a>
                     
                     
                 </td>
@@ -700,6 +700,18 @@
             </tr>
             
             <tr>
+                <td><code>Rscript</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_22</a>
+                    
+                    
+                </td>
+                <td><code>-it</code></td>
+            </tr>
+            
+            <tr>
                 <td><code>rsem-calculate-expression</code></td>
                 <td>
                     
@@ -712,15 +724,15 @@
             </tr>
             
             <tr>
-                <td><code>Rscript</code></td>
+                <td><code>salmon</code></td>
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_20</a>
+                    <a href="https://quay.io/biocontainers/salmon" target="_blank">quay.io/biocontainers/salmon:1.10.3--h45fbf2d_5</a>
                     
                     
                 </td>
-                <td><code>-it</code></td>
+                <td></td>
             </tr>
             
             <tr>
@@ -741,18 +753,6 @@
                     
                     
                     <a href="https://quay.io/biocontainers/samblaster" target="_blank">quay.io/biocontainers/samblaster:0.1.26--h9948957_7</a>
-                    
-                    
-                </td>
-                <td></td>
-            </tr>
-            
-            <tr>
-                <td><code>salmon</code></td>
-                <td>
-                    
-                    
-                    <a href="https://quay.io/biocontainers/salmon" target="_blank">quay.io/biocontainers/salmon:1.10.3--h45fbf2d_5</a>
                     
                     
                 </td>
@@ -944,15 +944,16 @@
         <button class="toggle-btn" onclick="toggleRaw()">Raw Manifest</button>
     </h2>
     <pre id="raw-manifest" style="display:none;"><code>manifest:
-  name: biobase
+  name: bulker/biobase
   version: 0.1.0
-  description: &#34;A curated collection of the most common bioinformatics command-line tools, containerized for use with bulker.&#34;
+  description: A curated collection of the most common bioinformatics command-line
+    tools, containerized for use with bulker.
   imports:
   - bulker/alpine:default
   - bulker/coreutils:default
   commands:
   - command: ascp
-    docker_image: ibmcom/aspera-cli:3.9.1
+    docker_image: quay.io/biocontainers/aspera-cli:4.20.0--hdfd78af_0
     docker_command: ascp
   - command: bamtools
     docker_image: quay.io/biocontainers/bamtools:2.5.3--he132191_0
@@ -960,45 +961,45 @@
     docker_image: quay.io/biocontainers/bcftools:1.23--h3a4d415_0
   - command: bedClip
     docker_image: quay.io/biocontainers/ucsc-bedclip:482--h0b57e2e_0
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: bedCommonRegions
     docker_image: quay.io/biocontainers/ucsc-bedcommonregions:482--h0b57e2e_0
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: bedGraphToBigWig
     docker_image: quay.io/biocontainers/ucsc-bedgraphtobigwig:482--hdc0a859_0
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: bedIntersect
     docker_image: quay.io/biocontainers/ucsc-bedintersect:482--h0b57e2e_0
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: bedItemOverlapCount
     docker_image: quay.io/biocontainers/ucsc-beditemoverlapcount:482--h0b57e2e_0
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: bedops
     docker_image: quay.io/biocontainers/bedops:2.4.42--hd6d6fdc_1
   - command: bedPileUps
     docker_image: quay.io/biocontainers/ucsc-bedpileups:482--h0b57e2e_0
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: bedToBigBed
     docker_image: quay.io/biocontainers/ucsc-bedtobigbed:482--hdc0a859_0
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: bedtools
     docker_image: quay.io/biocontainers/bedtools:2.31.1--h13024bc_3
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: bigBedToBed
     docker_image: quay.io/biocontainers/ucsc-bigbedtobed:482--h0b57e2e_0
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: bigWigAverageOverBed
     docker_image: quay.io/biocontainers/ucsc-bigwigaverageoverbed:482--h0b57e2e_0
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: bigWigCat
     docker_image: quay.io/biocontainers/ucsc-bigwigcat:482--h0b57e2e_0
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: bigWigSummary
     docker_image: quay.io/biocontainers/ucsc-bigwigsummary:482--h0b57e2e_0
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: bigWigToWig
     docker_image: quay.io/biocontainers/ucsc-bigwigtowig:482--h0b57e2e_0
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: bismark
     docker_image: quay.io/biocontainers/bismark:0.25.1--hdfd78af_0
   - command: bissnp
@@ -1023,11 +1024,11 @@
     docker_image: quay.io/biocontainers/deeptools:3.5.6--pyhdfd78af_0
   - command: faSplit
     docker_image: quay.io/biocontainers/ucsc-fasplit:482--h0b57e2e_0
-  - command: fastp
-    docker_image: quay.io/biocontainers/fastp:1.1.0--heae3180_0
   - command: fasterq-dump
     docker_image: quay.io/biocontainers/sra-tools:3.2.1--h4304569_1
     docker_command: fasterq-dump
+  - command: fastp
+    docker_image: quay.io/biocontainers/fastp:1.1.0--heae3180_0
   - command: fastq-dump
     docker_image: quay.io/biocontainers/sra-tools:3.2.1--h4304569_1
     docker_command: fastq-dump
@@ -1068,40 +1069,41 @@
   - command: pigz
     docker_image: nsheff/pigz
     docker_command: pigz
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: prefetch
     docker_image: quay.io/biocontainers/sra-tools:3.2.1--h4304569_1
     docker_command: prefetch
   - command: R
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_20
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_22
     docker_command: R
-    docker_args: &#34;-it&#34;
-    description: &#34;You should add --volume=${HOME}/R/4.4:/usr/local/lib/R/host-site-library to tool_args&#34;
+    docker_args: -it
+    description: You should add --volume=${HOME}/R/4.4:/usr/local/lib/R/host-site-library
+      to tool_args
   - command: refgenie
     docker_image: databio/refgenie:latest
   - command: repeatmasker
     docker_image: quay.io/biocontainers/repeatmasker:4.2.2--pl5321hdfd78af_0
+  - command: Rscript
+    docker_image: bioconductor/bioconductor_docker:RELEASE_3_22
+    docker_command: Rscript
+    docker_args: -it
   - command: rsem-calculate-expression
     docker_image: quay.io/biocontainers/rsem:1.3.3--pl5321h077b44d_12
     docker_command: rsem-calculate-expression
-  - command: Rscript
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_20
-    docker_command: Rscript
-    docker_args: &#34;-it&#34;
+  - command: salmon
+    docker_image: quay.io/biocontainers/salmon:1.10.3--h45fbf2d_5
   - command: sambamba
     docker_image: quay.io/biocontainers/sambamba:1.0.1--he614052_4
   - command: samblaster
     docker_image: quay.io/biocontainers/samblaster:0.1.26--h9948957_7
-  - command: salmon
-    docker_image: quay.io/biocontainers/salmon:1.10.3--h45fbf2d_5
   - command: samtools
     docker_image: quay.io/biocontainers/samtools:1.23--h96c455f_0
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: seqkit
     docker_image: quay.io/biocontainers/seqkit:2.12.0--he881be0_1
   - command: seqtk
     docker_image: quay.io/biocontainers/seqtk:1.4--h577a1d6_3
-    docker_args: &#34;-i&#34;
+    docker_args: -i
   - command: skewer
     docker_image: quay.io/biocontainers/skewer:0.2.2--h2d50403_2
   - command: STAR
@@ -1122,7 +1124,7 @@
     docker_command: vep
   - command: wigToBigWig
     docker_image: quay.io/biocontainers/ucsc-wigtobigwig:482--hdc0a859_1
-    docker_args: &#34;-i&#34;
+    docker_args: -i
 </code></pre>
 </section>
 
@@ -1136,7 +1138,7 @@
         <p>
             <a href="https://bulker.io">bulker.io</a> |
             <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
-            49 manifests across 3 namespaces
+            54 manifests across 3 namespaces
         </p>
     </footer>
     

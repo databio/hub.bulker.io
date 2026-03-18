@@ -53,7 +53,7 @@
         <tbody>
             
             <tr>
-                <td><code>latex</code></td>
+                <td><code>bibtool</code></td>
                 <td>
                     
                     
@@ -77,11 +77,11 @@
             </tr>
             
             <tr>
-                <td><code>bibtool</code></td>
+                <td><code>gs</code></td>
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/databio/sciquill" target="_blank">databio/sciquill</a>
+                    <a href="https://hub.docker.com/r/minidocks/ghostscript" target="_blank">minidocks/ghostscript</a>
                     
                     
                 </td>
@@ -105,7 +105,7 @@
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/databio/jabref" target="_blank">databio/jabref:5.9</a>
+                    <a href="https://hub.docker.com/r/databio/jabref" target="_blank">databio/jabref:5.15</a>
                     
                     
                 </td>
@@ -117,11 +117,23 @@
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/databio/jabref" target="_blank">databio/jabref:5.9</a>
+                    <a href="https://hub.docker.com/r/databio/jabref" target="_blank">databio/jabref:5.15</a>
                     
                     
                 </td>
                 <td><code>--name=jabref-cl</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>latex</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/databio/sciquill" target="_blank">databio/sciquill</a>
+                    
+                    
+                </td>
+                <td></td>
             </tr>
             
             <tr>
@@ -170,18 +182,6 @@
                     
                 </td>
                 <td><code>-i</code></td>
-            </tr>
-            
-            <tr>
-                <td><code>gs</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/minidocks/ghostscript" target="_blank">minidocks/ghostscript</a>
-                    
-                    
-                </td>
-                <td></td>
             </tr>
             
             <tr>
@@ -237,42 +237,42 @@
         <button class="toggle-btn" onclick="toggleRaw()">Raw Manifest</button>
     </h2>
     <pre id="raw-manifest" style="display:none;"><code>manifest:
-  name: sciquill
+  name: databio/sciquill
   version: 1.1.0
-  imports: 
+  imports:
   - bulker/alpinebase:default
   host_commands:
-    - md5sum
+  - md5sum
   commands:
-  - command: latex
+  - command: bibtool
     docker_image: databio/sciquill
   - command: git
     docker_image: nsheff/git
-  - command: bibtool
-    docker_image: databio/sciquill
+  - command: gs
+    docker_image: minidocks/ghostscript
   - command: inkscape
     docker_image: nsheff/vis
   - command: jabref
-    docker_image: databio/jabref:5.9
+    docker_image: databio/jabref:5.15
     docker_command: JabRef
   - command: jabref-cl
-    docker_image: databio/jabref:5.9
-    description:  command-line only; don&#39;t allocate TTY. Useful for background jobs.
-    docker_args: &#34;--name=jabref-cl&#34;
+    docker_image: databio/jabref:5.15
+    description: command-line only; don&#39;t allocate TTY. Useful for background jobs.
+    docker_args: --name=jabref-cl
     docker_command: JabRef
+  - command: latex
+    docker_image: databio/sciquill
   - command: libre
     docker_image: nsheff/libreoffice
-    docker_command: &#34;libreoffice -env:UserInstallation=file:///tmp/ -env:SingleAppInstance=&#39;false&#39;&#34;
+    docker_command: libreoffice -env:UserInstallation=file:///tmp/ -env:SingleAppInstance=&#39;false&#39;
   - command: liquify
     docker_image: nsheff/liquify
-    docker_command: &#34; &#34;
+    docker_command: &#39; &#39;
   - command: mkdocs
     docker_image: nsheff/mkdocs
   - command: pandoc
     docker_image: databio/sciquill
-    docker_args: &#34;-i&#34;    
-  - command: gs
-    docker_image: minidocks/ghostscript
+    docker_args: -i
   - command: pdflatex
     docker_image: databio/sciquill
 </code></pre>
@@ -288,7 +288,7 @@
         <p>
             <a href="https://bulker.io">bulker.io</a> |
             <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
-            49 manifests across 3 namespaces
+            54 manifests across 3 namespaces
         </p>
     </footer>
     
