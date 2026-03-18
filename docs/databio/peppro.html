@@ -32,7 +32,7 @@
 <section class="install-section">
     <h2>Install</h2>
     <div class="install-box">
-        <code id="install-cmd">bulker activate databio/peppro:1.0.11</code>
+        <code id="install-cmd">bulker activate databio/peppro:1.1.0</code>
         <button class="copy-btn" onclick="copyInstall()">Copy</button>
     </div>
 </section>
@@ -42,10 +42,10 @@
     <h2>Tags</h2>
     <div class="tag-list">
         
-        <span class="tag ">
+        <span class="tag tag-latest">
             1.1.0
             <small>(v1.1.0)</small>
-            
+            <small>[latest]</small>
             — 21 commands
         </span>
         
@@ -56,10 +56,10 @@
             — 21 commands
         </span>
         
-        <span class="tag tag-latest">
+        <span class="tag ">
             1.0.11
-            <small>(v1.1.0)</small>
-            <small>[latest]</small>
+            <small>(v1.0.11)</small>
+            
             — 20 commands
         </span>
         
@@ -76,7 +76,7 @@
 
 
 <section class="commands-section">
-    <h2>Commands (20)</h2>
+    <h2>Commands (21)</h2>
     <table class="commands-table">
         <thead>
             <tr>
@@ -172,11 +172,23 @@
             </tr>
             
             <tr>
+                <td><code>fastx_reverse_complement</code></td>
+                <td>
+                    
+                    
+                    <a href="https://quay.io/biocontainers/fastx_toolkit" target="_blank">quay.io/biocontainers/fastx_toolkit:0.0.14--he1b5a44_8</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
                 <td><code>flash</code></td>
                 <td>
                     
                     
-                    <a href="https://quay.io/biocontainers/flash" target="_blank">quay.io/biocontainers/flash:1.2.11--h5bf99c6_6</a>
+                    <a href="https://hub.docker.com/r/databio/flashz" target="_blank">databio/flashz</a>
                     
                     
                 </td>
@@ -407,8 +419,10 @@
     docker_image: quay.io/biocontainers/fastqc:0.12.1--hdfd78af_0
   - command: fastx_trimmer
     docker_image: quay.io/biocontainers/fastx_toolkit:0.0.14--he1b5a44_8
+  - command: fastx_reverse_complement
+    docker_image: quay.io/biocontainers/fastx_toolkit:0.0.14--he1b5a44_8
   - command: flash
-    docker_image: quay.io/biocontainers/flash:1.2.11--h5bf99c6_6
+    docker_image: databio/flashz
   - command: java
     docker_image: openjdk
     docker_args: &#34;-i&#34;
@@ -440,8 +454,8 @@
 </section>
 
 <p class="manifest-link">
-    <a href="https://github.com/databio/hub.bulker.io/blob/master/databio/peppro_1.0.11.yaml">View on GitHub</a> |
-    <a href="/databio/peppro_1.0.11.yaml">Raw YAML</a>
+    <a href="https://github.com/databio/hub.bulker.io/blob/master/databio/peppro_1.1.0.yaml">View on GitHub</a> |
+    <a href="/databio/peppro_1.1.0.yaml">Raw YAML</a>
 </p>
 
     </main>
