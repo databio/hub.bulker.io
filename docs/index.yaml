@@ -965,6 +965,39 @@ manifests:
   - bulker/alpine:default
   - bulker/coreutils:default
 - namespace: databio
+  name: pepatac
+  tag: 1.1.1
+  path: databio/pepatac_1.1.1.yaml
+  commands:
+  - bedGraphToBigWig
+  - bedToBigBed
+  - bedtools
+  - bowtie2
+  - bwa
+  - fastqc
+  - findPeaks
+  - findMotifsGenome.pl
+  - fseq
+  - Genrich
+  - hmmratac
+  - java
+  - macs3
+  - picard
+  - pigz
+  - preseq
+  - R
+  - Rscript
+  - samblaster
+  - samtools
+  - seqOutBias
+  - skewer
+  - trimmomatic
+  - gtars
+  command_count: 24
+  imports:
+  - bulker/alpine:default
+  - bulker/coreutils:default
+- namespace: databio
   name: pepkit
   tag: 1.0.0
   path: databio/pepkit_1.0.0.yaml

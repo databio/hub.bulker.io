@@ -270,16 +270,26 @@ def render_site(namespaces: dict, manifests: list[dict], channels: list[dict]):
     print(f"  Wrote docs/channels.html")
 
     # Copy YAML manifest files into docs/ so CLI URLs work when serving from docs/
-    # Symlinks are resolved (copied as regular files) so docs/ is self-contained
+    # Skip symlinks in source; generate latest symlinks automatically
     for entry in sorted(ROOT.iterdir()):
         if not entry.is_dir() or entry.name in SKIP_DIRS or entry.name.startswith("."):
             continue
-        dest_dir = DOCS / entry.name
+        ns_name = entry.name
+        dest_dir = DOCS / ns_name
         dest_dir.mkdir(exist_ok=True)
         for yaml_file in sorted(entry.glob("*.yaml")):
-            # follow_symlinks=True (default) resolves symlinks to regular files
+            if yaml_file.is_symlink():
+                continue
             shutil.copy2(yaml_file, dest_dir / yaml_file.name)
-    print(f"  Copied manifest YAML files to docs/")
+        # Write latest pointer: copy highest-version file as crate_name.yaml
+        if ns_name in namespaces:
+            for crate_name, crate_data in namespaces[ns_name]["crates"].items():
+                latest_tag = crate_data["latest_tag"]
+                latest_manifest = crate_data["tags"][latest_tag]
+                src = ROOT / latest_manifest["path"]
+                dest = dest_dir / f"{crate_name}.yaml"
+                shutil.copy2(src, dest)
+    print(f"  Copied manifest YAML files to docs/ (with auto-generated latest pointers)")
 
     # Copy channels.yaml to docs/
     channels_src = ROOT / "channels.yaml"

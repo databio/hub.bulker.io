@@ -32,7 +32,7 @@
 <section class="install-section">
     <h2>Install</h2>
     <div class="install-box">
-        <code id="install-cmd">bulker activate databio/pepatac:1.1.0</code>
+        <code id="install-cmd">bulker activate databio/pepatac:1.1.1</code>
         <button class="copy-btn" onclick="copyInstall()">Copy</button>
     </div>
 </section>
@@ -43,9 +43,16 @@
     <div class="tag-list">
         
         <span class="tag tag-latest">
+            1.1.1
+            <small>(v1.1.1)</small>
+            <small>[latest]</small>
+            — 24 commands
+        </span>
+        
+        <span class="tag ">
             1.1.0
             <small>(v1.1.0)</small>
-            <small>[latest]</small>
+            
             — 24 commands
         </span>
         
@@ -287,7 +294,7 @@
                 <td>
                     
                     
-                    openjdk
+                    eclipse-temurin:21-jre
                     
                     
                 </td>
@@ -492,7 +499,7 @@
     </h2>
     <pre id="raw-manifest" style="display:none;"><code>manifest:
   name: databio/pepatac
-  version: 1.1.0
+  version: 1.1.1
   imports:
   - bulker/alpine:default
   - bulker/coreutils:default
@@ -525,7 +532,7 @@
   - command: hmmratac
     docker_image: quay.io/biocontainers/hmmratac:1.2.10--hdfd78af_1
   - command: java
-    docker_image: openjdk
+    docker_image: eclipse-temurin:21-jre
     docker_args: &#34;-i&#34;
   - command: macs3
     docker_image: quay.io/biocontainers/macs3:3.0.3--py310h397c9d8_0
@@ -558,8 +565,8 @@
 </section>
 
 <p class="manifest-link">
-    <a href="https://github.com/databio/hub.bulker.io/blob/master/databio/pepatac_1.1.0.yaml">View on GitHub</a> |
-    <a href="/databio/pepatac_1.1.0.yaml">Raw YAML</a>
+    <a href="https://github.com/databio/hub.bulker.io/blob/master/databio/pepatac_1.1.1.yaml">View on GitHub</a> |
+    <a href="/databio/pepatac_1.1.1.yaml">Raw YAML</a>
 </p>
 
     </main>
@@ -567,7 +574,7 @@
         <p>
             <a href="https://bulker.io">bulker.io</a> |
             <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
-            54 manifests across 3 namespaces
+            55 manifests across 3 namespaces
         </p>
     </footer>
     
