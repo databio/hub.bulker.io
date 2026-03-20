@@ -27,7 +27,7 @@
 <section class="tags-section">
     <h2>Tags</h2>
     <div class="tag-list">
-        {% for tag_name, tag_data in crate.tags | dictsort(reverse=true) %}
+        {% for tag_name, tag_data in crate.tags | semver_sort %}
         <span class="tag {% if tag_name == crate.latest_tag %}tag-latest{% endif %}">
             {{ tag_name }}
             {% if tag_data.version %}<small>(v{{ tag_data.version }})</small>{% endif %}

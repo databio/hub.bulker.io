@@ -477,20 +477,28 @@
             resultsDiv.style.display = 'none';
             return;
         }
-        var matches = index.filter(function(m) {
-            return m.name.toLowerCase().indexOf(q) !== -1 ||
+        // Deduplicate by crate name, keeping the highest version per crate
+        var seen = {};
+        index.forEach(function(m) {
+            var key = m.namespace + '/' + m.name;
+            var keyLower = key.toLowerCase();
+            var nameMatch = m.name.toLowerCase().indexOf(q) !== -1 ||
                    m.namespace.toLowerCase().indexOf(q) !== -1 ||
                    (m.description && m.description.toLowerCase().indexOf(q) !== -1) ||
                    m.commands.some(function(c) { return c.toLowerCase().indexOf(q) !== -1; });
-        }).slice(0, 20);
+            if (!nameMatch) return;
+            if (!seen[keyLower] || m.tag > seen[keyLower].tag) {
+                seen[keyLower] = m;
+            }
+        });
+        var matches = Object.values(seen).slice(0, 20);
 
         if (matches.length === 0) {
             resultsDiv.innerHTML = '<div class="no-results">No matches found.</div>';
         } else {
             resultsDiv.innerHTML = matches.map(function(m) {
-                var tagSuffix = m.tag !== 'default' ? ':' + m.tag : '';
                 return '<a class="search-result" href="/' + m.namespace + '/' + m.name + '.html">' +
-                    '<strong>' + m.namespace + '/' + m.name + tagSuffix + '</strong>' +
+                    '<strong>' + m.namespace + '/' + m.name + '</strong>' +
                     ' <span class="cmd-count">' + m.command_count + ' commands</span>' +
                     (m.description ? '<br><small>' + m.description + '</small>' : '') +
                     '</a>';

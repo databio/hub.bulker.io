@@ -150,14 +150,26 @@ def build_data_structure(manifests: list[dict]) -> dict:
     return namespaces
 
 
+def _version_parts(v: str) -> list:
+    """Split a version string into comparable parts (ints where possible)."""
+    return [int(x) if x.isdigit() else x for x in re.split(r'[._-]', v)]
+
+
 def _version_gt(a: str, b: str) -> bool:
     """Compare two version strings. Returns True if a > b."""
-    def to_parts(v):
-        return [int(x) if x.isdigit() else x for x in re.split(r'[._-]', v)]
     try:
-        return to_parts(a) > to_parts(b)
+        return _version_parts(a) > _version_parts(b)
     except (TypeError, ValueError):
         return a > b
+
+
+def _semver_sort_tags(tags_dict: dict, reverse: bool = True) -> list:
+    """Sort a tags dict by semver order, returning list of (tag_name, tag_data) tuples."""
+    def sort_key(item):
+        parts = re.split(r'[._-]', item[0])
+        # Pad to ensure consistent length; use (0, num) for ints, (1, str) for strings
+        return [(0, int(p)) if p.isdigit() else (1, p) for p in parts]
+    return sorted(tags_dict.items(), key=sort_key, reverse=reverse)
 
 
 def write_index_yaml(manifests: list[dict], output: Path):
@@ -214,6 +226,7 @@ def render_site(namespaces: dict, manifests: list[dict], channels: list[dict]):
         loader=FileSystemLoader(str(TEMPLATES)),
         autoescape=True,
     )
+    env.filters["semver_sort"] = _semver_sort_tags
 
     # Compute stats
     total_crates = sum(len(ns["crates"]) for ns in namespaces.values())
