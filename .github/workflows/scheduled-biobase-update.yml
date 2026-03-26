@@ -23,5 +23,4 @@ jobs:
         with:
           prompt: |
             Use the update-biobase skill to check all biobase container images for newer versions and create a PR if any updates are found.
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          allowed_tools: "Bash,Read,Write,Edit,Glob,Grep"
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
