@@ -22,3 +22,13 @@ The site builds and deploys automatically on push to master (GitHub Actions → 
 ## Validation
 
 Run `python validate_manifests.py --check-tags` to validate manifests locally. This also runs in CI before deploy.
+
+## Automated biobase updates
+
+A scheduled GitHub Actions workflow (`.github/workflows/scheduled-biobase-update.yml`) runs every Thursday at midnight UTC. It uses Claude Code with the `.claude/skills/update-biobase.md` skill to:
+
+1. Check all biobase container images for newer tags via registry APIs (Quay.io, Docker Hub)
+2. Create a new versioned manifest with updated tags (patch version bump)
+3. Open a PR for human review
+
+The workflow can also be triggered manually via `workflow_dispatch`. Some images are intentionally skipped (cellranger, pigz, refgenie) because they use custom registries or pinned versions.

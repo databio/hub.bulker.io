@@ -1,0 +1,27 @@
+name: Scheduled biobase update
+on:
+  schedule:
+    - cron: "0 0 * * 4"  # Every Thursday at midnight UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+  actions: read
+
+jobs:
+  update-biobase:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Run Claude Code to update biobase
+        uses: anthropics/claude-code-action@v1
+        with:
+          prompt: |
+            Use the update-biobase skill to check all biobase container images for newer versions and create a PR if any updates are found.
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          allowed_tools: "Bash,Read,Write,Edit,Glob,Grep"
