@@ -167,6 +167,162 @@ manifests:
   - bulker/alpine:default
   - bulker/coreutils:default
 - namespace: bulker
+  name: biobase
+  tag: 0.1.1
+  path: bulker/biobase_0.1.1.yaml
+  commands:
+  - ascp
+  - bamtools
+  - bcftools
+  - bedClip
+  - bedCommonRegions
+  - bedGraphToBigWig
+  - bedIntersect
+  - bedItemOverlapCount
+  - bedops
+  - bedPileUps
+  - bedToBigBed
+  - bedtools
+  - bigBedToBed
+  - bigWigAverageOverBed
+  - bigWigCat
+  - bigWigSummary
+  - bigWigToWig
+  - bismark
+  - bissnp
+  - blast
+  - bowtie
+  - bowtie2
+  - bsmap
+  - bwa
+  - cellranger
+  - cufflinks
+  - cutadapt
+  - deeptools
+  - faSplit
+  - fasterq-dump
+  - fastp
+  - fastq-dump
+  - fastqc
+  - featureCounts
+  - freebayes
+  - gatk
+  - gt
+  - hisat2
+  - homer
+  - htseq-count
+  - kallisto
+  - liftOver
+  - macs2
+  - mashmap
+  - minimap2
+  - multiqc
+  - picard
+  - pigz
+  - prefetch
+  - R
+  - refgenie
+  - repeatmasker
+  - Rscript
+  - rsem-calculate-expression
+  - salmon
+  - sambamba
+  - samblaster
+  - samtools
+  - seqkit
+  - seqtk
+  - skewer
+  - STAR
+  - stringtie
+  - tabix
+  - trim_galore
+  - trimmomatic
+  - vdb-config
+  - vep
+  - wigToBigWig
+  command_count: 69
+  imports:
+  - bulker/alpine:default
+  - bulker/coreutils:default
+- namespace: bulker
+  name: biobase
+  tag: 0.1.2
+  path: bulker/biobase_0.1.2.yaml
+  commands:
+  - ascp
+  - bamtools
+  - bcftools
+  - bedClip
+  - bedCommonRegions
+  - bedGraphToBigWig
+  - bedIntersect
+  - bedItemOverlapCount
+  - bedops
+  - bedPileUps
+  - bedToBigBed
+  - bedtools
+  - bigBedToBed
+  - bigWigAverageOverBed
+  - bigWigCat
+  - bigWigSummary
+  - bigWigToWig
+  - bismark
+  - bissnp
+  - blast
+  - bowtie
+  - bowtie2
+  - bsmap
+  - bwa
+  - cellranger
+  - cufflinks
+  - cutadapt
+  - deeptools
+  - faSplit
+  - fasterq-dump
+  - fastp
+  - fastq-dump
+  - fastqc
+  - featureCounts
+  - freebayes
+  - gatk
+  - gt
+  - hisat2
+  - homer
+  - htseq-count
+  - kallisto
+  - liftOver
+  - macs2
+  - mashmap
+  - minimap2
+  - multiqc
+  - picard
+  - pigz
+  - prefetch
+  - R
+  - refgenie
+  - repeatmasker
+  - Rscript
+  - rsem-calculate-expression
+  - salmon
+  - sambamba
+  - samblaster
+  - samtools
+  - seqkit
+  - seqtk
+  - skewer
+  - STAR
+  - stringtie
+  - tabix
+  - trim_galore
+  - trimmomatic
+  - vdb-config
+  - vep
+  - wigToBigWig
+  command_count: 69
+  imports:
+  - bulker/alpine:default
+  - bulker/coreutils:default
+- namespace: bulker
   name: coreutils
   tag: 1.0.0
   path: bulker/coreutils_1.0.0.yaml
@@ -342,7 +498,7 @@ manifests:
   command_count: 4
   imports: []
 - namespace: databio
-  name: databio
+  name: lab
   tag: 1.1.6
   path: databio/lab_1.1.6.yaml
   commands:
@@ -368,7 +524,7 @@ manifests:
   imports:
   - bulker/biobase:default
 - namespace: databio
-  name: databio
+  name: lab_geofetch
   tag: geofetch_1.0.0
   path: databio/lab_geofetch_1.0.0.yaml
   commands:
@@ -998,6 +1154,39 @@ manifests:
   - bulker/alpine:default
   - bulker/coreutils:default
 - namespace: databio
+  name: pepatac
+  tag: 1.1.2
+  path: databio/pepatac_1.1.2.yaml
+  commands:
+  - bedGraphToBigWig
+  - bedToBigBed
+  - bedtools
+  - bowtie2
+  - bwa
+  - fastqc
+  - findPeaks
+  - findMotifsGenome.pl
+  - fseq
+  - Genrich
+  - hmmratac
+  - java
+  - macs3
+  - picard
+  - pigz
+  - preseq
+  - R
+  - Rscript
+  - samblaster
+  - samtools
+  - seqOutBias
+  - skewer
+  - trimmomatic
+  - gtars
+  command_count: 24
+  imports:
+  - bulker/alpine:default
+  - bulker/coreutils:default
+- namespace: databio
   name: pepkit
   tag: 1.0.0
   path: databio/pepkit_1.0.0.yaml
@@ -1331,6 +1520,46 @@ manifests:
   imports:
   - bulker/alpinebase:default
 - namespace: databio
+  name: sciquill
+  tag: 1.2.0
+  path: databio/sciquill_1.2.0.yaml
+  commands:
+  - latex
+  - git
+  - bibtool
+  - inkscape
+  - jabref
+  - jabref-cl
+  - libre
+  - liquify
+  - mkdocs
+  - pandoc
+  - gs
+  - pdflatex
+  command_count: 12
+  imports:
+  - bulker/alpinebase:default
+- namespace: databio
+  name: sciquill
+  tag: 1.3.0
+  path: databio/sciquill_1.3.0.yaml
+  commands:
+  - latex
+  - git
+  - bibtool
+  - inkscape
+  - jabref
+  - jabref-cl
+  - libre
+  - liquify
+  - mkdocs
+  - pandoc
+  - gs
+  - pdflatex
+  command_count: 12
+  imports:
+  - bulker/alpinebase:default
+- namespace: databio
   name: sra_convert
   tag: convert_0.0.1
   path: databio/sra_convert_0.0.1.yaml
@@ -1343,7 +1572,7 @@ manifests:
   command_count: 5
   imports: []
 - namespace: databio
-  name: nsheff
+  name: vep
   tag: 1.0.0
   path: databio/vep_1.0.0.yaml
   commands:

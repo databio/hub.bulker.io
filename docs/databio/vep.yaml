@@ -1,5 +1,5 @@
 manifest:
-  name: databio/nsheff
+  name: databio/vep
   version: 1.0.0
   commands:
   - command: vep

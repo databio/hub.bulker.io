@@ -240,7 +240,10 @@ footer a:hover { color: #ffffff; }
     padding: 0.3rem 0.6rem;
     background: var(--code-bg);
     border-radius: 4px;
+    color: inherit;
+    text-decoration: none;
 }
+a.tag:hover { background: var(--border); }
 .tag-latest { font-weight: 700; border-left: 3px solid var(--accent); }
 .tag small { color: var(--text-secondary); }
 

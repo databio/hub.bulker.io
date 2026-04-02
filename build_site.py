@@ -267,14 +267,28 @@ def render_site(namespaces: dict, manifests: list[dict], channels: list[dict]):
         (ns_dir / "index.html").write_text(html)
         print(f"  Wrote docs/{ns_name}/index.html")
 
-    # Render crate pages
+    # Render crate pages and version pages
     crate_tmpl = env.get_template("crate.html")
+    version_tmpl = env.get_template("crate_version.html")
     for ns_name, ns_data in sorted(namespaces.items()):
         ns_dir = DOCS / ns_name
         for crate_name, crate_data in sorted(ns_data["crates"].items()):
             html = crate_tmpl.render(crate=crate_data, stats=stats)
             (ns_dir / f"{crate_name}.html").write_text(html)
             print(f"  Wrote docs/{ns_name}/{crate_name}.html")
+            # Per-version pages
+            crate_ver_dir = ns_dir / crate_name
+            crate_ver_dir.mkdir(exist_ok=True)
+            for tag_name, tag_data in crate_data["tags"].items():
+                html = version_tmpl.render(
+                    crate=crate_data,
+                    tag=tag_data,
+                    tag_name=tag_name,
+                    is_latest=(tag_name == crate_data["latest_tag"]),
+                    stats=stats,
+                )
+                (crate_ver_dir / f"{tag_name}.html").write_text(html)
+            print(f"    + {len(crate_data['tags'])} version pages")
 
     # Render channels page
     channels_tmpl = env.get_template("channels.html")

@@ -27,49 +27,23 @@
     <h1>databio/databio</h1>
     <p class="breadcrumb"><a href="/">Home</a> / <a href="/databio/">databio</a> / databio</p>
     
+    <p class="crate-desc">Adds python to the lab crate.</p>
+    
 </section>
 
 <section class="install-section">
     <h2>Install</h2>
     <div class="install-box">
-        <code id="install-cmd">bulker activate databio/databio:1.1.6</code>
+        <code id="install-cmd">bulker activate databio/databio:1.0.0</code>
         <button class="copy-btn" onclick="copyInstall()">Copy</button>
     </div>
 </section>
 
 
-<section class="tags-section">
-    <h2>Tags</h2>
-    <div class="tag-list">
-        
-        <span class="tag ">
-            geofetch_1.0.0
-            <small>(v1.0.0)</small>
-            
-            — 29 commands
-        </span>
-        
-        <span class="tag tag-latest">
-            1.1.6
-            <small>(v1.1.6)</small>
-            <small>[latest]</small>
-            — 18 commands
-        </span>
-        
-        <span class="tag ">
-            1.0.0
-            <small>(v1.0.0)</small>
-            
-            — 7 commands
-        </span>
-        
-    </div>
-</section>
-
 
 
 <section class="commands-section">
-    <h2>Commands (18)</h2>
+    <h2>Commands (7)</h2>
     <table class="commands-table">
         <thead>
             <tr>
@@ -81,11 +55,35 @@
         <tbody>
             
             <tr>
-                <td><code>basemount</code></td>
+                <td><code>geofetch</code></td>
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/databio/basemount" target="_blank">databio/basemount:0.25.2.3265</a>
+                    <a href="https://hub.docker.com/r/nsheff/geofetch" target="_blank">nsheff/geofetch</a>
+                    
+                    
+                </td>
+                <td><code>-i</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>pigz</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/pigz" target="_blank">nsheff/pigz</a>
+                    
+                    
+                </td>
+                <td><code>-i</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>pip3</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/python3" target="_blank">nsheff/python3</a>
                     
                     
                 </td>
@@ -93,11 +91,11 @@
             </tr>
             
             <tr>
-                <td><code>cellranger-atac</code></td>
+                <td><code>prefetch</code></td>
                 <td>
                     
                     
-                    <a href="https://quay.io/cumulus/cellranger-atac" target="_blank">quay.io/cumulus/cellranger-atac:2.1.0</a>
+                    <a href="https://hub.docker.com/r/humancellatlas/sratools" target="_blank">humancellatlas/sratools</a>
                     
                     
                 </td>
@@ -105,27 +103,15 @@
             </tr>
             
             <tr>
-                <td><code>duc</code></td>
+                <td><code>python3</code></td>
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/databio/duc" target="_blank">databio/duc</a>
+                    python:3.7.4
                     
                     
                 </td>
                 <td><code>-it</code></td>
-            </tr>
-            
-            <tr>
-                <td><code>jq</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/linuxserver/yq" target="_blank">linuxserver/yq</a>
-                    
-                    
-                </td>
-                <td><code>-i --entrypoint jq</code></td>
             </tr>
             
             <tr>
@@ -133,167 +119,23 @@
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_22</a>
+                    <a href="https://hub.docker.com/r/nsheff/rbase" target="_blank">nsheff/rbase</a>
                     
                     
                 </td>
-                <td><code>-it</code></td>
+                <td><code>-it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library</code></td>
             </tr>
             
             <tr>
-                <td><code>R3.6</code></td>
+                <td><code>samtools</code></td>
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_10</a>
+                    <a href="https://quay.io/biocontainers/samtools" target="_blank">quay.io/biocontainers/samtools:1.9--h91753b0_8</a>
                     
                     
                 </td>
-                <td><code>-it</code></td>
-            </tr>
-            
-            <tr>
-                <td><code>R4.0</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_11</a>
-                    
-                    
-                </td>
-                <td><code>-it</code></td>
-            </tr>
-            
-            <tr>
-                <td><code>R4.0.3</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_12</a>
-                    
-                    
-                </td>
-                <td><code>-it</code></td>
-            </tr>
-            
-            <tr>
-                <td><code>RC</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/databio/bioconductor" target="_blank">databio/bioconductor</a>
-                    
-                    
-                </td>
-                <td><code>-it</code></td>
-            </tr>
-            
-            <tr>
-                <td><code>Rd</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:devel</a>
-                    
-                    
-                </td>
-                <td><code>-it</code></td>
-            </tr>
-            
-            <tr>
-                <td><code>Rscript</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_22</a>
-                    
-                    
-                </td>
-                <td><code>-it</code></td>
-            </tr>
-            
-            <tr>
-                <td><code>Rscript3.6</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_10</a>
-                    
-                    
-                </td>
-                <td></td>
-            </tr>
-            
-            <tr>
-                <td><code>Rscript4.0</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_11</a>
-                    
-                    
-                </td>
-                <td><code>-it</code></td>
-            </tr>
-            
-            <tr>
-                <td><code>Rscript4.0.3</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:RELEASE_3_12</a>
-                    
-                    
-                </td>
-                <td><code>-it</code></td>
-            </tr>
-            
-            <tr>
-                <td><code>Rscriptd</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/bioconductor/bioconductor_docker" target="_blank">bioconductor/bioconductor_docker:devel</a>
-                    
-                    
-                </td>
-                <td><code>-it</code></td>
-            </tr>
-            
-            <tr>
-                <td><code>stork</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/databio/stork" target="_blank">databio/stork</a>
-                    
-                    
-                </td>
-                <td></td>
-            </tr>
-            
-            <tr>
-                <td><code>xq</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/linuxserver/yq" target="_blank">linuxserver/yq</a>
-                    
-                    
-                </td>
-                <td><code>-i --entrypoint xq</code></td>
-            </tr>
-            
-            <tr>
-                <td><code>yq</code></td>
-                <td>
-                    
-                    
-                    <a href="https://hub.docker.com/r/linuxserver/yq" target="_blank">linuxserver/yq</a>
-                    
-                    
-                </td>
-                <td><code>-i --entrypoint yq</code></td>
+                <td><code>-i</code></td>
             </tr>
             
         </tbody>
@@ -301,23 +143,6 @@
 </section>
 
 
-
-<section class="imports-section">
-    <h2>Imports</h2>
-    <ul>
-        
-        <li>
-            
-            
-            
-            
-            
-            <a href="/bulker/biobase.html"><code>bulker/biobase:default</code></a>
-            
-        </li>
-        
-    </ul>
-</section>
 
 
 
@@ -328,93 +153,42 @@
     </h2>
     <pre id="raw-manifest" style="display:none;"><code>manifest:
   name: databio/databio
-  version: 1.1.6
-  imports:
-  - bulker/biobase:default
+  version: 1.0.0
+  import:
+  - bulker/alpine:default
+  - databio/pepkit:default
+  - databio/lab:1.0
   commands:
-  - command: basemount
-    docker_image: databio/basemount:0.25.2.3265
-  - command: cellranger-atac
-    docker_image: quay.io/cumulus/cellranger-atac:2.1.0
-  - command: duc
-    docker_image: databio/duc
-    docker_command: duc
+  - command: geofetch
+    docker_image: nsheff/geofetch
+    docker_args: -i
+    docker_command: geofetch
+  - command: pigz
+    docker_image: nsheff/pigz
+    docker_command: pigz
+    docker_args: -i
+  - command: pip3
+    docker_image: nsheff/python3
+  - command: prefetch
+    docker_image: humancellatlas/sratools
+    docker_command: prefetch
+  - command: python3
     docker_args: -it
-  - command: jq
-    docker_command: &#39; &#39;
-    singularity_command: yq
-    docker_image: linuxserver/yq
-    docker_args: -i --entrypoint jq
+    docker_image: python:3.7.4
+    docker_command: python3
   - command: R
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_22
+    docker_image: nsheff/rbase
     docker_command: R
-    docker_args: -it
-    description: You should add --volume=${HOME}/R/4.0:/usr/local/lib/R/host-site-library
-      to tool_args
-  - command: R3.6
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_10
-    docker_command: R
-    docker_args: -it
-  - command: R4.0
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_11
-    docker_command: R
-    docker_args: -it
-    description: You should add --volume=${HOME}/R/4.0:/usr/local/lib/R/host-site-library
-      to tool_args
-  - command: R4.0.3
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_12
-    docker_command: R
-    docker_args: -it
-    description: You should add --volume=${HOME}/R/4.0:/usr/local/lib/R/host-site-library
-      to tool_args
-  - command: RC
-    description: This image has all the latex stuff added in.
-    docker_image: databio/bioconductor
-    docker_command: R
-    docker_args: -it
-  - command: Rd
-    description: R development release. To update, run docker pull bioconductor/bioconductor_docker:devel
-    docker_image: bioconductor/bioconductor_docker:devel
-    docker_command: R
-    docker_args: -it
-  - command: Rscript
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_22
-    docker_command: Rscript
-    docker_args: -it
-  - command: Rscript3.6
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_10
-    docker_command: Rscript
-  - command: Rscript4.0
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_11
-    docker_command: Rscript
-    docker_args: -it
-  - command: Rscript4.0.3
-    docker_image: bioconductor/bioconductor_docker:RELEASE_3_12
-    docker_command: Rscript
-    docker_args: -it
-  - command: Rscriptd
-    docker_image: bioconductor/bioconductor_docker:devel
-    docker_command: Rscript
-    docker_args: -it
-  - command: stork
-    docker_image: databio/stork
-    docker_command: stork
-  - command: xq
-    docker_command: &#39; &#39;
-    singularity_command: xq
-    docker_image: linuxserver/yq
-    docker_args: -i --entrypoint xq
-  - command: yq
-    docker_command: &#39; &#39;
-    singularity_command: yq
-    docker_image: linuxserver/yq
-    docker_args: -i --entrypoint yq
+    docker_args: -it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library
+  - command: samtools
+    docker_args: -i
+    docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
 </code></pre>
 </section>
 
 <p class="manifest-link">
-    <a href="https://github.com/databio/hub.bulker.io/blob/master/databio/lab_1.1.6.yaml">View on GitHub</a> |
-    <a href="/databio/lab_1.1.6.yaml">Raw YAML</a>
+    <a href="https://github.com/databio/hub.bulker.io/blob/master/databio/merge_1.0.0.yaml">View on GitHub</a> |
+    <a href="/databio/merge_1.0.0.yaml">Raw YAML</a>
 </p>
 
     </main>
@@ -422,7 +196,7 @@
         <p>
             <a href="https://bulker.io">bulker.io</a> |
             <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
-            55 manifests across 3 namespaces
+            60 manifests across 3 namespaces
         </p>
     </footer>
     

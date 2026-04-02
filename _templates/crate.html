@@ -28,12 +28,12 @@
     <h2>Tags</h2>
     <div class="tag-list">
         {% for tag_name, tag_data in crate.tags | semver_sort %}
-        <span class="tag {% if tag_name == crate.latest_tag %}tag-latest{% endif %}">
+        <a href="/{{ crate.namespace }}/{{ crate.name }}/{{ tag_name }}.html" class="tag {% if tag_name == crate.latest_tag %}tag-latest{% endif %}">
             {{ tag_name }}
             {% if tag_data.version %}<small>(v{{ tag_data.version }})</small>{% endif %}
             {% if tag_name == crate.latest_tag %}<small>[latest]</small>{% endif %}
             — {{ tag_data.command_count }} commands
-        </span>
+        </a>
         {% endfor %}
     </div>
 </section>

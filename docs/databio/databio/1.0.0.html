@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>databio/databio:1.0.0 — Bulker Registry</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo"><img src="/favicon.svg" alt="bulker">bulker registry</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/channels.html">Channels</a>
+                <a href="https://bulker.io" target="_blank">Docs</a>
+                <a href="https://github.com/databio/hub.bulker.io" target="_blank">GitHub</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+
+<section class="page-header">
+    <h1>databio/databio:1.0.0</h1>
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/databio/">databio</a> / <a href="/databio/databio.html">databio</a> / 1.0.0</p>
+    <p class="crate-desc">Version 1.0.0</p>
+    <p class="crate-desc"><span class="tag tag-latest">latest</span></p>
+</section>
+
+<section class="install-section">
+    <h2>Install</h2>
+    <div class="install-box">
+        <code id="install-cmd">bulker activate databio/databio:1.0.0</code>
+        <button class="copy-btn" onclick="copyInstall()">Copy</button>
+    </div>
+</section>
+
+
+
+
+<section class="commands-section">
+    <h2>Commands (7)</h2>
+    <table class="commands-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Docker Image</th>
+                <th>Args</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td><code>geofetch</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/geofetch" target="_blank">nsheff/geofetch</a>
+                    
+                    
+                </td>
+                <td><code>-i</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>pigz</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/pigz" target="_blank">nsheff/pigz</a>
+                    
+                    
+                </td>
+                <td><code>-i</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>pip3</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/python3" target="_blank">nsheff/python3</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>prefetch</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/humancellatlas/sratools" target="_blank">humancellatlas/sratools</a>
+                    
+                    
+                </td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><code>python3</code></td>
+                <td>
+                    
+                    
+                    python:3.7.4
+                    
+                    
+                </td>
+                <td><code>-it</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>R</code></td>
+                <td>
+                    
+                    
+                    <a href="https://hub.docker.com/r/nsheff/rbase" target="_blank">nsheff/rbase</a>
+                    
+                    
+                </td>
+                <td><code>-it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library</code></td>
+            </tr>
+            
+            <tr>
+                <td><code>samtools</code></td>
+                <td>
+                    
+                    
+                    <a href="https://quay.io/biocontainers/samtools" target="_blank">quay.io/biocontainers/samtools:1.9--h91753b0_8</a>
+                    
+                    
+                </td>
+                <td><code>-i</code></td>
+            </tr>
+            
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+<section class="raw-section">
+    <h2>
+        <button class="toggle-btn" onclick="toggleRaw()">Raw Manifest</button>
+    </h2>
+    <pre id="raw-manifest" style="display:none;"><code>manifest:
+  name: databio/databio
+  version: 1.0.0
+  import:
+  - bulker/alpine:default
+  - databio/pepkit:default
+  - databio/lab:1.0
+  commands:
+  - command: geofetch
+    docker_image: nsheff/geofetch
+    docker_args: -i
+    docker_command: geofetch
+  - command: pigz
+    docker_image: nsheff/pigz
+    docker_command: pigz
+    docker_args: -i
+  - command: pip3
+    docker_image: nsheff/python3
+  - command: prefetch
+    docker_image: humancellatlas/sratools
+    docker_command: prefetch
+  - command: python3
+    docker_args: -it
+    docker_image: python:3.7.4
+    docker_command: python3
+  - command: R
+    docker_image: nsheff/rbase
+    docker_command: R
+    docker_args: -it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library
+  - command: samtools
+    docker_args: -i
+    docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
+</code></pre>
+</section>
+
+<p class="manifest-link">
+    <a href="https://github.com/databio/hub.bulker.io/blob/master/databio/merge_1.0.0.yaml">View on GitHub</a> |
+    <a href="/databio/merge_1.0.0.yaml">Raw YAML</a>
+</p>
+
+    </main>
+    <footer>
+        <p>
+            <a href="https://bulker.io">bulker.io</a> |
+            <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
+            60 manifests across 3 namespaces
+        </p>
+    </footer>
+    
+<script>
+function copyInstall() {
+    var text = document.getElementById('install-cmd').textContent;
+    navigator.clipboard.writeText(text).then(function() {
+        var btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+    });
+}
+function toggleRaw() {
+    var el = document.getElementById('raw-manifest');
+    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 manifest:
-  name: databio/databio
+  name: databio/lab_geofetch
   version: 1.0.0
   imports:
   - bulker/alpinebase:default

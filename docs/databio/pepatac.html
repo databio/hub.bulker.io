@@ -32,7 +32,7 @@
 <section class="install-section">
     <h2>Install</h2>
     <div class="install-box">
-        <code id="install-cmd">bulker activate databio/pepatac:1.1.1</code>
+        <code id="install-cmd">bulker activate databio/pepatac:1.1.2</code>
         <button class="copy-btn" onclick="copyInstall()">Copy</button>
     </div>
 </section>
@@ -42,103 +42,110 @@
     <h2>Tags</h2>
     <div class="tag-list">
         
-        <span class="tag tag-latest">
-            1.1.1
-            <small>(v1.1.1)</small>
+        <a href="/databio/pepatac/1.1.2.html" class="tag tag-latest">
+            1.1.2
+            <small>(v1.1.2)</small>
             <small>[latest]</small>
             — 24 commands
-        </span>
+        </a>
         
-        <span class="tag ">
+        <a href="/databio/pepatac/1.1.1.html" class="tag ">
+            1.1.1
+            <small>(v1.1.1)</small>
+            
+            — 24 commands
+        </a>
+        
+        <a href="/databio/pepatac/1.1.0.html" class="tag ">
             1.1.0
             <small>(v1.1.0)</small>
             
             — 24 commands
-        </span>
+        </a>
         
-        <span class="tag ">
+        <a href="/databio/pepatac/1.0.14.html" class="tag ">
             1.0.14
             <small>(v1.0.14)</small>
             
             — 24 commands
-        </span>
+        </a>
         
-        <span class="tag ">
+        <a href="/databio/pepatac/1.0.13.html" class="tag ">
             1.0.13
             <small>(v1.0.13)</small>
             
             — 24 commands
-        </span>
+        </a>
         
-        <span class="tag ">
+        <a href="/databio/pepatac/1.0.12.html" class="tag ">
             1.0.12
             <small>(v1.0.12)</small>
             
             — 26 commands
-        </span>
+        </a>
         
-        <span class="tag ">
+        <a href="/databio/pepatac/1.0.11.html" class="tag ">
             1.0.11
             <small>(v1.0.11)</small>
             
             — 26 commands
-        </span>
+        </a>
         
-        <span class="tag ">
+        <a href="/databio/pepatac/1.0.10.html" class="tag ">
             1.0.10
             <small>(v1.0.10)</small>
             
             — 25 commands
-        </span>
+        </a>
         
-        <span class="tag ">
+        <a href="/databio/pepatac/1.0.9.html" class="tag ">
             1.0.9
             <small>(v1.0.9)</small>
             
             — 25 commands
-        </span>
+        </a>
         
-        <span class="tag ">
+        <a href="/databio/pepatac/1.0.8.html" class="tag ">
             1.0.8
             <small>(v1.0.8)</small>
             
             — 25 commands
-        </span>
+        </a>
         
-        <span class="tag ">
+        <a href="/databio/pepatac/1.0.7.html" class="tag ">
             1.0.7
             <small>(v1.0.7)</small>
             
             — 25 commands
-        </span>
+        </a>
         
-        <span class="tag ">
+        <a href="/databio/pepatac/1.0.6.html" class="tag ">
             1.0.6
             <small>(v1.0.6)</small>
             
             — 24 commands
-        </span>
+        </a>
         
-        <span class="tag ">
+        <a href="/databio/pepatac/1.0.5.html" class="tag ">
             1.0.5
             <small>(v1.0.5)</small>
             
             — 24 commands
-        </span>
+        </a>
         
-        <span class="tag ">
+        <a href="/databio/pepatac/1.0.4.html" class="tag ">
             1.0.4
             <small>(v1.0.4)</small>
             
             — 20 commands
-        </span>
+        </a>
         
-        <span class="tag ">
+        <a href="/databio/pepatac/1.0.2.html" class="tag ">
             1.0.2
             <small>(v1.0.2)</small>
             
             — 16 commands
-        </span>
+        </a>
         
     </div>
 </section>
@@ -354,7 +361,7 @@
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/databio/rpipe" target="_blank">databio/rpipe:0.3.1</a>
+                    <a href="https://hub.docker.com/r/databio/rpipe" target="_blank">databio/rpipe:0.4.0</a>
                     
                     
                 </td>
@@ -366,7 +373,7 @@
                 <td>
                     
                     
-                    <a href="https://hub.docker.com/r/databio/rpipe" target="_blank">databio/rpipe:0.3.1</a>
+                    <a href="https://hub.docker.com/r/databio/rpipe" target="_blank">databio/rpipe:0.4.0</a>
                     
                     
                 </td>
@@ -499,7 +506,7 @@
     </h2>
     <pre id="raw-manifest" style="display:none;"><code>manifest:
   name: databio/pepatac
-  version: 1.1.1
+  version: 1.1.2
   imports:
   - bulker/alpine:default
   - bulker/coreutils:default
@@ -543,10 +550,10 @@
   - command: preseq
     docker_image: quay.io/biocontainers/preseq:2.0.3--hf53bd2b_3
   - command: R
-    docker_image: databio/rpipe:0.3.1
+    docker_image: databio/rpipe:0.4.0
     docker_command: R
   - command: Rscript
-    docker_image: databio/rpipe:0.3.1
+    docker_image: databio/rpipe:0.4.0
   - command: samblaster
     docker_image: quay.io/biocontainers/samblaster:0.1.26--h9f5acd7_2
     docker_args: &#34;-i&#34;
@@ -565,8 +572,8 @@
 </section>
 
 <p class="manifest-link">
-    <a href="https://github.com/databio/hub.bulker.io/blob/master/databio/pepatac_1.1.1.yaml">View on GitHub</a> |
-    <a href="/databio/pepatac_1.1.1.yaml">Raw YAML</a>
+    <a href="https://github.com/databio/hub.bulker.io/blob/master/databio/pepatac_1.1.2.yaml">View on GitHub</a> |
+    <a href="/databio/pepatac_1.1.2.yaml">Raw YAML</a>
 </p>
 
     </main>
@@ -574,7 +581,7 @@
         <p>
             <a href="https://bulker.io">bulker.io</a> |
             <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
-            55 manifests across 3 namespaces
+            60 manifests across 3 namespaces
         </p>
     </footer>
     
