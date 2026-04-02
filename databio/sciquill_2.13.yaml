@@ -1,5 +1,5 @@
 manifest:
-  name: sciquill_2.13
+  name: databio/sciquill_2.13
   version: 1.0.0
   imports:
   - bulker/alpinebase:default
