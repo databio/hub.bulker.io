@@ -1,6 +1,6 @@
 manifest:
-  name: databio/sciquill_2.13
-  version: 1.0.0
+  name: databio/sciquill
+  version: 2.13
   imports:
   - bulker/alpinebase:default
   host_commands:
