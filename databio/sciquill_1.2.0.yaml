@@ -1,17 +1,17 @@
 manifest:
   name: databio/sciquill
-  version: 3.9
+  version: 1.2.0
   imports:
   - bulker/alpinebase:default
   host_commands:
     - md5sum
   commands:
   - command: latex
-    docker_image: databio/sciquill:latest
+    docker_image: databio/sciquill:2.13
   - command: git
     docker_image: nsheff/git
   - command: bibtool
-    docker_image: databio/sciquill:latest
+    docker_image: databio/sciquill:2.13
   - command: inkscape
     docker_image: nsheff/vis
   - command: jabref
@@ -31,9 +31,9 @@ manifest:
   - command: mkdocs
     docker_image: nsheff/mkdocs
   - command: pandoc
-    docker_image: databio/sciquill:latest
+    docker_image: databio/sciquill:2.13
     docker_args: "-i"
   - command: gs
     docker_image: minidocks/ghostscript
   - command: pdflatex
-    docker_image: databio/sciquill:latest
+    docker_image: databio/sciquill:2.13
