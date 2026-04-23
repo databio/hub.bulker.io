@@ -116,7 +116,7 @@ manifest:
   - command: minimap2
     docker_image: quay.io/biocontainers/minimap2:2.30--h577a1d6_0
   - command: multiqc
-    docker_image: quay.io/biocontainers/multiqc:1.33--pyhdfd78af_0
+    docker_image: quay.io/biocontainers/multiqc:1.34--pyhdfd78af_0
   - command: picard
     docker_image: broadinstitute/picard:3.4.0
     docker_command: picard
