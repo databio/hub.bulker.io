@@ -97,7 +97,7 @@
                     
                     
                 </td>
-                <td><code>-i --entrypoint jq</code></td>
+                <td><code>-i</code></td>
             </tr>
             
             <tr>
@@ -253,7 +253,7 @@
                     
                     
                 </td>
-                <td><code>-i --entrypoint xq</code></td>
+                <td><code>-i</code></td>
             </tr>
             
             <tr>
@@ -265,7 +265,7 @@
                     
                     
                 </td>
-                <td><code>-i --entrypoint yq</code></td>
+                <td><code>-i</code></td>
             </tr>
             
         </tbody>
@@ -313,10 +313,9 @@
     docker_command: duc
     docker_args: -it
   - command: jq
-    docker_command: &#39; &#39;
-    singularity_command: yq
     docker_image: linuxserver/yq
-    docker_args: -i --entrypoint jq
+    entrypoint: jq
+    docker_args: -i
   - command: R
     docker_image: bioconductor/bioconductor_docker:RELEASE_3_22
     docker_command: R
@@ -372,15 +371,13 @@
     docker_image: databio/stork
     docker_command: stork
   - command: xq
-    docker_command: &#39; &#39;
-    singularity_command: xq
     docker_image: linuxserver/yq
-    docker_args: -i --entrypoint xq
+    entrypoint: xq
+    docker_args: -i
   - command: yq
-    docker_command: &#39; &#39;
-    singularity_command: yq
     docker_image: linuxserver/yq
-    docker_args: -i --entrypoint yq
+    entrypoint: yq
+    docker_args: -i
 </code></pre>
 </section>
 
@@ -394,7 +391,7 @@
         <p>
             <a href="https://bulker.io">bulker.io</a> |
             <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
-            60 manifests across 3 namespaces
+            61 manifests across 3 namespaces
         </p>
     </footer>
     

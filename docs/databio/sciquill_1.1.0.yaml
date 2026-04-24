@@ -29,7 +29,7 @@ manifest:
     docker_command: libreoffice -env:UserInstallation=file:///tmp/ -env:SingleAppInstance='false'
   - command: liquify
     docker_image: nsheff/liquify
-    docker_command: ' '
+    entrypoint: liquify
   - command: mkdocs
     docker_image: nsheff/mkdocs
   - command: pandoc

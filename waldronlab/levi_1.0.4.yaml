@@ -20,4 +20,4 @@ manifest:
   - command: pdftk
     docker_image: mnuessler/pdftk
     docker_args: -v $(pwd):/work
-    docker_command: ' '
+    entrypoint: pdftk

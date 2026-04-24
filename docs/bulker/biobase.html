@@ -34,7 +34,7 @@
 <section class="install-section">
     <h2>Install</h2>
     <div class="install-box">
-        <code id="install-cmd">bulker activate bulker/biobase:0.1.2</code>
+        <code id="install-cmd">bulker activate bulker/biobase:0.1.3</code>
         <button class="copy-btn" onclick="copyInstall()">Copy</button>
     </div>
 </section>
@@ -44,10 +44,17 @@
     <h2>Tags</h2>
     <div class="tag-list">
         
-        <a href="/bulker/biobase/0.1.2.html" class="tag tag-latest">
+        <a href="/bulker/biobase/0.1.3.html" class="tag tag-latest">
+            0.1.3
+            <small>(v0.1.3)</small>
+            <small>[latest]</small>
+            — 69 commands
+        </a>
+        
+        <a href="/bulker/biobase/0.1.2.html" class="tag ">
             0.1.2
             <small>(v0.1.2)</small>
-            <small>[latest]</small>
+            
             — 69 commands
         </a>
         
@@ -146,7 +153,7 @@
                     
                     
                 </td>
-                <td><code>-i</code></td>
+                <td></td>
             </tr>
             
             <tr>
@@ -442,7 +449,7 @@
                 <td>
                     
                     
-                    <a href="https://quay.io/biocontainers/sra-tools" target="_blank">quay.io/biocontainers/sra-tools:3.4.1--h4304569_0</a>
+                    <a href="https://quay.io/biocontainers/sra-tools" target="_blank">quay.io/biocontainers/sra-tools:3.4.1--h4304569_1</a>
                     
                     
                 </td>
@@ -466,7 +473,7 @@
                 <td>
                     
                     
-                    <a href="https://quay.io/biocontainers/sra-tools" target="_blank">quay.io/biocontainers/sra-tools:3.4.1--h4304569_0</a>
+                    <a href="https://quay.io/biocontainers/sra-tools" target="_blank">quay.io/biocontainers/sra-tools:3.4.1--h4304569_1</a>
                     
                     
                 </td>
@@ -670,7 +677,7 @@
                 <td>
                     
                     
-                    <a href="https://quay.io/biocontainers/sra-tools" target="_blank">quay.io/biocontainers/sra-tools:3.4.1--h4304569_0</a>
+                    <a href="https://quay.io/biocontainers/sra-tools" target="_blank">quay.io/biocontainers/sra-tools:3.4.1--h4304569_1</a>
                     
                     
                 </td>
@@ -706,7 +713,7 @@
                 <td>
                     
                     
-                    <a href="https://quay.io/biocontainers/repeatmasker" target="_blank">quay.io/biocontainers/repeatmasker:4.2.2--pl5321hdfd78af_0</a>
+                    <a href="https://quay.io/biocontainers/repeatmasker" target="_blank">quay.io/biocontainers/repeatmasker:4.2.3--pl5321hdfd78af_0</a>
                     
                     
                 </td>
@@ -886,7 +893,7 @@
                 <td>
                     
                     
-                    <a href="https://quay.io/biocontainers/sra-tools" target="_blank">quay.io/biocontainers/sra-tools:3.4.1--h4304569_0</a>
+                    <a href="https://quay.io/biocontainers/sra-tools" target="_blank">quay.io/biocontainers/sra-tools:3.4.1--h4304569_1</a>
                     
                     
                 </td>
@@ -959,7 +966,7 @@
     </h2>
     <pre id="raw-manifest" style="display:none;"><code>manifest:
   name: bulker/biobase
-  version: 0.1.2
+  version: 0.1.3
   description: A curated collection of the most common bioinformatics command-line
     tools, containerized for use with bulker.
   imports:
@@ -978,7 +985,6 @@
     docker_args: -i
   - command: bedCommonRegions
     docker_image: quay.io/biocontainers/ucsc-bedcommonregions:482--h0b57e2e_0
-    docker_args: -i
   - command: bedGraphToBigWig
     docker_image: quay.io/biocontainers/ucsc-bedgraphtobigwig:482--hdc0a859_0
     docker_args: -i
@@ -1039,12 +1045,12 @@
   - command: faSplit
     docker_image: quay.io/biocontainers/ucsc-fasplit:482--h0b57e2e_0
   - command: fasterq-dump
-    docker_image: quay.io/biocontainers/sra-tools:3.4.1--h4304569_0
+    docker_image: quay.io/biocontainers/sra-tools:3.4.1--h4304569_1
     docker_command: fasterq-dump
   - command: fastp
     docker_image: quay.io/biocontainers/fastp:1.3.1--h43da1c4_0
   - command: fastq-dump
-    docker_image: quay.io/biocontainers/sra-tools:3.4.1--h4304569_0
+    docker_image: quay.io/biocontainers/sra-tools:3.4.1--h4304569_1
     docker_command: fastq-dump
   - command: fastqc
     docker_image: quay.io/biocontainers/fastqc:0.12.1--hdfd78af_0
@@ -1085,7 +1091,7 @@
     docker_command: pigz
     docker_args: -i
   - command: prefetch
-    docker_image: quay.io/biocontainers/sra-tools:3.4.1--h4304569_0
+    docker_image: quay.io/biocontainers/sra-tools:3.4.1--h4304569_1
     docker_command: prefetch
   - command: R
     docker_image: bioconductor/bioconductor_docker:RELEASE_3_22
@@ -1096,7 +1102,7 @@
   - command: refgenie
     docker_image: databio/refgenie:latest
   - command: repeatmasker
-    docker_image: quay.io/biocontainers/repeatmasker:4.2.2--pl5321hdfd78af_0
+    docker_image: quay.io/biocontainers/repeatmasker:4.2.3--pl5321hdfd78af_0
   - command: Rscript
     docker_image: bioconductor/bioconductor_docker:RELEASE_3_22
     docker_command: Rscript
@@ -1131,7 +1137,7 @@
   - command: trimmomatic
     docker_image: quay.io/biocontainers/trimmomatic:0.40--hdfd78af_0
   - command: vdb-config
-    docker_image: quay.io/biocontainers/sra-tools:3.4.1--h4304569_0
+    docker_image: quay.io/biocontainers/sra-tools:3.4.1--h4304569_1
     docker_command: vdb-config
   - command: vep
     docker_image: quay.io/biocontainers/ensembl-vep:115.2--pl5321h2a3209d_1
@@ -1143,8 +1149,8 @@
 </section>
 
 <p class="manifest-link">
-    <a href="https://github.com/databio/hub.bulker.io/blob/master/bulker/biobase_0.1.2.yaml">View on GitHub</a> |
-    <a href="/bulker/biobase_0.1.2.yaml">Raw YAML</a>
+    <a href="https://github.com/databio/hub.bulker.io/blob/master/bulker/biobase_0.1.3.yaml">View on GitHub</a> |
+    <a href="/bulker/biobase_0.1.3.yaml">Raw YAML</a>
 </p>
 
     </main>
@@ -1152,7 +1158,7 @@
         <p>
             <a href="https://bulker.io">bulker.io</a> |
             <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
-            60 manifests across 3 namespaces
+            61 manifests across 3 namespaces
         </p>
     </footer>
     

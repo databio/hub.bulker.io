@@ -13,10 +13,9 @@ manifest:
     docker_command: duc
     docker_args: -it
   - command: jq
-    docker_command: ' '
-    singularity_command: yq
     docker_image: linuxserver/yq
-    docker_args: -i --entrypoint jq
+    entrypoint: jq
+    docker_args: -i
   - command: R
     docker_image: bioconductor/bioconductor_docker:RELEASE_3_22
     docker_command: R
@@ -72,12 +71,10 @@ manifest:
     docker_image: databio/stork
     docker_command: stork
   - command: xq
-    docker_command: ' '
-    singularity_command: xq
     docker_image: linuxserver/yq
-    docker_args: -i --entrypoint xq
+    entrypoint: xq
+    docker_args: -i
   - command: yq
-    docker_command: ' '
-    singularity_command: yq
     docker_image: linuxserver/yq
-    docker_args: -i --entrypoint yq
+    entrypoint: yq
+    docker_args: -i

@@ -292,7 +292,7 @@
     docker_command: libreoffice -env:UserInstallation=file:///tmp/ -env:SingleAppInstance=&#39;false&#39;
   - command: liquify
     docker_image: nsheff/liquify
-    docker_command: &#39; &#39;
+    entrypoint: liquify
   - command: mkdocs
     docker_image: nsheff/mkdocs
   - command: pandoc
@@ -313,7 +313,7 @@
         <p>
             <a href="https://bulker.io">bulker.io</a> |
             <a href="https://github.com/databio/hub.bulker.io">Source on GitHub</a> |
-            60 manifests across 3 namespaces
+            61 manifests across 3 namespaces
         </p>
     </footer>
     
