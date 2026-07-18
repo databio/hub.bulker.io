@@ -39,5 +39,3 @@ manifest:
     docker_image: quay.io/biocontainers/star:2.7.3a--0
   - command: tabix
     docker_image: quay.io/biocontainers/htslib:1.6--0
-  - command: snakemake
-    docker_image: snakemake/snakemake:v9.20.0
