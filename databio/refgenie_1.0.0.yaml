@@ -14,8 +14,6 @@ manifest:
     docker_image: quay.io/biocontainers/bowtie2:2.4.1--py37h4ef193e_2
   - command: bwa
     docker_image: quay.io/biocontainers/bwa:0.7.17--hed695b0_7
-  - command: cellranger
-    docker_image: quay.io/xujishu/cellranger:3.1.0
   - command: epilog
     docker_image: databio/epilog:latest
   - command: gt
