@@ -20,9 +20,13 @@ For each command entry, query the container registry API to find the latest avai
 
 **Skip these entries** (pinned or custom registries):
 - `nsheff/pigz` — custom image, no registry API
-- `quay.io/xujishu/cellranger` — pinned to specific version
 - `databio/refgenie` — custom image, uses `latest` tag
 - Any image using the `latest` tag
+
+`quay.io/xujishu/cellranger` is NOT skipped: it is a normal quay.io repo and
+answers the same tag API as the biocontainers images below. Tags older than
+6.0.0 are stored as Docker v1 manifests, which apptainer cannot convert, so
+never move this entry backwards below 6.0.0.
 
 **For quay.io/biocontainers images:**
 
@@ -35,6 +39,18 @@ Parse the JSON response. Tags follow the pattern `<version>--<hash>_<build>`. To
 2. Sort by semantic version of the version prefix (the part before `--`)
 3. Among tags with the same version, prefer higher build numbers
 4. Pick the tag with the highest version
+
+**For `quay.io/xujishu/cellranger`:**
+
+```bash
+curl -s "https://quay.io/api/v1/repository/xujishu/cellranger/tag/?limit=100&onlyActiveTags=true"
+```
+
+Tags here are plain semantic versions (`3.1.0`, `6.0.0`, `6.0.1`) — NOT the
+biocontainers `<version>--<hash>_<build>` pattern. Sort by semantic version and
+pick the highest. Ignore any tag below 6.0.0: those are Docker v1 manifests
+(`application/vnd.docker.distribution.manifest.v1+prettyjws`) that apptainer
+cannot convert, so selecting one silently breaks every apptainer-based consumer.
 
 **For Docker Hub images** (broadinstitute/*, bioconductor/*):
 
