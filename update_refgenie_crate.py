@@ -14,10 +14,17 @@ This script makes that relationship explicit and mechanical: refgenie's pins are
 covering the cases biobase cannot answer directly.
 
 Resolution precedence per command (see refgenie_crate_sources.yaml):
-  1. biobase defines the exact command          -> biobase's image
-  2. biobase defines the declared `sibling_of`  -> that package's image
-  3. `overrides` entry                          -> pinned image + stated reason
+  1. an `overrides` entry                       -> pinned image + stated reason
+  2. biobase defines the exact command          -> biobase's image
+  3. biobase defines the declared `sibling_of`  -> that package's image
 Anything unresolved is a hard error; the script refuses to emit a partial crate.
+
+Overrides outrank biobase deliberately. An override is the one place a human
+records "do not take biobase's version of this, and here is why" -- which is
+needed both when biobase has no such tool (epilog) and when it has one that
+breaks a recipe (bismark 3.x is a Rust rewrite that dropped bowtie1). When an
+override shadows an image biobase could have supplied, the script says so on
+every run so the hold never becomes invisible.
 
 Cadence is quarterly and the workflow opens a PR -- it never auto-merges.
 Every pin change renames published assets and orphans S3 objects, so a bump has
@@ -105,17 +112,42 @@ def resolve(sources: dict, biobase: dict[str, dict]) -> tuple[list[dict], list[s
     unresolved: list[str] = []
 
     for name in sorted(wanted, key=str.lower):
-        image = None
-        if name in biobase:
+        sibling = siblings.get(name)
+        # A sibling marked `optional` is a documented mapping, not an active
+        # source; it never resolves anything.
+        if sibling and sibling.get("optional"):
+            sibling = None
+
+        if name in overrides:
+            # Overrides are checked FIRST, ahead of biobase. An override is an
+            # explicit human decision -- including the decision to HOLD a
+            # command back from a biobase version that exists but breaks a
+            # recipe (bismark 3.x dropped bowtie1). If biobase could outrank an
+            # override, the escape hatch would be useless for exactly the case
+            # it is needed for. Shadowing is announced so it stays visible.
+            image = overrides[name]["docker_image"]
+            # Availability check uses the RAW sibling entry, optional or not:
+            # "what biobase could have supplied" is exactly what the reader
+            # needs to see when a hold is in effect.
+            raw = siblings.get(name)
+            available = (
+                biobase.get(name, {}).get("docker_image")
+                or (biobase[raw["sibling_of"]]["docker_image"]
+                    if raw and raw["sibling_of"] in biobase else None)
+            )
+            if available:
+                notes.append(
+                    f"{name}: OVERRIDE holds back biobase's {available} -> {image}"
+                )
+            else:
+                notes.append(f"{name}: override -> {image}")
+        elif name in biobase:
             image = biobase[name]["docker_image"]
             notes.append(f"{name}: exact match in biobase -> {image}")
-        elif name in siblings and siblings[name]["sibling_of"] in biobase:
-            package = siblings[name]["sibling_of"]
+        elif sibling and sibling["sibling_of"] in biobase:
+            package = sibling["sibling_of"]
             image = biobase[package]["docker_image"]
             notes.append(f"{name}: sibling of `{package}` -> {image}")
-        elif name in overrides:
-            image = overrides[name]["docker_image"]
-            notes.append(f"{name}: override -> {image}")
         else:
             unresolved.append(name)
             continue

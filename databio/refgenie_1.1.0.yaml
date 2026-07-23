@@ -12,7 +12,7 @@ manifest:
   - command: bgzip
     docker_image: quay.io/biocontainers/htslib:1.24--ha79157c_0
   - command: bismark_genome_preparation
-    docker_image: quay.io/biocontainers/bismark:3.1.0--hfa8f182_0
+    docker_image: quay.io/biocontainers/bismark:0.22.1--0
   - command: bowtie-build
     docker_image: quay.io/biocontainers/bowtie:1.3.1--hb82490e_11
   - command: bowtie2-build
