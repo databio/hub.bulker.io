@@ -1,0 +1,155 @@
+# Source-of-truth policy for the databio/refgenie crate.
+#
+# WHY THIS FILE EXISTS
+# --------------------
+# databio/refgenie is the *only* crate the refgenie-registry nightly build
+# activates. It must therefore be self-contained: every command any recipe in
+# refgenie-registry invokes has to resolve under `bulker activate
+# databio/refgenie` alone, with no second crate layered on top.
+#
+# Before 2026-07, the nightly activated `databio/lab,databio/refgenie:1.0.0`.
+# Because bulker resolves collisions first-listed-wins, 10 of refgenie's 16
+# commands were silently shadowed by databio/lab -> bulker/biobase, and the
+# refgenie manifest misrepresented what actually built the published assets
+# (it claimed bwa 0.7.17 / genometools 1.5.10; what ran was biobase's 0.7.19
+# and 1.6.6). A biobase auto-update on 2026-07-19 renamed published assets with
+# zero commits in refgenie-registry.
+#
+# The fix is to make refgenie self-contained AND to keep its pins deliberately
+# in sync with biobase, so "what the manifest says" and "what biobase would
+# have shadowed it with" can never diverge silently again.
+#
+# HOW IT IS USED
+# --------------
+# `update_refgenie_crate.py` reads this file plus the newest bulker/biobase
+# manifest and emits a new databio/refgenie_<version>.yaml. It is run quarterly
+# by .github/workflows/scheduled-refgenie-update.yml, which opens a PR and never
+# auto-merges: every pin change renames published assets and orphans S3 objects,
+# so a bump must be a reviewed, deliberate event.
+#
+# RESOLUTION PRECEDENCE (implemented in update_refgenie_crate.py)
+#   1. biobase defines the exact command  -> use biobase's image
+#   2. biobase defines a `sibling_of` package -> use that package's image
+#   3. `override` -> use the pinned image here, with a stated reason
+# Anything in `commands` that hits none of the three is a hard error.
+
+source_crate: bulker/biobase
+
+# Imported into the emitted manifest. bulker/coreutils is REQUIRED, not
+# cosmetic: every recipe's custom_seek_keys version expression pipes through
+# `grep -aoP` and `awk`, and refgenie-only activation must not fall through to
+# the host's grep/awk (whose GNU-vs-BusyBox behaviour differs from the
+# container's, changing results rather than failing loudly).
+# This is an *internal* import; the nightly still activates only databio/refgenie.
+imports:
+  - bulker/coreutils:default
+
+# Sibling map: commands refgenie owns that biobase does not define by name, but
+# which ship inside a package biobase DOES define. These are precisely the
+# commands refgenie uniquely owns, and precisely the ones that went stale.
+# `verified` records the empirical check -- `apptainer exec <sibling image>
+# which <command>` -- because a package shipping a differently-named companion
+# binary is an assumption, not a guarantee.
+siblings:
+  hisat2-build:
+    sibling_of: hisat2
+    reason: >-
+      Both binaries ship in the HISAT2 conda package; biobase only names
+      `hisat2`. Verified 2026-07-23 in hisat2:2.2.2--h503566f_0 ->
+      /usr/local/bin/hisat2-build.
+    verified: "2026-07-23"
+  hisat2-inspect:
+    sibling_of: hisat2
+    reason: >-
+      Same package as hisat2-build. Not currently used by any recipe; listed so
+      the mapping is on record if an inspect-based recipe is added.
+      Verified 2026-07-23 -> /usr/local/bin/hisat2-inspect.
+    verified: "2026-07-23"
+    optional: true
+  bowtie2-build:
+    sibling_of: bowtie2
+    reason: >-
+      Ships in the bowtie2 conda package; biobase only names `bowtie2`.
+      Verified 2026-07-23 in bowtie2:2.5.5--ha27dd3b_0 ->
+      /usr/local/bin/bowtie2-build. NOTE: bowtie2 2.4.1 printed an EMPTY
+      version string ("bowtie2-build-s version " with nothing after it); the
+      bowtie2_index recipe only produced "2.4.1" because `grep -aoP` matched a
+      compiler debug-prefix-map path fragment further down the output. 2.5.5
+      prints a real version.
+    verified: "2026-07-23"
+  bowtie-build:
+    sibling_of: bowtie
+    reason: >-
+      Ships in the bowtie (v1) conda package; biobase only names `bowtie`.
+      Verified 2026-07-23 -> /usr/local/bin/bowtie-build.
+    verified: "2026-07-23"
+  bgzip:
+    sibling_of: tabix
+    reason: >-
+      bgzip and tabix are both htslib binaries and biobase pins the htslib
+      image under the name `tabix`. Verified 2026-07-23 in
+      htslib:1.24--ha79157c_0 -> /usr/local/bin/bgzip.
+    verified: "2026-07-23"
+  bismark_genome_preparation:
+    sibling_of: bismark
+    reason: >-
+      Ships in the bismark conda package; biobase only names `bismark`.
+      Verified 2026-07-23 in bismark:3.1.0--hfa8f182_0.
+    verified: "2026-07-23"
+
+# Overrides: commands biobase does not provide at all, in any package.
+# Each needs an explicit reason so the list cannot quietly rot.
+overrides:
+  epilog:
+    docker_image: databio/epilog:latest
+    reason: >-
+      In-house tool (databio/epilog); biobase carries no epilog entry and
+      there is no upstream bioconda package. Pinned to :latest to match the
+      historical databio/refgenie behaviour.
+
+# Commands intentionally NOT carried in the crate, despite a recipe referencing
+# them. refgenie-registry's tools/check_crate_coverage.py must be told about
+# these or CI will fail; keep the two lists in sync.
+excluded:
+  cellranger:
+    reason: >-
+      Dropped in hub.bulker.io d.. ("refgenie:1.0.0: drop cellranger command
+      (broken v1-manifest image)"). quay.io/xujishu/cellranger tags below 6.0.0
+      are Docker v1 manifests apptainer cannot convert, and the 10x license
+      forbids redistribution of newer builds. The cellranger_reference recipe
+      is not in the nightly PEP, so this does not affect the nightly build.
+
+# Per-command extra manifest fields that must survive an update. The updater
+# copies the image tag from biobase but never the other fields, so anything
+# refgenie needs (interactive stdin, alternate entrypoint) is declared here.
+extra_fields:
+  samtools:
+    docker_args: "-i"
+  pigz:
+    docker_command: pigz
+    docker_args: "-i"
+
+# The command set the crate must provide. Derived from refgenie-registry:
+#   - the leading token of every `command_templates` entry in recipes/*/recipe.yaml
+#   - every command referenced in each recipe's `custom_seek_keys`
+# minus shell builtins, host-provided utilities and `excluded` above.
+# refgenie-registry/tools/check_crate_coverage.py re-derives this set from the
+# recipes on every PR and fails if the crate no longer covers it, so a new
+# recipe with a new tool breaks CI rather than the 3am nightly.
+commands:
+  - STAR
+  - bedtools
+  - bgzip
+  - bismark_genome_preparation
+  - bowtie-build
+  - bowtie2-build
+  - bwa
+  - epilog
+  - gt
+  - hisat2-build
+  - kallisto
+  - mashmap
+  - pigz
+  - salmon
+  - samtools
+  - tabix

@@ -1,0 +1,123 @@
+name: Scheduled refgenie crate update
+
+# Syncs databio/refgenie's image pins from bulker/biobase.
+#
+# Cadence is QUARTERLY, deliberately much slower than biobase's weekly update.
+# databio/refgenie is the only crate the refgenie-registry nightly activates, and
+# every pin change renames the published assets that tool builds (the asset name
+# is the tool version) and orphans the S3 objects under the old name. A bump is
+# therefore an expensive, deliberate event -- hg38 + mm39 index rebuilds are
+# hours and tens of GB -- not something to absorb weekly.
+#
+# This workflow OPENS A PULL REQUEST and never auto-merges, for the same reason.
+
+on:
+  schedule:
+    - cron: "0 0 1 1,4,7,10 *"  # 00:00 UTC on Jan 1, Apr 1, Jul 1, Oct 1
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-refgenie:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml jinja2 jsonschema
+
+      - name: Compute the pin diff
+        id: diff
+        run: |
+          {
+            echo 'report<<REPORT_EOF'
+            python update_refgenie_crate.py --verify-siblings
+            echo 'REPORT_EOF'
+          } >> "$GITHUB_OUTPUT"
+          python update_refgenie_crate.py --verify-siblings
+
+      - name: Determine next version
+        id: version
+        run: |
+          CURRENT=$(ls databio/refgenie_*.yaml | sed 's/.*refgenie_//; s/\.yaml//' | sort -V | tail -1)
+          NEXT=$(python -c "
+          p = '${CURRENT}'.split('.')
+          while len(p) < 3: p.append('0')
+          print(f'{p[0]}.{int(p[1]) + 1}.0')
+          ")
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+          echo "next=$NEXT" >> "$GITHUB_OUTPUT"
+
+      - name: Write the new manifest
+        id: write
+        run: |
+          set -o pipefail
+          python update_refgenie_crate.py --write --version "${{ steps.version.outputs.next }}"
+          if [ ! -f "databio/refgenie_${{ steps.version.outputs.next }}.yaml" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No pin changes; nothing to do."
+            exit 0
+          fi
+          # NOTE: the symlink is intentionally NOT moved here. Repointing
+          # databio/refgenie.yaml switches every `:default` consumer at merge
+          # time; that has to be a conscious step in the PR review, not a
+          # side effect of the bot.
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Validate manifests
+        if: steps.write.outputs.changed == 'true'
+        run: python validate_manifests.py --check-tags
+
+      - name: Open pull request
+        if: steps.write.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: refgenie-crate-update-${{ steps.version.outputs.next }}
+          commit-message: |
+            Update databio/refgenie to ${{ steps.version.outputs.next }}
+
+            Pins synced from bulker/biobase by update_refgenie_crate.py.
+          title: "Update databio/refgenie to ${{ steps.version.outputs.next }}"
+          body: |
+            Quarterly sync of `databio/refgenie` image pins from `bulker/biobase`,
+            produced by `update_refgenie_crate.py` from `refgenie_crate_sources.yaml`.
+
+            ## Do not merge without reading this
+
+            `databio/refgenie` is the **only** crate the refgenie-registry nightly
+            activates. Every tool whose **version** changes below **renames the
+            assets that tool builds** — refgenie derives the asset name from the
+            tool version — which forces a rebuild and orphans the S3 objects
+            published under the old name. hg38 and mm39 index rebuilds are hours
+            and tens of GB.
+
+            Before merging:
+
+            1. Check which changed tools appear in `refgenie-registry/pep/samples.csv`.
+               Only those cost a rebuild tonight; the rest cost nothing until a
+               recipe using them is queued.
+            2. Run `refgenie-registry/tools/check_crate_coverage.py` against the new
+               manifest — it re-derives the required command set from the recipes.
+            3. Sanity-check each changed tool's `custom_seek_keys.version`
+               expression still returns a non-empty, plausible version under the
+               new image. A tool that reports an empty version does not fail
+               loudly; it produces a garbage asset name.
+            4. Repoint `databio/refgenie.yaml` only when you want `:default`
+               consumers to move. This PR does not touch the symlink.
+
+            ## Report
+
+            ```
+            ${{ steps.diff.outputs.report }}
+            ```
+          labels: |
+            crate-update
+            needs-review
+          draft: false
