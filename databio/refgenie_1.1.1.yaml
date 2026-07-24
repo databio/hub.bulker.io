@@ -1,0 +1,44 @@
+manifest:
+  name: databio/refgenie
+  version: 1.1.1
+  description: 'Containerized tools for building refgenie reference assets. Self-contained:
+    activate this crate alone. Image pins are synced quarterly from bulker/biobase
+    by update_refgenie_crate.py.'
+  imports:
+  - bulker/coreutils:default
+  commands:
+  - command: bedtools
+    docker_image: quay.io/biocontainers/bedtools:2.31.1--h13024bc_3
+  - command: bgzip
+    docker_image: quay.io/biocontainers/htslib:1.24--ha79157c_0
+  - command: bismark_genome_preparation
+    docker_image: quay.io/biocontainers/bismark:3.1.0--hfa8f182_0
+  - command: bowtie-build
+    docker_image: quay.io/biocontainers/bowtie:1.3.1--hb82490e_11
+  - command: bowtie2-build
+    docker_image: quay.io/biocontainers/bowtie2:2.5.5--ha27dd3b_0
+  - command: bwa
+    docker_image: quay.io/biocontainers/bwa:0.7.19--h577a1d6_1
+  - command: epilog
+    docker_image: databio/epilog:latest
+  - command: gt
+    docker_image: quay.io/biocontainers/genometools-genometools:1.6.6--py311h21ec246_1
+  - command: hisat2-build
+    docker_image: quay.io/biocontainers/hisat2:2.2.2--h503566f_0
+  - command: kallisto
+    docker_image: quay.io/biocontainers/kallisto:0.52.0--h13ff97a_0
+  - command: mashmap
+    docker_image: quay.io/biocontainers/mashmap:3.1.3--pl5321hb4818e0_2
+  - command: pigz
+    docker_image: nsheff/pigz
+    docker_command: pigz
+    docker_args: -i
+  - command: salmon
+    docker_image: quay.io/biocontainers/salmon:2.3.4--hfa8f182_0
+  - command: samtools
+    docker_image: quay.io/biocontainers/samtools:1.24--h9dcdb79_1
+    docker_args: -i
+  - command: STAR
+    docker_image: quay.io/biocontainers/star:2.7.11b--h5ca1c30_8
+  - command: tabix
+    docker_image: quay.io/biocontainers/htslib:1.24--ha79157c_0

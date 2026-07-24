@@ -35,8 +35,11 @@
 #
 # Overrides outrank biobase on purpose. An override is where a human records
 # "do not take biobase's version of this, and why" -- needed both when biobase
-# has no such tool (epilog) and when it has one that breaks a recipe
-# (bismark 3.x). A shadowed biobase image is announced on every run.
+# has no such tool (epilog) and when it has one that breaks a recipe. The
+# latter case was exercised in 1.1.0, which held bismark_genome_preparation at
+# 0.22.1 because bismark 3.x broke both bismark recipes; that hold was released
+# in 1.1.1 once the recipes were fixed. A shadowed biobase image is announced
+# on every run, so a hold can never become invisible.
 
 source_crate: bulker/biobase
 
@@ -95,41 +98,26 @@ siblings:
       image under the name `tabix`. Verified 2026-07-23 in
       htslib:1.24--ha79157c_0 -> /usr/local/bin/bgzip.
     verified: "2026-07-23"
-  # NOTE: bismark_genome_preparation is deliberately NOT taken from biobase's
-  # `bismark` right now -- see the `bismark_genome_preparation` entry under
-  # `overrides`. The mapping is recorded here so the relationship is on file,
-  # but `optional: true` keeps it out of the emitted crate.
   bismark_genome_preparation:
     sibling_of: bismark
     reason: >-
-      Ships in the bismark conda package; biobase only names `bismark`. The
-      binary IS present in bismark:3.1.0--hfa8f182_0 (verified 2026-07-23), but
-      adopting it needs a recipe change first -- see the override below.
+      Ships in the bismark conda package; biobase only names `bismark`.
+      Verified 2026-07-23 in bismark:3.1.0--hfa8f182_0 ->
+      /usr/local/bin/bismark_genome_preparation. The 0.22.1 hold that used to
+      sit under `overrides` was released 2026-07-23: bismark_bt1_index was
+      retired (bismark 3.x dropped bowtie1 and there is no need for a
+      bowtie1-backed bismark index), and bismark_bt2_index v0.0.2 replaced the
+      line-number version expression with a content-anchored one that parses
+      both the 3.x one-line banner and the 0.x perl banner.
     verified: "2026-07-23"
-    optional: true
 
 # Overrides: commands biobase does not provide at all, in any package.
 # Each needs an explicit reason so the list cannot quietly rot.
 overrides:
-  bismark_genome_preparation:
-    docker_image: quay.io/biocontainers/bismark:0.22.1--0
-    reason: >-
-      HELD BACK from biobase's bismark 3.1.0 (which does contain the binary).
-      Bismark 3.x is a Rust rewrite and adopting it is a recipe change, not a
-      pin bump. Two blockers, both verified 2026-07-23:
-        1. It DROPPED bowtie1. `bismark_genome_preparation --help` offers only
-           --bowtie2 (the default), --hisat2 and --minimap2. The
-           bismark_bt1_index recipe relies on "no --bowtie2 flag means bowtie1",
-           so under 3.1.0 it would silently build a BOWTIE2 index and publish it
-           as a bowtie1 asset. Wrong data, no error.
-        2. The version output changed from the multi-line perl banner to a
-           single line, so the recipes' `--version | awk 'NR==4{print $5}' |
-           cut -c2-` returns EMPTY -> empty asset name.
-      Unblocking this means retiring or repointing bismark_bt1_index and
-      rewriting both bismark recipes' version expressions to parse
-      "bismark_genome_preparation (Bismark Rust suite) v3.1.0 (...)". Neither
-      bismark recipe is in refgenie-registry's pep/samples.csv, so nothing is
-      lost by holding.
+  # (The bismark_genome_preparation hold at 0.22.1 lived here from 1.1.0 until
+  # 2026-07-23. It is gone: bismark_bt1_index was retired and bismark_bt2_index
+  # v0.0.2 parses the 3.x banner, so the command follows biobase again -- see
+  # its `siblings` entry above. Do not re-add without a written reason.)
   epilog:
     docker_image: databio/epilog:latest
     reason: >-
