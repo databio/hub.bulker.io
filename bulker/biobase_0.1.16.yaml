@@ -13,7 +13,7 @@ manifest:
   - command: bamtools
     docker_image: quay.io/biocontainers/bamtools:2.5.3--he132191_0
   - command: bcftools
-    docker_image: quay.io/biocontainers/bcftools:1.24--h487d631_1
+    docker_image: quay.io/biocontainers/bcftools:1.24--h118bc1c_2
   - command: bedClip
     docker_image: quay.io/biocontainers/ucsc-bedclip:482--h0b57e2e_0
     docker_args: -i
@@ -94,16 +94,16 @@ manifest:
   - command: freebayes
     docker_image: quay.io/biocontainers/freebayes:1.3.10--hbefcdb2_0
   - command: gatk
-    docker_image: broadinstitute/gatk:4.6.2.0
+    docker_image: broadinstitute/gatk:4.7.0.0
     docker_command: gatk
   - command: gt
     docker_image: quay.io/biocontainers/genometools-genometools:1.6.6--py311h21ec246_1
   - command: hisat2
-    docker_image: quay.io/biocontainers/hisat2:2.2.2--h503566f_0
+    docker_image: quay.io/biocontainers/hisat2:2.2.3--h8471819_0
   - command: homer
     docker_image: quay.io/biocontainers/homer:5.1--pl5321hc52dbad_1
   - command: htseq-count
-    docker_image: quay.io/biocontainers/htseq:2.1.2--py313h420c3f6_2
+    docker_image: quay.io/biocontainers/htseq:2.1.2--py313h9d32f87_3
     docker_command: htseq-count
   - command: kallisto
     docker_image: quay.io/biocontainers/kallisto:0.52.0--h13ff97a_0
@@ -118,7 +118,7 @@ manifest:
   - command: multiqc
     docker_image: quay.io/biocontainers/multiqc:1.35--pyhdfd78af_1
   - command: picard
-    docker_image: broadinstitute/picard:3.4.0
+    docker_image: broadinstitute/picard:3.5.0
     docker_command: picard
   - command: pigz
     docker_image: nsheff/pigz
@@ -145,7 +145,7 @@ manifest:
     docker_image: quay.io/biocontainers/rsem:1.3.3--pl5321h077b44d_12
     docker_command: rsem-calculate-expression
   - command: salmon
-    docker_image: quay.io/biocontainers/salmon:2.4.1--hfa8f182_0
+    docker_image: quay.io/biocontainers/salmon:2.5.1--hfa8f182_0
   - command: sambamba
     docker_image: quay.io/biocontainers/sambamba:1.0.1--he614052_4
   - command: samblaster
@@ -174,7 +174,7 @@ manifest:
     docker_image: quay.io/biocontainers/sra-tools:3.4.1--h4304569_1
     docker_command: vdb-config
   - command: vep
-    docker_image: quay.io/biocontainers/ensembl-vep:116.0--pl5321h2a3209d_0
+    docker_image: quay.io/biocontainers/ensembl-vep:116.1--pl5321h2a3209d_0
     docker_command: vep
   - command: wigToBigWig
     docker_image: quay.io/biocontainers/ucsc-wigtobigwig:482--hdc0a859_1
