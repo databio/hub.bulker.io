@@ -1,0 +1,23 @@
+name: Scheduled Biobase Update - Jules
+
+on:
+  schedule:
+    - cron: '0 0 17 * *' 
+  workflow_dispatch:
+
+jobs:
+  biobase-update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Biobase Update with Jules
+        uses: google-labs-code/jules-action@v1
+        with:
+          jules_api_key: ${{ secrets.JULES_API_KEY }}
+          prompt: "Execute the update task documented in .claude/skills/update-biobase.md"
