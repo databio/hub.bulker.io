@@ -1,7 +1,8 @@
-name: Scheduled biobase update
+name: Manual biobase update with Claude
+
+# Manual fallback. Recurring biobase updates are scheduled in Jules.
+# The complete procedure lives in automation/update-biobase.md.
 on:
-  schedule:
-    - cron: "0 0 3 * *" # Once a month
   workflow_dispatch:
 
 permissions:
@@ -16,13 +17,13 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
       - name: Run Claude Code to update biobase
         uses: anthropics/claude-code-action@v1
         with:
           prompt: |
-            Use the update-biobase skill to check all biobase container images for newer versions and create a PR if any updates are found.
+            Follow automation/update-biobase.md completely.
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           claude_args: '--allowedTools "Bash(*),Read(*),Write(*),Edit(*),Glob(*),Grep(*)"'
           show_full_output: true

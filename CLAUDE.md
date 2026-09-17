@@ -25,13 +25,14 @@ Run `python validate_manifests.py --check-tags` to validate manifests locally. T
 
 ## Automated biobase updates
 
-A scheduled GitHub Actions workflow (`.github/workflows/scheduled-biobase-update.yml`) runs every Thursday at midnight UTC. It uses Claude Code with the `.claude/skills/update-biobase.md` skill to:
+The complete biobase update procedure lives in
+`automation/update-biobase.md`. Recurring runs are handled by a native Jules
+Scheduled Task. `AGENTS.md` and `.claude/skills/update-biobase.md` are thin
+pointers to that canonical procedure.
 
-1. Check all biobase container images for newer tags via registry APIs (Quay.io, Docker Hub)
-2. Create a new versioned manifest with updated tags (patch version bump)
-3. Open a PR for human review
-
-The workflow can also be triggered manually via `workflow_dispatch`. Some images are intentionally skipped (cellranger, pigz, refgenie) because they use custom registries or pinned versions.
+`.github/workflows/scheduled-biobase-update.yml` is retained as a manual
+`workflow_dispatch` fallback using Claude Code. There should be only one
+recurring scheduler for this task.
 
 ## Automated refgenie crate updates
 
@@ -45,10 +46,10 @@ build host.
 Its pins are **derived from `bulker/biobase`** rather than discovered
 independently — see `update_refgenie_crate.py`, the reviewable source map
 `refgenie_crate_sources.yaml`, and `.claude/skills/update-refgenie-crate.md`.
-`.github/workflows/scheduled-refgenie-update.yml` runs it **quarterly** (not
-weekly like biobase) and always opens a PR: refgenie names each asset after the
-tool version that built it, so a pin bump renames published assets, forces a
-rebuild and orphans S3 objects.
+`.github/workflows/scheduled-refgenie-update.yml` runs it **quarterly** and
+always opens a PR: refgenie names each asset after the tool version that built
+it, so a pin bump renames published assets, forces a rebuild and orphans S3
+objects.
 
 The interesting part is the **sibling map**. biobase pins `hisat2` but not
 `hisat2-build`, `bowtie2` but not `bowtie2-build`, `tabix` but not `bgzip`,
