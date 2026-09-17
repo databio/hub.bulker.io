@@ -36,9 +36,14 @@ curl -s "https://quay.io/api/v1/repository/biocontainers/<tool>/tag/?limit=100&o
 
 Parse the JSON response. Tags follow the pattern `<version>--<hash>_<build>`. To find the latest:
 1. Filter out tags named `latest`
-2. Sort by semantic version of the version prefix (the part before `--`)
-3. Among tags with the same version, prefer higher build numbers
-4. Pick the tag with the highest version
+2. Pick the highest version prefix (the part before `--`)
+3. Among tags at that version, pick the highest `_<build>`. A different hash at
+   a higher build is a rebuild, not a variant -- take it. The hash changes
+   *because* the package was rebuilt.
+4. Never move to a lower version or build than the current pin
+
+Some tools publish parallel `pyXXX` builds at the same version and build number.
+Those are ties; take the highest `pyXXX`.
 
 **For `quay.io/xujishu/cellranger`:**
 
@@ -101,7 +106,22 @@ git push -u origin biobase-update-<new_version>
 
 Open a PR with:
 - Title: `Update biobase to <new_version>`
-- Body: summary table of all updated images, plus a note about any images that were skipped or had no updates
+- Body: use this template. All three sections are required, even if empty.
+
+```markdown
+## Updated
+
+| Tool | Old tag | New tag |
+|---|---|---|
+
+## Checked, no update needed
+
+Every other image, with the tag you confirmed is current.
+
+## Skipped
+
+Each skipped image and the rule that skipped it.
+```
 
 ### 6. If no updates found
 
