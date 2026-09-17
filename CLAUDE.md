@@ -46,10 +46,10 @@ build host.
 Its pins are **derived from `bulker/biobase`** rather than discovered
 independently — see `update_refgenie_crate.py`, the reviewable source map
 `refgenie_crate_sources.yaml`, and `.claude/skills/update-refgenie-crate.md`.
-`.github/workflows/scheduled-refgenie-update.yml` runs it **quarterly** (not
-weekly like biobase) and always opens a PR: refgenie names each asset after the
-tool version that built it, so a pin bump renames published assets, forces a
-rebuild and orphans S3 objects.
+`.github/workflows/scheduled-refgenie-update.yml` runs it **quarterly** and
+always opens a PR: refgenie names each asset after the tool version that built
+it, so a pin bump renames published assets, forces a rebuild and orphans S3
+objects.
 
 The interesting part is the **sibling map**. biobase pins `hisat2` but not
 `hisat2-build`, `bowtie2` but not `bowtie2-build`, `tabix` but not `bgzip`,
