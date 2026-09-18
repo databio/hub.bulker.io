@@ -118,8 +118,7 @@ as other biocontainers images. These commonly use versions such as
 For every image:
 
 - compare the current tag with the latest acceptable tag;
-- update only when the latest tag is demonstrably newer (e.g., higher tool version or build number);
-- python environment variant changes (e.g. `py310` to `py311`) at the same tool version and build number do not count as a necessary update;
+- update whenever the latest tag selected by the registry selection rules (higher version, higher build number, or higher Python variant) is demonstrably newer than the current tag;
 - never downgrade;
 - log the tool name, current tag, latest tag, and whether an update is needed.
 
@@ -216,10 +215,10 @@ Never merge the pull request automatically.
 
 ## 7. If no updates are found
 
-If every applicable image is already at its latest acceptable version (or no
-demonstrably newer tool version/build exists), **do not mint a new manifest
-version**, do not create or edit any YAML files or symlinks, and do not create
-a branch, commit, or pull request. Report clearly that everything is up to date.
+If every applicable image is already at its latest acceptable version, **do not
+mint a new manifest version**, do not create or edit any YAML files or
+symlinks, and do not create a branch, commit, or pull request. Report clearly
+that everything is up to date.
 
 ## Invariants
 
