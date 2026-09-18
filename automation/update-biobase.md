@@ -118,7 +118,7 @@ as other biocontainers images. These commonly use versions such as
 For every image:
 
 - compare the current tag with the latest acceptable tag;
-- update only when the latest tag is demonstrably newer;
+- update whenever the latest tag selected by the registry selection rules (higher version, higher build number, or higher Python variant) is demonstrably newer than the current tag;
 - never downgrade;
 - log the tool name, current tag, latest tag, and whether an update is needed.
 
@@ -127,7 +127,11 @@ Present a summary table before making changes.
 If it is unclear which tag is newer or whether a candidate is safe, leave that
 entry unchanged.
 
+If no image tag updates are needed across all commands, **do not create a new manifest version, update any symlinks, or open a pull request**. Skip directly to section 7.
+
 ## 4. Create the updated manifest
+
+**Important:** Only proceed with creating an updated manifest if at least one verified image tag update exists. If zero updates are found, do not mint a new versioned manifest file.
 
 If at least one verified update exists:
 
@@ -211,9 +215,10 @@ Never merge the pull request automatically.
 
 ## 7. If no updates are found
 
-If every applicable image is already at its latest acceptable version, do not
-create a new manifest, branch, commit, or pull request. Report that everything
-is up to date.
+If every applicable image is already at its latest acceptable version, **do not
+mint a new manifest version**, do not create or edit any YAML files or
+symlinks, and do not create a branch, commit, or pull request. Report clearly
+that everything is up to date.
 
 ## Invariants
 
