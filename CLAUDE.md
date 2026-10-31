@@ -34,26 +34,12 @@ pointers to that canonical procedure.
 `workflow_dispatch` fallback using Claude Code. There should be only one
 recurring scheduler for this task.
 
-## Automated refgenie crate updates
+## databio/refgenie is no longer synced
 
-`databio/refgenie` is the **only** crate the refgenie-registry nightly build
-activates, so it must be self-contained: every command any refgenie recipe
-invokes has to resolve under `bulker activate databio/refgenie` alone. It
-imports `bulker/coreutils` internally, because every recipe's version expression
-pipes through `grep -aoP` and `awk` and those must not fall through to the
-build host.
-
-Its pins are **derived from `bulker/biobase`** rather than discovered
-independently — see `update_refgenie_crate.py`, the reviewable source map
-`refgenie_crate_sources.yaml`, and `.claude/skills/update-refgenie-crate.md`.
-`.github/workflows/scheduled-refgenie-update.yml` runs it **quarterly** and
-always opens a PR: refgenie names each asset after the tool version that built
-it, so a pin bump renames published assets, forces a rebuild and orphans S3
-objects.
-
-The interesting part is the **sibling map**. biobase pins `hisat2` but not
-`hisat2-build`, `bowtie2` but not `bowtie2-build`, `tabix` but not `bgzip`,
-`bismark` but not `bismark_genome_preparation` — and those `-build` commands are
-exactly what refgenie uniquely owns. The map declares which biobase package each
-one ships in; every mapping must be verified with `apptainer exec <image> which
-<command>` before it is trusted.
+The refgenie-registry nightly no longer activates `databio/refgenie`: refgenie
+now runs each recipe's own container image (the recipe's `docker_image`) with
+Docker or Apptainer, so the recipe is the only record of which image builds an
+asset, and the registry keeps those pins fresh itself. The crate's quarterly
+updater (`update_refgenie_crate.py`, its source map and workflow) is gone. The
+`databio/refgenie_*.yaml` manifests stay, for anyone who still activates them,
+but nothing updates their pins.

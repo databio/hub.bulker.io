@@ -2,8 +2,8 @@ manifest:
   name: databio/refgenie
   version: 1.1.1
   description: 'Containerized tools for building refgenie reference assets. Self-contained:
-    activate this crate alone. Image pins are synced quarterly from bulker/biobase
-    by update_refgenie_crate.py.'
+    activate this crate alone. No longer synced: refgenie now runs each recipe''s
+    own container image, so these pins are not updated.'
   imports:
   - bulker/coreutils:default
   commands:
