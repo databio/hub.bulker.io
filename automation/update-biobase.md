@@ -14,16 +14,11 @@ request.
 
 ## Before starting
 
-Check whether there is already an open pull request for a biobase update whose
-head branch starts with `biobase-update-`.
-
-- If one exists and the execution environment can safely continue that branch,
-  start from that branch and preserve all valid unmerged changes already there.
-- If one exists but the execution environment cannot safely continue it, make no
-  changes and stop rather than creating a competing update PR.
-- Otherwise start from the current `master` branch.
-
-Never discard valid unmerged biobase changes from an existing update PR.
+Start from the current `master` branch. You do not need to look for an open
+update pull request: the monthly workflow
+(`.github/workflows/scheduled-biobase-update.yml`) skips its run while an
+earlier biobase update pull request, whose head branch starts with
+`biobase-update-`, is still open.
 
 ## 1. Find the current manifest
 
@@ -153,35 +148,21 @@ Run the repository's manifest validation before publication:
 python validate_manifests.py --check-tags
 ```
 
-Do not publish a pull request if validation fails. Fix only problems caused by
-this update; do not broaden the task into unrelated repository cleanup.
+The hook in section 6 runs it again and does not publish while it fails. Fix
+only problems caused by this update; do not broaden the task into unrelated
+repository cleanup.
 
-## 6. Prepare the review change
+## 6. Write the pull request title and description
 
-Use branch name:
-
-```text
-biobase-update-<new_version>
-```
-
-Commit message:
-
-```text
-Update biobase to <new_version>
-
-Updated images:
-- <tool1>: <old_tag> -> <new_tag>
-- <tool2>: <old_tag> -> <new_tag>
-...
-```
-
-The pull-request title must be:
+Write `/tmp/pr-title.txt` with this one line, which becomes the pull request
+title and the commit message:
 
 ```text
 Update biobase to <new_version>
 ```
 
-The pull-request body must contain all three sections, even when one is empty:
+Write `/tmp/pr-body.md`. The pull-request body must contain all three
+sections, even when one is empty:
 
 ```markdown
 ## Updated
@@ -198,22 +179,19 @@ Every other image, with the tag you confirmed is current.
 Each skipped image and the rule that skipped it.
 ```
 
-Use the execution environment's native branch and pull-request publication
-mechanism when it provides one. Do not duplicate that mechanism with manual
-`git push` or `gh pr create` calls when the environment will publish the branch
-or PR itself.
-
-If the environment does not publish changes automatically but authenticated git
-and GitHub tooling are available, create the branch, commit the changes, push the
-branch, and open the PR using the specification above.
-
-Never merge the pull request automatically.
+When you finish, a hook runs `python validate_manifests.py --check-tags`. If it
+fails, the hook tells you what to fix: fix the manifest and finish again. If it
+passes, the hook commits only the files under `bulker/` to a new branch named
+`biobase-update-<date>-<time>`, pushes it, and opens the pull request with your
+title and description. Never create a branch, commit, push, or open a pull
+request yourself (no `git commit`, `git push`, or `gh pr create`), and never
+merge one.
 
 ## 7. If no updates are found
 
 If every applicable image is already at its latest acceptable version, do not
-create a new manifest, branch, commit, or pull request. Report that everything
-is up to date.
+create a new manifest or change any file. Report that everything is up to
+date.
 
 ## Invariants
 
@@ -227,5 +205,5 @@ is up to date.
   manifest.
 - **Be conservative.** If a candidate cannot be verified confidently, skip it.
 - **Keep old versioned manifests.** Never replace or delete historical versions.
-- **No duplicate update PRs.** Continue an existing biobase update when safe;
-  otherwise stop rather than competing with it.
+- **One update at a time.** The workflow skips a run while an earlier biobase
+  update pull request is open, and only the hook opens pull requests.
