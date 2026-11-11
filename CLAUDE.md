@@ -26,13 +26,11 @@ Run `python validate_manifests.py --check-tags` to validate manifests locally. T
 ## Automated biobase updates
 
 The complete biobase update procedure lives in
-`automation/update-biobase.md`. Recurring runs are handled by a native Jules
-Scheduled Task. `AGENTS.md` and `.claude/skills/update-biobase.md` are thin
-pointers to that canonical procedure.
-
-`.github/workflows/scheduled-biobase-update.yml` is retained as a manual
-`workflow_dispatch` fallback using Claude Code. There should be only one
-recurring scheduler for this task.
+`automation/update-biobase.md`. It runs monthly as the GitHub Actions workflow
+`.github/workflows/scheduled-biobase-update.yml`: Claude Haiku proposes an
+update and a hook opens the pull request, then Claude Opus reviews it with
+`automation/review-biobase.md`. A person merges it. `AGENTS.md` and
+`.claude/skills/update-biobase.md` are thin pointers to the procedure.
 
 ## databio/refgenie is no longer synced
 
